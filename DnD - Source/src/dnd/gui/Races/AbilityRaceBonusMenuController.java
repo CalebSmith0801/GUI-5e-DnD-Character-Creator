@@ -124,6 +124,9 @@ public class AbilityRaceBonusMenuController implements Initializable {
                 case "Wisdom":
                     character.setWisRaceBonus(1);
                     break;
+                case "Charisma":
+                    character.setCharRaceBonus(1);
+                    break;
                 default:
                     System.out.println("Misspelling");
                     break;
