@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		Haunted by an ancient crime that robbed them of their wings, the kenku wander the world as vagabonds and burglars
+		who live at the edge of human society. Kenku suffer from a sinister reputation that is not wholly unearned, 
+		but they can prove to be valuable allies.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Dexterity score +2<br>
+			Wisdom score +1</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Kenku have shorter lifespans than humans. They reach maturity at about 12 years old and can live to 60.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Kenku are chaotic creatures, rarely making enduring commitments, and they care mostly for preserving their
+			own hides. They are generally chaotic neutral in outlook.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Kenku are around 5 feet tall and weigh between 90 and 120 pounds. Your size is Medium.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet.</p>
+	    </div>
+		
+		<button class="accordion">Expert Forgery</button>
+		<div class="panel">
+			<p>You can duplicate other creatures' handwriting and craftwork. You have advantage on all checks made to
+			produce forgeries or duplicates of existing objects.</p>
+	    </div>
+		
+		<button class="accordion">Kenku Training</button>
+		<div class="panel">
+			<p>You are proficient in your choice of two of the following skills: Acrobatics, Deception, Stealth, and 
+			Sleight of Hand.</p>
+	    </div>
+		
+		<button class="accordion">Mimicry</button>
+		<div class="panel">
+			<p>You can mimic sounds you have heard, including voices. A creature that hears the sounds you make can tell
+			they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Deception) check.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can read and write Common and Auran, but you can speak only by using your Mimicry trait.</p>
+	    </div><br>
+		
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

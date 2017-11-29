@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		What many tortle consider a simple life, others might call a life of adventure. Tortles are born near sandy 
+		coastlines, but as soon as they're able to walk on two legs, they become nomad survivalists eager to explore 
+		the wilderness, experience its many wonders, put their skills to the test, and make new acquaintances.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Strength score +2<br>
+			Wisdom score +1<br></p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Young tortles crawl for a few weeks after birth before learning to walk on two legs. They reach adulthood 
+			by the age of 15 and live an average of 50 years.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Tortles tend to lead orderly, ritualistic lives. They develop customs and routines, becoming more set 
+			in their ways as they age. Most are lawful good. A few can be selfish and greddy, tending more toward evil, 
+			but it's unusual for a tortle to shuck off order in favor of chaos.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Tortle adults stand 5 to 6 feet tall and average 450 pounds. Their shells account for roughly one-third 
+			of their weight. Your size is Medium.</p>
+		</div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet.</p>
+	    </div>
+
+		<button class="accordion">Claws</button>
+		<div class="panel">
+			<p>Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you 
+			deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for 
+			an unarmed strike.</p>
+	    </div>
+		
+		<button class="accordion">Hold Breath</button>
+		<div class="panel">
+			<p>You can hold your breath for up to 1 hour at a time. Tortles aren't natural swimmers, but they can remain 
+			underwater for some time before needing to come up for air.</p>
+	    </div>
+		
+		<button class="accordion">Natural Armor</button>
+		<div class="panel">
+			<p>Due to your shell and the shape of your body, you are ill-suited to wearing armor. Your shell provides ample 
+			protection, however; it gibes you a base AC of 17 (your Dexterity modifier doesn't affect this number). You gain 
+			no benefit from wearing armor, but if you are using a shield, you can apply the shield's bonus as normal.</p>
+	    </div>
+		
+		<button class="accordion">Shell Defense</button>
+		<div class="panel">
+			<p>You can withdraw into your shell as an action. Until you emerge, you gain a +4 bonus to AC, and you have 
+			advantage on Strength and Constitution saving throws. While in your shell, you are prone, your speed is 0 
+			and can't increase, you have disadvantage on Dexterity saving throws, you can't take reactions, and the only 
+			action you can take is a bonus action to emerge from your shell.</p>
+	    </div>
+		
+		<button class="accordion">Survival Instinct</button>
+		<div class="panel">
+			<p>You gain proficiency in the Survival skill. Tortles have finely honed survival instincts.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Aquan and Common.</p>
+	    </div><br>
+		
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

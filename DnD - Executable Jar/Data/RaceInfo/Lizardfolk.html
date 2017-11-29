@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		Only a fool looks at the lizardfolk and sees nothing more than scaly humanoids. Their physical shape 
+		notwithstanding, lizardfolk have more in common with iguanas or dragons than they do with humans, dwarves, or elves. 
+		Lizardfolk possess an alien and inscrutable mindset, their desires and thoughts driven by a different set of 
+		basic principles than those of warm-blooded creatures. Their dismal swamp homes might lie hundreds of miles 
+		from the nearest human settlement, but the gap between their way of thinking and that of the smooth-skins 
+		is far greater. Despite their alien outlook, some lizardfolk make an effort to understand and, in their own manner,
+		befriend people of other races. Such lizardfolk make faithful and skilled allies.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Constitution score +2<br>
+			Wisdom score +1</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Lizardfolk reach maturity arqund age 14 and rarely live longer than 60 years.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Most lizardfolk are neutral. They see the world as a place of predators and prey, where life and 
+			death are natural processes. They wish only to survive, and prefer to leave other creatures to their own 
+			devices.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Lizardfolk are a little bulkier and taller than humans, and their colorful frills make them appear even 
+			larger. Your size is Medium.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet, and you have a swimming speed of 30 feet.</p>
+	    </div>
+		
+		<button class="accordion">Bite</button>
+		<div class="panel">
+			<p>Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you 
+			deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an 
+			unarmed strike.</p>
+	    </div>
+		
+		<button class="accordion">Cunning Artisan</button>
+		<div class="panel">
+			<p>As part of a short rest, you can harvest bone and hide from a slain beast, construct, dragon, 
+			monstrosity, or plant creature of size Small or larger to create one of the following items: a shield, a club,
+			a javelin, or ld4 darts or blowgun needles. To use this trait, you need a blade, such as a dagger, or 
+			appropriate artisan's tools, such as leatherworker's tools.</p>
+	    </div>
+		
+		<button class="accordion">Hold Breath</button>
+		<div class="panel">
+			<p>You can hold your breath for up to 15 minutes at a time.</p>
+	    </div>
+		
+		<button class="accordion">Hunter's Lore</button>
+		<div class="panel">
+			<p>You gain proficiency with two of the following skills of your choice: Animal Handling, Nature, 
+			Perception, Stealth, and Survival.</p>
+	    </div>
+		
+		<button class="accordion">Natural Armor</button>
+		<div class="panel">
+			<p>You have tough, scaly skin. When you aren't wearing armor, your AC is 13 + your Dexterity modifier. 
+			You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. 
+			A shield's benefits apply as normal while you use your natural armor.</p>
+	    </div>
+		
+		<button class="accordion">Hungry Jaws</button>
+		<div class="panel">
+			<p>In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make 
+			a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary 
+			hit points (minimum of 1) equal to your Constitution modifier, and you can't use this trait again until
+			you finish a short or long rest.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common and Draconic.</p>
+	    </div><br>
+		
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

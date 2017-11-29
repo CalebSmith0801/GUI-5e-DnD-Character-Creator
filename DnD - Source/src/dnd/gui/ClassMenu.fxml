@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.gui.ClassMenuController">
+   <children>
+      <Label layoutX="256.0" layoutY="20.0" text="Character Creation">
+         <font>
+            <Font name="Segoe UI" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="222.0" layoutY="60.0" text="Note: this application stores all data, you don't need to memorize anything.">
+         <font>
+            <Font name="Segoe UI Italic" size="11.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

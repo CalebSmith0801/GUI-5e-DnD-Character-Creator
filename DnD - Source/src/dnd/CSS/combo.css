@@ -1,0 +1,34 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 29, 2017, 12:40:37 PM
+    Author     : calebs
+*/
+
+.combo-box-popup .list-view {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size : 12pt;
+    
+}
+
+.combo-box{
+    -fx-font-size : 12pt;
+    -fx-font-family: "Segoe UI";
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-padding: .5 .5 .5 .5;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: gray;
+}
+
+.combo-box .list-view .list-cell:selected {
+    -fx-background-color: gray;
+}

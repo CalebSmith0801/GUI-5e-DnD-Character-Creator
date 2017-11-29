@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		Sequestered in high mountains atop tall trees, the aarakocra, sometimes called birdfolk, 
+		evoke fear and wonder. Many aarakocra aren't even native to the Material Plane. 
+		They hail from a world beyond - from the boundless vistas of the Elemental Plane of Air.
+		They are immigrants, refugees, scouts, and explorers, their outposts functioning as footholds 
+		in a world both strange and alien.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Dexterity score +2<br>
+			   Wisdom score +1</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Aarakocra reach maturity by age 3. Compared to humans, aarakocra don't
+			usually live longer than 30 years.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Most aarakocra are good and rarely choose sides when it comes to law and chaos. Tribal leaders 
+			and warriors might be lawful, while explorers and adventurers might tend toward chaotic.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Aarakocra are about 5 feet tall. They have thin, lightweight bodies that weigh between 80 and 
+			100 pounds. Your size is Medium.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 25 feet.</p>
+	    </div>
+		
+		<button class="accordion">Flight</button>
+		<div class="panel">
+			<p>You have a flying speed of 50 feet. To use this speed, you can't be wearing medium or heavy armor.</p>
+	    </div>
+		
+		<button class="accordion">Talons</button>
+		<div class="panel">
+			<p>You are proficient with your unarmed strikes, which deal 1d4 slashing damage on a hit.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common, Aarakocra, and Auran.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

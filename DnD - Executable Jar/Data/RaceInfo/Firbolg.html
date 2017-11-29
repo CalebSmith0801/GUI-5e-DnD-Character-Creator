@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		Firbolg tribes cloister in remote forest strongholds, preferring to spend their days in quiet harmony with the 
+		woods. When provoked, firbolgs demonstrate formidable skills with weapons and druidic magic.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Wisdom score +2<br>
+			Strength score +1</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>As humanoids related to the fey, firbolg have long lifespans. A firbolg reaches adulthood around 30, and the oldest 
+			of them can live for 500 years.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>As people who follow the rhythm of nature and see themselves as its caretakers, firbolg are typically neutral good. 
+			Evil firbolg are rare and are usually the sworn enemies of the rest of their kind.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Firbolg are between 7 and 8 feet tall and weigh between 240 and 300 pounds. Your size is Medium.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet.</p>
+	    </div>
+		
+		<button class="accordion">Hidden Step</button>
+		<div class="panel">
+			<p>As a bonus action, you can magically turn invisible until the start of your next turn or until you attack, make a 
+			damage roll, or force someone to make a saving throw. Once you use this trait, you can't use it again until you
+			finish a short or long rest.</p>
+	    </div>
+		
+		<button class="accordion">Powerful Build</button>
+		<div class="panel">
+			<p>You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.</p>
+	    </div>
+		
+		<button class="accordion">Speech of Beast and Leaf</button>
+		<div class="panel">
+			<p>You have the ability to communicate in a limited manner with beasts and plants. They can understand the meaning
+			of your words, though you have no special ability to understand them in return. You have advantage on all
+			Charisma checks you make to influence them.</p>
+	    </div>
+		
+		<button class="accordion">Firbolg Magic</button>
+		<div class="panel">
+			<p>You can cast <b>Detect Magic</b> and <b>Disguise Self</b> with this trait, using Wisdom as your spell casting 
+			ability for them. Once you cast either spell, you can't cast it again with this trait until you finish a short or 
+			long rest. When you use this version of disguise self, you can seem up to 3 feet shorter than normal, allowing you 
+			to more easily blend in with humans and elves.</p>
+		
+			<button class="accordion" style="font-size:14px; padding: 5px">Detect Magic</button>
+			<div class="panel" id="sub">
+				<p><b>Detect Magic: (1st-Level Divination)</b><br>
+				<b>Casting Time:</b> 1 action<br>
+				<b>Range:</b> Self<br>
+				<b>Components:</b> V, S</p>
+				<ul>
+					<li>V - You must be able to speak.</li>
+					<li>S - You must have at least one free hand.</li>
+				</ul>
+				<p style="margin-bottom: 0em;"><b>Duration:</b> Concentration, up to 10 minutes<br>
+				<b>Description:</b> For the duration, you sense the presence of magic within 30 feet of you. If you sense
+				magic in this way, you can use your action to see a faint aura around any visible creature or object in the
+				area that bears magic, and you learn its school of magic, if any. </p>
+				<p style="text-indent: 15px; margin-top: 0em;">The spell can penetrate most barriers, 
+				but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.</p>
+			</div>
+			
+			<button class="accordion" style="font-size:14px; padding: 5px">Disguise Self</button>
+			<div class="panel" id="sub">
+				<p><b>Disguise Self: (1st-Level Illusion)</b><br>
+				<b>Casting Time:</b> 1 action<br>
+				<b>Range:</b> Self<br>
+				<b>Components:</b> V, S</p>
+				<ul>
+					<li>V - You must be able to speak.</li>
+					<li>S - You must have at least one free hand.</li>
+				</ul>
+				<p style="margin-bottom: 0em;"><b>Duration:</b> 1 hour<br>
+				<b>Description:</b> You make yourself (including your clothing, armor, weapons, and other belongings on your person) look 
+				different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and 
+				can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic
+				arrangement of limbs. Otherwise, the extent of the illusion is up to you.</p>
+				<p style="text-indent: 15px; margin-top: 0em; margin-bottom: 0em;">The changes wrought by this spell fail to
+				hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass
+				through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this
+				spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while
+				it was seemingly still in midair.</p>
+				<p style="text-indent: 15px; margin-top: 0em;">To discern that you are disguised, a creature
+				can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check against
+				your spell save DC.</p>
+			</div><br>
+		</div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common, Elvish, and Giant.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if(panel.id == "sub"){
+						if (panel.style.maxHeight){
+							panel.style.maxHeight = null;
+							panel.parentNode.style.maxHeight = (parseInt(panel.parentNode.style.maxHeight) - 
+															   parseInt(panel.scrollHeight)).toString() + "px";
+						}
+						else{
+							panel.style.maxHeight = panel.scrollHeight + "px";
+							/*expands parent accordion to increase its max height to fit the subaccordion*/
+							panel.parentNode.style.maxHeight = (parseInt(panel.parentNode.style.maxHeight) + 
+															   parseInt(panel.scrollHeight)).toString() + "px";
+						}
+					}
+					
+					else{
+						if (panel.style.maxHeight)
+							panel.style.maxHeight = null;
+						else
+							panel.style.maxHeight = panel.scrollHeight + "px";	
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		Kobolds are aggressive, inward, yet industrious small humanoid creatures. They are noted for their skill at 
+		building traps and preparing ambushes, and mining. Kobolds are distantly related to dragons and urds and are often
+		found serving the former as minions.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Dexterity score +2<br>
+			Strength score -2</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Kobolds reach adulthood at age 6 and can live up to 120 years but rarely do so.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Kobolds are fundamentally selfish, making them evil, but their reliance on the strength of their 
+			group makes them trend toward law.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Kobolds are between 2 and 3 feet tall and weigh between 25 and 35 pounds. Your size is Small.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet.</p>
+	    </div>
+		
+		<button class="accordion">Darkvision</button>
+		<div class="panel">
+			<p>You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it
+			were dim light. You can't discern color in darkness, only shades of gray.</p>
+	    </div>
+		
+		<button class="accordion">Grovel, Cower, and Beg</button>
+		<div class="panel">
+			<p>As an action on your turn, you can cower pathetically to distract nearby foes. Until the end of your next
+			turn, your allies gain advantage on attack rolls against enemies within 10 feet of you that can see you. 
+			Once you use this trait, you can't use it again until you finish a short or long rest.</p>
+	    </div>
+		
+		<button class="accordion">Pack Tactics</button>
+		<div class="panel">
+			<p>You have advantage on an attack roll against a creature if at least one of your allies is within 5 
+			feet of the creature and the ally isn't incapacitated.</p>
+	    </div>
+		
+		<button class="accordion">Sunlight Sensitivity</button>
+		<div class="panel">
+			<p>You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, 
+			the target of your attack, or whatever you are trying to perceive is in direct sunlight.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common and Draconic.</p>
+	    </div><br>
+		
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

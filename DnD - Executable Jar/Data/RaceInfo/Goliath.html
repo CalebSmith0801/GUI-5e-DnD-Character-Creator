@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		At the highest mountain peaks, far above the slopes where trees grow and where the air is thin and the frigid winds
+		howl, dwell the reclusive goliaths. Few folk can claim to have seen a goliath, and fewer still can claim friendship
+		with them. Goliaths wander a bleak realm of rock, wind, and cold. Their bodies look as if they are carved from 
+		mountain stone and give them great physical power. Their spirits take after the wandering wind, making them nomads
+		who wander from peak to peak. Their hearts are infused with the cold regard of their frigid realm, leaving each
+		goliath with the responsibility to earn a place in the tribe or die trying.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Strength score +2<br>
+			Constitution score +1</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Goliaths have lifespans comparable to humans. They enter adulthood in their late teens and usually live 
+			less than a century.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Goliath society, with its clear roles and tasks, has a strong lawful bent. The goliath sense of fairness, 
+			balanced with an emphasis on selfsufficiency and personal accountability, pushes them toward neutrality.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Goliaths are between 7 and 8 feet tall and weigh between 280 and 340 pounds. Your size is Medium.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet.</p>
+	    </div>
+		
+		<button class="accordion">Natural Athlete</button>
+		<div class="panel">
+			<p>You have proficiency in the Athletics skill.</p>
+	    </div>
+		
+		<button class="accordion">Stone's Endurance</button>
+		<div class="panel">
+			<p>You can focus yourself to occasionally shrug off injury. When you take damage, you can use your reaction 
+			to roll a d12. Add your Constitution modifier to the number rolled, and reduce the damage by that total. 
+			After you use this trait, you can't use it again until you finish a short or long rest.</p>
+	    </div>
+		
+		<button class="accordion">Powerful Build</button>
+		<div class="panel">
+			<p>You count as one size larger when determining your carrying capacity and the weight you can push, drag, or 
+			lift.</p>
+	    </div>
+		
+		<button class="accordion">Mountain Born</button>
+		<div class="panel">
+			<p>You're acclimated to high altitude, including elevations above 20,000 feet. You're also naturally adapted 
+			to cold climates, as described in chapter 5 of the Dungeon Master's Guide.<br>
+			<i>You don't have to roll a DC 10 Constitution saving throw in cold environments.</i></p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common and Giant.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

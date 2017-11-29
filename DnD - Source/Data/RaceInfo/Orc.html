@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		Orcs are a race of humanoids that have been a threat to the civilized cultures of Toril, particularly Faerun 
+		for as long as any can remember. Orcs have poor temperaments and are given to anger more easily than some races. 
+		Traditional orcish culture is extremely warlike and when not at war the race is usually planning for it. 
+		Most orcs approach life with the belief that to survive, one must subjugate potential enemies and control as much 
+		resources as possible, which puts them naturally at odds with other races as well as each other.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Strength score +2<br>
+			Constitution score +1<br>
+			Intelligence score -2</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Orcs reach adulthood at age 12 and live up to 50 years.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Orcs are vicious raiders, who believe that the world should be theirs. They also respect strength above all
+			else and believe the strong must bully the weak to ensure that weakness does not spread like a disease. 
+			They are usually chaotic evil.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Orcs are usually over 6 feet tall and weigh between 230 and 280 pounds. Your size is Medium.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet.</p>
+	    </div>
+
+		
+		<button class="accordion">Darkvision</button>
+		<div class="panel">
+			<p>You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it
+			were dim light. You can't discern color in darkness, only shades of gray.</p>
+	    </div>
+		
+		<button class="accordion">Aggressive</button>
+		<div class="panel">
+			<p>As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear.
+			You must end this move closer to the enemy than you started.</p>
+	    </div>
+		
+		<button class="accordion">Menacing</button>
+		<div class="panel">
+			<p>You are trained in the Intimidation skill.</p>
+	    </div>
+		
+		<button class="accordion">Powerful Build</button>
+		<div class="panel">
+			<p>You count as one size larger when determining your carrying capacity and the weight you can push, drag,
+			or lift.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common and Orc.</p>
+	    </div><br>
+		
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		Goblins are a race of small and numerous goblinoids common throughout Toril, often living in underground caverns 
+		near the surface known as lairs. The race is often, though not always, dominated by other goblinoids, most commonly
+		hobgoblins. Goblins may have, in fact, been initially created by this related race to serve as scouts and
+		infiltrators.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Dexterity score +2<br>
+			Constitution score +1</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Goblins reach adulthood at age 8 and live up to 60 years.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Goblins are typically neutral evil, as they care only for their own needs. A few goblins might tend 
+			toward good or neutrality, but only rarely.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Goblins are between 3 and 4 feet tall and weigh between 40 and 80 pounds. Your size is Small.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet.</p>
+	    </div>
+		
+		<button class="accordion">Darkvision</button>
+		<div class="panel">
+			<p>You can see in dim light within 60 feet of you as if it were bright light, 
+			and in darkness as if it were dim light. You can't discern color in darkness, 
+			only shades of gray.</p>
+	    </div>
+		
+		<button class="accordion">Fury of the Small</button>
+		<div class="panel">
+			<p>When you damage a creature with an attack or a spell and the creature's size is larger than yours, 
+			you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your 
+			level. Once you use this trait, you can't use it again until you finish a short or long rest.</p>
+	    </div>
+		
+		<button class="accordion">Nimble Escape</button>
+		<div class="panel">
+			<p>You can take the Disengage or Hide action as a bonus action on each of your turns.</p>
+			<ul>
+				<li><b>Disengage:</b> Your Movement doesn't provoke opportunity attacks for the rest of the turn.</li>
+				<li><b>Hide:</b> You make a Dexterity (Stealth) check in an attempt to hide. If successful, you gain advantage
+				on attacks for enemies that can't see you, and enemies have a disadvantage on attacks toward you.</li>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common and Goblin.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

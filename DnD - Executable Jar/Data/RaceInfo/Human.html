@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene
+		and short-lived in comparison to dwarves, elves, and dragons. Perhaps it is because of their shorter lives that 
+		they strive to achieve as much as they can in the years they are given. Or maybe they feel they have something 
+		to prove to the elder races, and that's why they build their mighty empires on the foundation of conquest and trade.
+		Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>All your ability scores increase by 1.</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Humans reach adulthood in their late teens and live less than a century.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Humans tend toward no particular alignment. The best and the worst are found among them.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your 
+			position in that range, your size is Medium.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common and one extra language of your choice.</p>
+	    </div><br>
+		
+		
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Human Variant</Font></b><br><hr/>
+		<button class="accordion">Traits</button>
+		<div class="panel">
+			<p>Instead of all ability scores increasing by 1, only two increase by 1, but you gain an extra skill and feat.</p>
+	    </div>
+		
+		
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

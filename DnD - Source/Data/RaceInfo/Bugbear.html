@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		Bugbears are born for battle and mayhem. Surviving by raiding and hunting, they bully the weak and despise
+		being bossed around, but their love of carnage means they will fight for powerful masters if bloodshed and
+		treasure are assured.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Ability Score Increase</button>
+		<div class="panel">
+			<p>Strength score +2<br>
+			Dexterity score +1</p>
+	    </div>
+		
+		<button class="accordion">Age</button>
+		<div class="panel">
+			<p>Bugbears reach adulthood around age 16 and can live up to 80 years.</p>
+	    </div>
+		
+		<button class="accordion">Alignment</button>
+		<div class="panel">
+			<p>Bugbears endure a harsh existence that demands each of them to remain self-sufficient, even at the expense
+			of their fellows. They tend to be chaotic evil.</p>
+	    </div>
+		
+		<button class="accordion">Size</button>
+		<div class="panel">
+			<p>Bugbears are between 6 and 8 feet tall and weigh between 250 and 350 pounds. Your size is Medium.</p>
+	    </div>
+		
+		<button class="accordion">Speed</button>
+		<div class="panel">
+			<p>Your base walking speed is 30 feet.</p>
+	    </div>
+		
+		<button class="accordion">Darkvision</button>
+		<div class="panel">
+			<p>You can see in dim light within 60 feet of you as if it were bright light, 
+			and in darkness as if it were dim light. You can't discern color in darkness, 
+			only shades of gray.</p>
+	    </div>
+		
+		<button class="accordion">Long-Limbed</button>
+		<div class="panel">
+			<p>When you make a melee attack on your turn, your reach for it is 5 feet greater than normal.</p>
+	    </div>
+		
+		<button class="accordion">Powerful Build</button>
+		<div class="panel">
+			<p>You count as one size larger when determining your carrying capacity and the weight you can push, 
+			drag, or lift.</p>
+	    </div>
+		
+		<button class="accordion">Sneaky</button>
+		<div class="panel">
+			<p>You are proficient in the Stealth skill</p>
+	    </div>
+		
+		<button class="accordion">Surprise Attack</button>
+		<div class="panel">
+			<p>If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra 2d6
+			damage to it. You can use this trait only once per combat.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common and Goblin.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		
