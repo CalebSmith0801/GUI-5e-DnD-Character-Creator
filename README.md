@@ -1,4 +1,4 @@
-# GUI-DnD-Character-Creator
+# GUI 5e DnD Character Creator
 A GUI DnD character creation/manager program written in Java (specifically JavaFX) that removes the need to constantly be flipping through the DnD books. Includes support for multiple characters, an auto level up feature, and multicasting.
 
 *NOT FEATURE COMPLETE<br>
