@@ -73,7 +73,7 @@
                   <ComboBox fx:id="subraceBox" disable="true" prefWidth="190.0" stylesheets="@../CSS/combo.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Label layoutX="261.0" layoutY="14.0" text="Character Creation">
+            <Label layoutX="288.0" layoutY="14.0" text="Race Selection">
                <font>
                   <Font size="35.0" />
                </font>

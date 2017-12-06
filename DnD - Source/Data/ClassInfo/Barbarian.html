@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+		ul{
+			padding-left:15px;
+		}
+	</style>
+	</head>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		The barbarian is a primal warrior who prefers to charge in to engage foes in melee. Barbarians are defined by their 
+		rage: unbridled, unquenchable, and unthinking fury. More than a mere emotion, their anger is the ferocity of a 
+		cornered predator, the unrelenting assault of a storm, the churning turmoil of the sea.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Class Features</Font></b><br><hr/>
+		<button class="accordion">Hit Points</button>
+		<div class="panel">
+			<p><b>Hit Dice:</b> 1d12 per barbarian level<br>
+			<b>Hit Points at 1st Level:</b> 12 + your Constitution modifier<br>
+			   <b>Hit Points at Higher Levels:</b> 1d12 (or 7) + your Constitution modifier per barbarian level after 1st</p>
+	    </div>
+		
+		<button class="accordion">Proficiencies</button>
+		<div class="panel">
+			<p><b>Armor:</b> Light armor, medium armor, shields<br>
+			<b>Weapons:</b> Simple weapons, martial weapons<br>
+			<b>Tools:</b> None</p>
+	    </div>
+		
+		<button class="accordion">Saving Throws</button>
+		<div class="panel">
+			<p>Strength, Constitution</p>
+	    </div>
+		
+		<button class="accordion">Skills</button>
+		<div class="panel">
+			<p>Choose two from Animal Handling, Athletics, Intimidation, Nature, Perception, and Survival</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>You start with the following equipment, in addition to the equipment granted by your background:
+			<ul>
+				<li>(a) a greataxe or (b) any martial melle weapon</li>
+				<li>(a) two handaxes or (b) any simple weapon</li>
+				<li>An explorer's pack and four javelins</li>
+			</ul></p>
+	    </div><br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		
+		<button class="accordion">Rage</button>
+		<div class="panel">
+			<p style="margin-bottom:0em">In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.</p>
+			<p style="margin-top:0em; text-indent:15px">While raging, you gain the following benefits if you aren't wearing 
+			heavy armor:</p>
+			<ul>
+				<li>You have advantage on Strength checks and Strength saving throws.</li>
+				<li>When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that 
+				increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian 
+				table.</li>
+				<li>You have resistance to bludgeoning, piercing, and slashing damage.</li>
+			</ul>
+			If you are able to cast spells, you can't cast them or concentrate on them while raging.
+			<p style="margin:0em">Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if
+			your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since
+			then. You can also end your rage on your turn as a bonus action.</p>
+			<p style="margin-top:0em">Once you have raged the number of times shown for your barbarian level in 
+			the Rages column of the Barbarian table, you must finish a long rest before you can rage again.</p>
+
+	    </div>
+		
+		<button class="accordion">Talons</button>
+		<div class="panel">
+			<p>You are proficient with your unarmed strikes, which deal 1d4 slashing damage on a hit.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>You can speak, read, and write Common, Aarakocra, and Auran.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		
