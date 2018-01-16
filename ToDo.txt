@@ -1,0 +1,6 @@
+Race Selection
+	-make subrace box default to first subrace of chosen race and delete empty subrace pane.
+
+Dwarven Tool Proficieny
+	-make radiobutton text all one string, split by hypen in code
+
