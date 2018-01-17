@@ -5,7 +5,8 @@
 //NEXT WINDOW: extraLanguageMenu                                              //
 //                                                                            //
 //Changes to Character in this Window:                                        //
-//---Add chosen Wizard Cantrip                                                //
+//---Add chosen Wizard Cantrip to Spells				      //
+//---Add trait (Cantrip)		                                      //
 //============================================================================//
 package dnd.gui.Races;
 
@@ -90,6 +91,7 @@ public class WizardCantripMenuController implements Initializable {
     @FXML
     public void nextButton(){
         character.addSpell(lv.getSelectionModel().getSelectedItem());
+		character.addTrait("Cantrip", "You know the " + lv.getSelectionModel().getSelectedItem() + " cantrip from the wizard spell list. Intelligence is your spellcasting ability for it.");
         prevWindows.add("Races/WizardCantripMenu.fxml");
         Parent root;
         try{

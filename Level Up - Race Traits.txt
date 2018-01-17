@@ -9,3 +9,16 @@ Aasimar
 		"Necrotic Shroud", "Starting at 3rd level, you can use your action to unleash the divine energy	within yourself,			causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back.	
 		The instant you transform, other creatures within 10 feet of you that can see you must each succeed on a Charisma			saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become frightened of you until the end of your			next turn.
 		Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns,			you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra			necrotic damage equals your level. Once you use this trait, you can't use it again until you finish a long rest.
+Dwarf
+	"Dwarven Toughness", "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+
+	if subrace = Grey Dwarf
+		"Duergar Magic", "When you reach 3rd level, you can cast the Enlarge/Reduce spell on yourself once with this trait,			using only the spell's enlarge option. When you reach 5th level, you can cast the Invisibility spell on yourself once			with this trait. You don't need material components for either spell, and you can't cast them while you're in direct 			sunlight, although sunlight has no effect on them once cast. You regain the ability to	cast these spells with this 			trait when you finish a long rest. Intelligence is your spellcasting ability for these spells."
+Elf
+	if subrace = Dark Elf
+		"Drow Magic", "You know the Dancing Lights cantrip. When you reach 3rd level, you can cast the Faerie Fire spell once 			per day. When you reach 5th level, you can also cast the Darkness spell once per day. Charisma is your spellcasting 			ability for these spells."
+Genasi
+	if subrace = Fire Genasi
+		"Reach to the Blaze", "You know the Produce Flame cantrip. Once you reach 3rd level, you can cast the Burning Hands 			spell once with this trait as a 1st-level spell, and you regain the ability to cast it this way when you finish a long 			rest. Constitution is your spellcasting ability for these spells."
+	if subrace = Water Genasi
+		"Call to the Wave", "You know the Shape Water cantrip. When you reach 3rd level, you can cast the Create or Destroy 			Water spell as a 2nd-level spell once with this trait, and you regain the ability to cast it this way when you finish a 		long rest. Constitution is your spellcasting ability for these spells."

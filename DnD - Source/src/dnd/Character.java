@@ -470,7 +470,7 @@ public class Character {
     
     
     //Other Class Functions
-    public void setModifiers(){
+    public void setModifiers(){ //Function from DnD rulebook on how to create modifiers
         strMod = (int) Math.floor((strScore - 10) / 2.0);
         dexMod = (int) Math.floor((dexScore - 10) / 2.0);
         conMod = (int) Math.floor((conScore - 10) / 2.0);
@@ -498,6 +498,8 @@ public class Character {
         System.out.println("Wis:   Score: " + wisScore + " Mod: " + wisMod + " Save: " + wisSave + " Bonus: " + wisRaceBonus);
         System.out.println("Char:   Score: " + charScore + " Mod: " + charMod + " Save: " + charSave + " Bonus: " + charRaceBonus);
         System.out.println("Size: " + size + " Speed: " + speed + " Darkvision: " + darkvision);
+		System.out.println("Alignment: " + alignment + " Age: " + age + " Proficiency Bonus: " + proficiencyBonus);
+		System.out.println("Spellcasting Ability: " + spellCastingAbility);
         System.out.println("Languages: " + Arrays.toString(languages.toArray()));
         System.out.println("Proficiencies: " + Arrays.toString(proficiencies.toArray()));
         System.out.println("Saves: " + Arrays.toString(saves.toArray()));
