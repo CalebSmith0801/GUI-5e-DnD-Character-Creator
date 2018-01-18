@@ -5,8 +5,8 @@
 //NEXT WINDOW: extraLanguageMenu                                              //
 //                                                                            //
 //Changes to Character in this Window:                                        //
-//---Add chosen Wizard Cantrip to Spells				      //
-//---Add trait (Cantrip)		                                      //
+//---Add chosen Wizard Cantrip to Spells								      //
+//---Add trait (Cantrip)		                                    		  //
 //============================================================================//
 package dnd.gui.Races;
 

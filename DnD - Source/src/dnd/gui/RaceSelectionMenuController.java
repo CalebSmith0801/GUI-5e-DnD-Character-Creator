@@ -873,7 +873,7 @@ public class RaceSelectionMenuController implements Initializable {
         character.addTrait("Expert Forgery", "You can duplicate other creatures' handwriting and craftwork. You have advantage on all "
                 + "checks made to produce forgeries or duplicates of existing objects");
         character.addTrait("Mimicry", "You can mimic sounds you have heard, including voices. A creature that hears the sounds you make"
-                + " can tell they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Deception) check.");
+                + " can tell they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Deception) check. You can only speak using this trait.");
         character.addLanguage("Common", "Auran");
     }
     
@@ -932,7 +932,7 @@ public class RaceSelectionMenuController implements Initializable {
                 + "only shades of gray.");
         character.addTrait("Aggressive", "As a bonus action, you can move up to your speed toward an enemy of your choice"
                 + " that you can see or hear. You must end this move closer to the enemy than you started.");
-        character.addTrait("Menacing", "You are trained in the Intimidation skill.");
+        character.addTrait("Menacing", "You are proficient in the Intimidation skill.");
         character.addProficiency("Intimidation");
         character.addTrait("Powerful Build", "You count as one size larger when determining your carrying capacity and the "
                 + "weight you can push, drag, or lift.");

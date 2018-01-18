@@ -1,0 +1,6 @@
+Half-Elf
+	if subrace = half-elf
+		"Skill Versatility", "You gain proficiency in two skills of your choice."
+Human
+	if subrace = Human Variant
+		gain extra skill and feat

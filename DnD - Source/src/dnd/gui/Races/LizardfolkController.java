@@ -1,3 +1,13 @@
+//============================================================================//
+//PREVIOUS WINDOWS: raceSelectionMenu                                         //
+//                  (loads when race = Lizardfolk                             //
+//                                                                            //
+//NEXT WINDOW: ClassMenu                                                      //
+//                                                                            //
+//Changes to Character in this Window:                                        //
+//---Adds two skill proficiencies                                             //
+//============================================================================//
+
 package dnd.gui.Races;
 
 import java.net.URL;

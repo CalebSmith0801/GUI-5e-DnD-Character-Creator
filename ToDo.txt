@@ -1,6 +1,16 @@
 Race Selection
 	-make subrace box default to first subrace of chosen race and delete empty subrace pane.
+	-Half elf will have 2 subraces (half-elf and half-elf variant)
 
 Dwarven Tool Proficieny
 	-make radiobutton text all one string, split by hypen in code
 
+
+
+When Calculating AC
+	LizardFolk
+		When you aren't wearing armor, your AC is 13 + your Dexterity modifier. You can use your natural armor to determine 			your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your 			natural armor.
+	Tortle
+		Your shell provides ample protection, however; it gibes you a base AC of 17 (your Dexterity modifier doesn't affect 			this number). You gain no benefit from wearing armor, but if you are using a shield, you can apply the shield's bonus 			as normal.
+Tortle
+	no benefit from armor but can use shield
