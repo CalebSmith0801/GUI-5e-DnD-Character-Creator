@@ -34,6 +34,6 @@
             <Font name="Segoe UI" size="15.0" />
          </font>
       </Button>
-      <CheckBox fx:id="chaCB" layoutX="325.0" layoutY="178.0" mnemonicParsing="false" text="Charisma" visible="false" />
+      <CheckBox fx:id="charCB" layoutX="325.0" layoutY="178.0" mnemonicParsing="false" text="Charisma" visible="false" />
    </children>
 </AnchorPane>

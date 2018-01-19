@@ -41,13 +41,13 @@ public class DwarfToolProficiencyMenuController implements Initializable {
     @FXML private AnchorPane dwarf;
     @FXML private Button dwarfNextBut;
     @FXML private Button dwarfBackBut;
-    @FXML private ToggleGroup tg;
+    @FXML private ToggleGroup choices;
     private Character character;
     private ArrayList<String> prevWindows;
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tg.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+        choices.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
                 dwarfNextBut.setDisable(false);
@@ -77,8 +77,9 @@ public class DwarfToolProficiencyMenuController implements Initializable {
     
     @FXML
     private void dwarfNext(ActionEvent event){
-        RadioButton SelectedRB = (RadioButton) tg.getSelectedToggle();
-        character.addTrait("Tool Proficiency", "You gain proficiency with " + SelectedRB.getText() +
+        RadioButton SelectedRB = (RadioButton) choices.getSelectedToggle();
+        String[] selection = SelectedRB.getText().split("-"); //Example text of RadioButton text is 'Smith's tools - (Metalwork)'
+        character.addTrait("Tool Proficiency", "You gain proficiency with " + selection[0].trim() +
                       "\nLet's you add your proficiency to any ability checks you make using the those tools.");
         character.addProficiency(SelectedRB.getText());
         prevWindows.add("DwarfToolProficiencyMenu.fxml");

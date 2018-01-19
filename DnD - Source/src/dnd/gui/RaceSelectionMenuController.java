@@ -17,10 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import dnd.Character;
@@ -38,19 +36,21 @@ public class RaceSelectionMenuController implements Initializable {
     @FXML private ComboBox<String> subraceBox;
     @FXML private Label raceName;
     @FXML private Label subLabel;
-    @FXML private Label popupTitleLabel;
-    @FXML private Label popupContentLabel;
     @FXML private WebView wv;
     @FXML private ImageView racePic;
     @FXML private Button nextBut;
     @FXML private Button backBut;
-    @FXML private AnchorPane popup;
-    @FXML private AnchorPane window;
     private Character character;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         character = new Character();
+        
+        //default is to display Aarakocra race + info
+        raceBox.getSelectionModel().select(0);
+        raceName.setText(raceBox.getValue());
+        SetupRaceInfoWebView(raceBox.getValue());
+        racePicDisplay();
         
         //Configures scene to display chose race from ComboBox
         //Updates racePic, raceName, and the WebView where the race HTML data file is displayed
@@ -62,201 +62,176 @@ public class RaceSelectionMenuController implements Initializable {
             backBut.setVisible(true);
             
             //Makes subrace Combobox show correct subraces based on race picked from raceBox
+            //default chooses first subrace
             MakeSubraceComboBox(newValue);
+            subraceBox.getSelectionModel().select(0);
         });
   
     }
     
    @FXML
-    private void nextButton(ActionEvent event){
-        //if subrace left blank, then blur screen and trigger popup prompt
-        if(!subraceBox.isDisabled() && subraceBox.getValue() == null){
+    private void nextButton(ActionEvent event){     
+        character.setraceName(raceBox.getValue());
+        if(!subraceBox.isDisabled())
+            character.setsubraceName(subraceBox.getValue());
             
-            //changes text of popup if race is Dragonborn to say ancestry and not subrace
-            if(raceBox.getValue().equals("Dragonborn")){
-                popupTitleLabel.setText("Ancestry Field Empty");
-                popupContentLabel.setText("You must choose an Ancestry to proceed");
-            }
-            else{
-                popupTitleLabel.setText("Subrace Field Empty");
-                popupContentLabel.setText("You must choose a Subrace to proceed");
-            }
-            
-            popup.setVisible(true);
-            GaussianBlur gb = new GaussianBlur();
-            window.setEffect(gb);
-        }
-        
-        else{
-            character.setraceName(raceBox.getValue());
-            if(!subraceBox.isDisabled())
-                character.setsubraceName(subraceBox.getValue());
-            
-            //default is to go to class selection screen unless race has a special trait
-            //that requires user choice
-            try{
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("ClassMenu.fxml"));
-                Parent root = loader.load();
-                ClassMenuController classMenuCtrl = loader.getController();
-                switch(raceBox.getValue()){
-                    case "Aarakocra":
-                        setAarakocraTraits();
-                        break;
-                    case "Aasimar":
-                        setAasimarTraits();
-                        break;
-                    case "Bugbear":
-                        setBugbearTraits();
-                        break;
-                    case "Dragonborn":
-                        setDragonbornTraits();
-                        break;
-                    case "Dwarf":
-                        setDwarfTraits();
-                        loader = new FXMLLoader(getClass().getResource("Races/DwarfToolProficiencyMenu.fxml"));
+        //default is to go to class selection screen unless race has a special trait
+        //that requires user choice
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ClassMenu.fxml"));
+            Parent root = loader.load();
+            ClassMenuController classMenuCtrl = loader.getController();
+            switch(raceBox.getValue()){
+                case "Aarakocra":
+                    setAarakocraTraits();
+                    break;
+                case "Aasimar":
+                    setAasimarTraits();
+                    break;
+                case "Bugbear":
+                    setBugbearTraits();
+                    break;
+                case "Dragonborn":
+                    setDragonbornTraits();
+                    break;
+                case "Dwarf":
+                    setDwarfTraits();
+                    loader = new FXMLLoader(getClass().getResource("Races/DwarfToolProficiencyMenu.fxml"));
+                    root = loader.load();
+                    DwarfToolProficiencyMenuController dwarfCtrl = loader.getController();
+                    dwarfCtrl.setCharacter(character);
+                    dwarfCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    /*Stage newStage = new Stage();
+                    Scene newScene = new Scene(root);
+                    newStage.setScene(newScene);
+                    newStage.initModality(Modality.APPLICATION_MODAL);
+                    newStage.showAndWait();*/
+                    break;
+                case "Elf":
+                    setElfTraits();
+                    if(subraceBox.getValue().equals("High Elf")){
+                        loader = new FXMLLoader(getClass().getResource("Races/WizardCantripMenu.fxml"));
                         root = loader.load();
-                        DwarfToolProficiencyMenuController dwarfCtrl = loader.getController();
-                        dwarfCtrl.setCharacter(character);
-                        dwarfCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        /*Stage newStage = new Stage();
-                        Scene newScene = new Scene(root);
-                        newStage.setScene(newScene);
-                        newStage.initModality(Modality.APPLICATION_MODAL);
-                        newStage.showAndWait();*/
-                        break;
-                    case "Elf":
-                        setElfTraits();
-                        if(subraceBox.getValue().equals("High Elf")){
-                            loader = new FXMLLoader(getClass().getResource("Races/WizardCantripMenu.fxml"));
-                            root = loader.load();
-                            WizardCantripMenuController elfCtrl = loader.getController();
-                            elfCtrl.setCharacter(character);
-                            elfCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        }
-                        break;
-                    case "Firbolg":
-                        setFirbolgTraits();
-                        break;
-                    case "Genasi":
-                        setGenasiTraits();
-                        break;
-                    case "Gnome":
-                        setGnomeTraits();
-                        break;
-                    case "Goblin":
-                        setGoblinTraits();
-                        break;
-                    case "Goliath":
-                        setGoliathTraits();
-                        break;
-                    case "Half-Elf":
-                        setHalfElfTraits();
-                        loader = new FXMLLoader(getClass().getResource("Races/AbilityRaceBonusMenu.fxml"));
-                        root = loader.load();
-                        AbilityRaceBonusMenuController raceBonusCtrl = loader.getController();
-                        raceBonusCtrl.setCharacter(character);
-                        raceBonusCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        break;
-                    case "Halfling":
-                        setHalflingTraits();
-                        break;
-                    case "Half-Orc":
-                        setHalfOrcTraits();
-                        break;
-                    case "Hobgoblin":
-                        setHobgoblinTraits();
-                        loader = new FXMLLoader(getClass().getResource("Races/MartialWeaponProfMenu.fxml"));
-                        root = loader.load();
-                        MartialWeaponProfMenuController weaponProfCtrl = loader.getController();
-                        weaponProfCtrl.setCharacter(character);
-                        weaponProfCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        break;
-                    case "Human":
-                        setHumanTraits();
-                        if (character.getsubraceName().equals("Human")){
-                            loader = new FXMLLoader(getClass().getResource("ExtraLanguageMenu.fxml"));
-                            root = loader.load();
-                            ExtraLanguageMenuController extraLanguageCtrl = loader.getController();
-                            extraLanguageCtrl.setCharacter(character);
-                            extraLanguageCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        }
-                        else{
-                            character.RemoveAllRaceBonuses();
-                            loader = new FXMLLoader(getClass().getResource("Races/AbilityRaceBonusMenu.fxml"));//Choose Two Abilities window
-                            root = loader.load();
-                            AbilityRaceBonusMenuController raceBonCtrl = loader.getController();
-                            raceBonCtrl.setCharacter(character);
-                            raceBonCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        }
-                        break;
-                    case "Kenku":
-                        setKenkuTraits();
-                        loader = new FXMLLoader(getClass().getResource("Races/Kenku.fxml"));
-                        root = loader.load();
-                        KenkuController kenkuCtrl = loader.getController();
-                        kenkuCtrl.setCharacter(character);
-                        kenkuCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        break;
-                    case "Kobold":
-                        setKoboldTraits();
-                        break;
-                    case "Lizardfolk":
-                        setLizardfolkTraits();
-                        loader = new FXMLLoader(getClass().getResource("Races/Lizardfolk.fxml"));
-                        root = loader.load();
-                        LizardfolkController lizardfolkCtrl = loader.getController();
-                        lizardfolkCtrl.setCharacter(character);
-                        lizardfolkCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        break;
-                    case "Orc":
-                        setOrcTraits();
-                        break;
-                    case "Tabaxi":
-                        setTabaxiTraits();
+                        WizardCantripMenuController elfCtrl = loader.getController();
+                        elfCtrl.setCharacter(character);
+                        elfCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    }
+                    break;
+                case "Firbolg":
+                    setFirbolgTraits();
+                    break;
+                case "Genasi":
+                    setGenasiTraits();
+                    break;
+                case "Gnome":
+                    setGnomeTraits();
+                    break;
+                case "Goblin":
+                    setGoblinTraits();
+                    break;
+                case "Goliath":
+                    setGoliathTraits();
+                     break;
+                case "Half-Elf":
+                    setHalfElfTraits();
+                    loader = new FXMLLoader(getClass().getResource("Races/AbilityRaceBonusMenu.fxml"));
+                    root = loader.load();
+                    AbilityRaceBonusMenuController raceBonusCtrl = loader.getController();
+                    raceBonusCtrl.setCharacter(character);
+                    raceBonusCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    break;
+                case "Halfling":
+                    setHalflingTraits();
+                    break;
+                case "Half-Orc":
+                    setHalfOrcTraits();
+                    break;
+                case "Hobgoblin":
+                    setHobgoblinTraits();
+                    loader = new FXMLLoader(getClass().getResource("Races/MartialWeaponProfMenu.fxml"));
+                    root = loader.load();
+                    MartialWeaponProfMenuController weaponProfCtrl = loader.getController();
+                    weaponProfCtrl.setCharacter(character);
+                    weaponProfCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    break;
+                case "Human":
+                    setHumanTraits();
+                    if (character.getsubraceName().equals("Default")){
                         loader = new FXMLLoader(getClass().getResource("ExtraLanguageMenu.fxml"));
                         root = loader.load();
-                        ExtraLanguageMenuController extraLanguageCtrl2 = loader.getController();
-                        extraLanguageCtrl2.setCharacter(character);
-                        extraLanguageCtrl2.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        break;
-                    case "Tiefling":
-                        setTieflingTraits();
-                        if (subraceBox.getValue().equals("Tiefling Variant")){
-                            loader = new FXMLLoader(getClass().getResource("Races/TieflingVar.fxml"));
-                            root = loader.load();
-                            TieflingVarController tieflingVarCtrl = loader.getController();
-                            tieflingVarCtrl.setCharacter(character);
-                            tieflingVarCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                        }
-                        break;
-                    case "Tortle":
-                        setTortleTraits();
-                        break;
-                    case "Triton":
-                        setTritonTraits();
-                        break;
-                    case "Yuan-ti Pureblood":
-                        setYuantiTraits();
-                        break;
-                    default:
-                        break;
-                }
-                classMenuCtrl.setCharacter(character);
-                classMenuCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
-                switchScene(root);
+                        ExtraLanguageMenuController extraLanguageCtrl = loader.getController();
+                        extraLanguageCtrl.setCharacter(character);
+                        extraLanguageCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    }
+                    else{
+                        character.RemoveAllRaceBonuses();
+                        loader = new FXMLLoader(getClass().getResource("Races/AbilityRaceBonusMenu.fxml"));//Choose Two Abilities window
+                        root = loader.load();
+                        AbilityRaceBonusMenuController raceBonCtrl = loader.getController();
+                        raceBonCtrl.setCharacter(character);
+                        raceBonCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    }
+                    break;
+                case "Kenku":
+                    setKenkuTraits();
+                    loader = new FXMLLoader(getClass().getResource("Races/Kenku.fxml"));
+                    root = loader.load();
+                    KenkuController kenkuCtrl = loader.getController();
+                    kenkuCtrl.setCharacter(character);
+                    kenkuCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    break;
+                case "Kobold":
+                    setKoboldTraits();
+                    break;
+                case "Lizardfolk":
+                    setLizardfolkTraits();
+                    loader = new FXMLLoader(getClass().getResource("Races/Lizardfolk.fxml"));
+                    root = loader.load();
+                    LizardfolkController lizardfolkCtrl = loader.getController();
+                    lizardfolkCtrl.setCharacter(character);
+                    lizardfolkCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    break;
+                case "Orc":
+                    setOrcTraits();
+                    break;
+                case "Tabaxi":
+                    setTabaxiTraits();
+                    loader = new FXMLLoader(getClass().getResource("ExtraLanguageMenu.fxml"));
+                    root = loader.load();
+                    ExtraLanguageMenuController extraLanguageCtrl2 = loader.getController();
+                    extraLanguageCtrl2.setCharacter(character);
+                    extraLanguageCtrl2.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    break;
+                case "Tiefling":
+                    setTieflingTraits();
+                    if (subraceBox.getValue().equals("Feral Tiefling")){
+                        loader = new FXMLLoader(getClass().getResource("Races/FeralTiefling.fxml"));
+                        root = loader.load();
+                        FeralTieflingController feralTieflingCtrl = loader.getController();
+                        feralTieflingCtrl.setCharacter(character);
+                        feralTieflingCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+                    }
+                    break;
+                case "Tortle":
+                    setTortleTraits();
+                    break;
+                case "Triton":
+                    setTritonTraits();
+                    break;
+                case "Yuan-ti Pureblood":
+                    setYuantiTraits();
+                    break;
+                default:
+                    break;
             }
-            catch(IOException e){
-                System.out.println("Stage could not be loaded\nIOException");
-            }
+            classMenuCtrl.setCharacter(character);
+            classMenuCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));
+            switchScene(root);
         }
+        catch(IOException e){
+            System.out.println("Stage could not be loaded\nIOException");
+        }    
     }
-    
-    @FXML
-    private void popupClose(ActionEvent event){
-        popup.setVisible(false);
-        window.setEffect(null);
-    }
-
     
     public void SetupRaceInfoWebView(String race){
          wv.getEngine().loadContent(readDataFile("RaceInfo/"+race));
@@ -365,10 +340,10 @@ public class RaceSelectionMenuController implements Initializable {
                 break;
                     
             case "Half-Elf":
-                subLabel.setText("Subrace:");
+                subLabel.setText("Variant:");
                 subraceBox.setDisable(false);
                 subraceBox.getItems().clear();
-                subraceBox.getItems().addAll("Half-Elf", "Half-Elf Variant");
+                subraceBox.getItems().addAll("Default", "Half-Elf Variant");
                 break;
                     
             case "Halfling":
@@ -379,17 +354,17 @@ public class RaceSelectionMenuController implements Initializable {
                 break;
                 
             case "Human":
-                subLabel.setText("Subrace:");
+                subLabel.setText("Variant:");
                 subraceBox.setDisable(false);
                 subraceBox.getItems().clear();
-                subraceBox.getItems().addAll("Human", "Human Variant");
+                subraceBox.getItems().addAll("Default", "Human Variant");
                 break;
                 
             case "Tiefling":
-                subLabel.setText("Subrace:");
+                subLabel.setText("Variant:");
                 subraceBox.setDisable(false);
                 subraceBox.getItems().clear();
-                subraceBox.getItems().addAll("Tiefling", "Tiefling Variant");
+                subraceBox.getItems().addAll("Default", "Feral Tiefling");
                 break;
                     
             default:
@@ -960,7 +935,7 @@ public class RaceSelectionMenuController implements Initializable {
     }
     
     public void setTieflingTraits(){
-        if (character.getsubraceName().equals("Tiefling")){
+        if (character.getsubraceName().equals("Default")){
             character.setCharRaceBonus(2);
             character.setIntRaceBonus(1);
         }

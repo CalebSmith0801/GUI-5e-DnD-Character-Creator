@@ -3,7 +3,7 @@
 //Loads when Race = Half-Elf or Human when subrace is human variant           //
 //                                                                            //
 //NEXT WINDOW:                                                                //
-//  if subrace = half-elf or Human Variant -> ExtraLanguageMenu               //
+//  if subrace = (half-elf) Default or Human Variant -> ExtraLanguageMenu     //
 //  if subrace = half-elf variant ->  HalfElfVariant                          //
 //                                                                            //
 //Changes to Character in this Window:                                        //
@@ -45,7 +45,7 @@ public class AbilityRaceBonusMenuController implements Initializable {
     @FXML private CheckBox conCB;
     @FXML private CheckBox intCB;
     @FXML private CheckBox wisCB;
-    @FXML private CheckBox chaCB;
+    @FXML private CheckBox charCB;
     @FXML private Label halfElflabel;
     private ArrayList<CheckBox> selectedCB = new ArrayList<>();
     private ArrayList<CheckBox> unselectedCB;
@@ -59,8 +59,8 @@ public class AbilityRaceBonusMenuController implements Initializable {
         AddListener(conCB);
         AddListener(intCB);
         AddListener(wisCB);
-        AddListener(chaCB);
-        unselectedCB = new ArrayList<>(Arrays.asList(strCB, dexCB, conCB, intCB, wisCB, chaCB));
+        AddListener(charCB);
+        unselectedCB = new ArrayList<>(Arrays.asList(strCB, dexCB, conCB, intCB, wisCB, charCB));
     }
     
     private void AddListener(CheckBox cb){
@@ -94,7 +94,7 @@ public class AbilityRaceBonusMenuController implements Initializable {
         character = new Character(c);
         //Changes a few elements of scene if race is human or half-elf
         if (c.getraceName().equals("Human")){
-            chaCB.setVisible(true);
+            charCB.setVisible(true);
             halfElflabel.setVisible(false);
         }
     }

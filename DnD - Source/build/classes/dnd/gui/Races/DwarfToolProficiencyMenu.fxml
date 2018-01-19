@@ -14,7 +14,7 @@
             <Font name="Copperplate Gothic Light" size="34.0" />
          </font>
       </Label>
-      <Label layoutX="125.0" layoutY="53.0" text="Choose the artisan tools you want to be proficient in.">
+      <Label layoutX="125.0" layoutY="53.0" text="Choose the artisan tools you want to be proficient in." textAlignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>
@@ -23,13 +23,13 @@
          <font>
             <Font size="13.0" />
          </font></Label>
-      <RadioButton fx:id="rb1" layoutX="175.0" layoutY="152.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="131.0" text="Mason's Tools">
+      <RadioButton fx:id="rb1" layoutX="175.0" layoutY="152.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="184.0" text="Mason's Tools - (Stonework)">
          <toggleGroup>
-            <ToggleGroup fx:id="tg" />
+            <ToggleGroup fx:id="choices" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="rb2" layoutX="175.0" layoutY="94.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="Smith's Tools" toggleGroup="$tg" />
-      <RadioButton fx:id="rb3" layoutX="175.0" layoutY="123.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="148.0" text="Brewer's Supplies" toggleGroup="$tg" />
+      <RadioButton fx:id="rb2" layoutX="175.0" layoutY="94.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="172.0" text="Smith's Tools - (Metalwork)" toggleGroup="$tg" />
+      <RadioButton fx:id="rb3" layoutX="175.0" layoutY="123.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="221.0" text="Brewer's Supplies - (Brewing Drinks)" toggleGroup="$tg" />
       <Button fx:id="dwarfNextBut" disable="true" layoutX="506.0" layoutY="227.0" mnemonicParsing="false" onAction="#dwarfNext" prefHeight="34.0" prefWidth="80.0" text="Next">
          <font>
             <Font name="Segoe UI" size="15.0" />
@@ -40,8 +40,5 @@
             <Font name="Segoe UI" size="15.0" />
          </font>
       </Button>
-      <Label layoutX="300.0" layoutY="98.0" prefHeight="21.0" prefWidth="90.0" text="- (Metalwork)" />
-      <Label layoutX="324.0" layoutY="127.0" text="- (Brewing Drinks)" />
-      <Label layoutX="309.0" layoutY="156.0" text="- (Stonework)" />
    </children>
 </AnchorPane>

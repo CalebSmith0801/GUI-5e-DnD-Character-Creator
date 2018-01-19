@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="552.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.gui.Races.HalfElfVariantSpellDescriptionsController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="552.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.gui.Races.SpellDescriptionsController">
    <children>
       <WebView fx:id="wv" prefHeight="552.0" prefWidth="562.0" stylesheets="@../../CSS/WindowsScrollBar.css" />
    </children>

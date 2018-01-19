@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dnd.gui.Races;
 
 import java.io.FileInputStream;
@@ -19,21 +14,24 @@ import javafx.scene.web.WebView;
  *
  * @author Caleb
  */
-public class HalfElfVariantSpellDescriptionsController implements Initializable {
+public class SpellDescriptionsController implements Initializable {
 
     @FXML private WebView wv;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        wv.getEngine().loadContent(readDataFile("HalfElfVariantSpells"));
     }    
+    
+    public void setFile(String fileName){
+        wv.getEngine().loadContent(readDataFile(fileName));
+    }
     
     //Given relative file path from the Data folder
     //returns html of that specific file
     public String readDataFile(String Name){
         String line = "";
         try {
-            Scanner scanner = new Scanner(new FileInputStream("Data/"+Name+".html"));
+            Scanner scanner = new Scanner(new FileInputStream("Data/Spells/"+Name+".html"));
             
             while (scanner.hasNextLine()){
                 line += scanner.nextLine();

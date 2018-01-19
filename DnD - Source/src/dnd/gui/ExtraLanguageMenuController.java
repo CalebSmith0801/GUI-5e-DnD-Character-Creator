@@ -91,8 +91,7 @@ public class ExtraLanguageMenuController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/gui/"+prevWindow));
             root = loader.load();
             switch(prevWindow){                
-                case "Races/WizardCantripMenu.fxml":
-                    
+                case "Races/WizardCantripMenu.fxml":                    
                     WizardCantripMenuController WizardCantripCtrl = loader.getController();
                     WizardCantripCtrl.setCantrip(character.getLastSpell());
                     character.RemoveLastSpell();

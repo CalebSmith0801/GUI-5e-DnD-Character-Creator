@@ -186,8 +186,10 @@ public class HalfElfVariantController implements Initializable {
     public void SpellDescriptionButton(){
         Parent root = null;
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/gui/Races/HalfElfVariantSpellDescriptions.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/gui/Races/SpellDescriptions.fxml"));
             root = loader.load();
+            SpellDescriptionsController spellDescripCtrl = loader.getController();
+            spellDescripCtrl.setFile("HalfElfVariantSpells");
         }
         catch(IOException e){
             System.out.println("Stage could not be loaded\nIOException");
@@ -201,6 +203,7 @@ public class HalfElfVariantController implements Initializable {
         SpellStage.setResizable(false);
         SpellStage.show();        
     }
+    
     @FXML
     public void backButton(){
         Parent root;
