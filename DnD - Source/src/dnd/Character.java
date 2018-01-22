@@ -405,6 +405,10 @@ public class Character {
         languages.remove(index);
     }
     
+    public void RemoveLastLanguage(){
+        languages.remove(languages.size()-1);
+    }
+    
     public void RemoveAllLanguages(){
         languages.clear();
     }
@@ -427,6 +431,10 @@ public class Character {
         return proficiencies.size();
     }
     
+    public int getLanguagesSize(){
+        return languages.size();
+    }
+    
     public Pair getTrait(int index){
         return traits.get(index);
     }
@@ -443,8 +451,12 @@ public class Character {
         return proficiencies.get(index);
     }
     
-    public ArrayList getLanguages(){
+    public ArrayList getAllLanguages(){
         return languages;
+    }
+    
+    public String getLanguage(int index){
+        return languages.get(index);
     }
     
     public String getLastSpell(){

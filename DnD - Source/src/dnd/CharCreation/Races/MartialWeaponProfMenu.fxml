@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import java.util.ArrayList?>
+
+<AnchorPane id="AnchorPane" prefHeight="671.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.Races.MartialWeaponProfMenuController">
+    <children>
+        <Button fx:id="nextBut" disable="true" layoutX="687.0" layoutY="617.0" mnemonicParsing="false" onAction="#nextButton" prefHeight="34.0" prefWidth="80.0" text="Next">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="backBut" layoutX="587.0" layoutY="617.0" mnemonicParsing="false" onAction="#backButton" prefHeight="34.0" prefWidth="80.0" text="Back">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+      <ScrollPane layoutX="22.0" layoutY="107.0" prefHeight="473.0" prefWidth="777.0" style="-fx-background-color: transparent;" stylesheets="@../../CSS/WindowsScrollBar.css">
+         <content>
+            <GridPane prefHeight="764.0" prefWidth="755.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="181.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="119.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="61.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="442.0" minWidth="10.0" prefWidth="394.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.0" minHeight="0.0" prefHeight="6.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="25.0" prefWidth="181.0" text="Martial Melee Weapons">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label GridPane.rowIndex="1" />
+                  <CheckBox fx:id="cb1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="181.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Flail" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+                  <Label text="Damage" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Weight" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Properties" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="2 lb." GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d8 bludgeoning" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+                  <CheckBox fx:id="cb2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Glaive" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d10 slashing" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="6 lb." GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Heavy, reach, two-handed" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="cb3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Greataxe" GridPane.rowIndex="4" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d12 slashing" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="7 lb." GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <CheckBox fx:id="cb4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="27.0" prefWidth="181.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Battleaxe" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d8 slashing" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="4 lb." GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Versatile (1d10)" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Heavy, two-handed" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <CheckBox fx:id="cb5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Greatsword" GridPane.rowIndex="5">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </CheckBox>
+                  <CheckBox fx:id="cb6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Halberd" GridPane.rowIndex="6">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </CheckBox>
+                  <CheckBox fx:id="cb7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Lance" GridPane.rowIndex="7" />
+                  <CheckBox fx:id="cb8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Longsword" GridPane.rowIndex="9" />
+                  <CheckBox fx:id="cb9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Maul" GridPane.rowIndex="10" />
+                  <CheckBox fx:id="cb10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Morningstar" GridPane.rowIndex="11" />
+                  <CheckBox fx:id="cb11" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Pike" GridPane.rowIndex="12" />
+                  <CheckBox fx:id="cb12" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Rapier" GridPane.rowIndex="13" />
+                  <CheckBox fx:id="cb13" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Scimitar" GridPane.rowIndex="14" />
+                  <CheckBox fx:id="cb14" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Shortsword" GridPane.rowIndex="15" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="2d6 slashing" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label alignment="CENTER" layoutX="195.0" layoutY="150.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d10 slashing" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d12 piercing" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d8 slashing" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="2d6 bludgeoning" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d8 piercing" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d10 piercing" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d8 piercing" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d6 slashing" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d6 piercing" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="6 lb." GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="6 lb." GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="4 lb." GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="6 lb." GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="3 lb." GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="10 lb." GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="4 lb." GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="18 lb." GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="2 lb." GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="3 lb." GridPane.columnIndex="2" GridPane.rowIndex="14" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="2 lb." GridPane.columnIndex="2" GridPane.rowIndex="15" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Heavy, two-handed" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Heavy, reach, two-handed" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="394.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Reach, (Disadvantage on targets within 5 feet), two-handed when not mounted" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Versatile (1d10)" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Thrown (range 20/60), versatile (1d8)" GridPane.columnIndex="3" GridPane.rowIndex="16" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Heavy, two-handed" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="-" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Heavy, reach, two-handed" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Finesse" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Finesse, light" GridPane.columnIndex="3" GridPane.rowIndex="14" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Finesse, light" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+                  <CheckBox fx:id="cb15" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Trident" GridPane.rowIndex="16" />
+                  <CheckBox fx:id="cb16" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="War Pick" GridPane.rowIndex="17" />
+                  <CheckBox fx:id="cb17" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Warhammer" GridPane.rowIndex="18" />
+                  <CheckBox fx:id="cb18" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Whip" GridPane.rowIndex="19" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d6 piercing" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d8 piercing" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d8 bludgeoning" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d4 slashing" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="2 lb." GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="2 lb." GridPane.columnIndex="2" GridPane.rowIndex="18" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="3 lb." GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="-" GridPane.columnIndex="3" GridPane.rowIndex="17" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Versatile (1d10)" GridPane.columnIndex="3" GridPane.rowIndex="18" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Finesse, reach" GridPane.columnIndex="3" GridPane.rowIndex="19" />
+                  <Label prefHeight="21.0" prefWidth="220.0" text="Martial Ranged Weapons" GridPane.rowIndex="21">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Damage" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="21">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Weight" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="21">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Properties" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="21">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="cb19" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Blowgun" GridPane.rowIndex="22" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1 piercing" GridPane.columnIndex="1" GridPane.rowIndex="22" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1 lb." GridPane.columnIndex="2" GridPane.rowIndex="22" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Ammunition (range 25/100), loading" GridPane.columnIndex="3" GridPane.rowIndex="22" />
+                  <CheckBox fx:id="cb20" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="28.0" prefWidth="185.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Crossbow, hand" GridPane.rowIndex="23" />
+                  <CheckBox fx:id="cb21" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="28.0" prefWidth="220.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Crossbow, heavy" GridPane.rowIndex="24" />
+                  <CheckBox fx:id="cb22" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Longbow" GridPane.rowIndex="25" />
+                  <CheckBox fx:id="cb23" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="127.0" style="-fx-border-style: solid none none none; -fx-border-color: black;" text="Net" GridPane.rowIndex="26" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d6 piercing" GridPane.columnIndex="1" GridPane.rowIndex="23" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d10 piercing" GridPane.columnIndex="1" GridPane.rowIndex="24" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="1d8 piercing" GridPane.columnIndex="1" GridPane.rowIndex="25" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="-" GridPane.columnIndex="1" GridPane.rowIndex="26" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="3 lb." GridPane.columnIndex="2" GridPane.rowIndex="23" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="18 lb." GridPane.columnIndex="2" GridPane.rowIndex="24" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="2 lb." GridPane.columnIndex="2" GridPane.rowIndex="25" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="3 lb." GridPane.columnIndex="2" GridPane.rowIndex="26" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Ammunition (range 30/120), light, loading" GridPane.columnIndex="3" GridPane.rowIndex="23" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Ammunition (range 100/400), heavy, loading, two-handed" GridPane.columnIndex="3" GridPane.rowIndex="24" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Ammunition (range 150/600), heavy, two-handed" GridPane.columnIndex="3" GridPane.rowIndex="25" />
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="107.0" style="-fx-border-color: black; -fx-border-style: solid none none;" text="Special, thrown (range 5/15)" GridPane.columnIndex="3" GridPane.rowIndex="26" />
+               </children>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Label layoutX="192.0" layoutY="14.0" text="Martial Weapon Proficiency">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="240.0" layoutY="61.0" prefHeight="28.0" prefWidth="320.0" text="Choose 2 martial weapons to be proficient in">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="590.0" text="Versatile - Can be used two handing; deals extra damage ">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="605.0" text="Heavy - Small creatures have disadvantage on Attack rolls">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="620.0" text="Reach - Adds 5 feet to your reach">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="635.0" text="Finesse - Choose Strength or Dexterity modifier for Attack and Damage Rolls">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <fx:define>
+        <ArrayList fx:id="cblist">
+            <fx:reference source="cb1" />
+            <fx:reference source="cb2" />
+            <fx:reference source="cb3" />
+            <fx:reference source="cb4" />
+            <fx:reference source="cb5" />
+            <fx:reference source="cb6" />
+            <fx:reference source="cb7" />
+            <fx:reference source="cb8" />
+            <fx:reference source="cb9" />
+            <fx:reference source="cb10" />
+            <fx:reference source="cb11" />
+            <fx:reference source="cb12" />
+            <fx:reference source="cb13" />
+            <fx:reference source="cb14" />
+            <fx:reference source="cb15" />
+            <fx:reference source="cb16" />
+            <fx:reference source="cb17" />
+            <fx:reference source="cb18" />
+            <fx:reference source="cb19" />
+            <fx:reference source="cb20" />
+            <fx:reference source="cb21" />
+            <fx:reference source="cb22" />
+            <fx:reference source="cb23" />
+        </ArrayList>
+    </fx:define>
+    </children>
+</AnchorPane>

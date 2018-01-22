@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="492.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.Races.HalfElfVariantController">
+    <children>
+      <Label layoutX="62.0" layoutY="14.0" text="Half Elf Variant Trait Replacement">
+         <font>
+            <Font name="Copperplate Gothic Light" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="76.0" prefHeight="83.0" prefWidth="341.0" text="Your Skill Versatility trait (which lets you select two skills to be proficient in) is replaced with one of the following options:" wrapText="true" />
+      <Button fx:id="nextBut" layoutX="685.0" layoutY="432.0" mnemonicParsing="false" onAction="#nextButton" prefHeight="34.0" prefWidth="80.0" text="Next">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="backBut" layoutX="585.0" layoutY="432.0" mnemonicParsing="false" onAction="#backButton" prefHeight="34.0" prefWidth="80.0" text="Back">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+      <Pane layoutX="427.0" layoutY="134.0" prefHeight="269.0" prefWidth="331.0">
+         <children>
+            <Label fx:id="KeenSensesLabel" layoutX="14.0" layoutY="39.0" prefHeight="21.0" prefWidth="304.0" text="You gain proficiency in the Perception skill." visible="false" wrapText="true" />
+            <Label fx:id="WeaponTrainingLabel" layoutX="14.0" layoutY="39.0" prefHeight="42.0" prefWidth="304.0" text="You gain proficiency with the longsword, shortsword, shortbow, and longbow." visible="false" wrapText="true" />
+            <Label fx:id="FleetOfFootLabel" layoutX="14.0" layoutY="39.0" prefHeight="21.0" prefWidth="304.0" text="Your base walking speed increases to 35 feet." visible="false" wrapText="true" />
+            <Label fx:id="MaskOfTheWildLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="39.0" prefHeight="84.0" prefWidth="304.0" text="You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena." visible="false" wrapText="true" />
+            <Label fx:id="CantripLabel" layoutX="14.0" layoutY="39.0" prefHeight="84.0" prefWidth="304.0" text="You know one cantrip of you choice from the wizard spell list. Intelligence is your spellcasting ability for it. The list will be provided in following screens." visible="false" wrapText="true" />
+            <Label fx:id="DarkElfSpells" layoutX="14.0" layoutY="39.0" prefHeight="126.0" prefWidth="304.0" text="You know the Dancing Lights cantrip. When you reach 3rd level, you can cast the Faerie Fire spell once per day. When you reach 5th level, you can also cast the Darkness spell once per day. Charisma is your spellcasting ability for these spells." visible="false" wrapText="true" />
+            <Label fx:id="SwimmingLabel" layoutX="14.0" layoutY="39.0" prefHeight="21.0" prefWidth="304.0" text="You have a swimming speed of 30 feet." visible="false" wrapText="true" />
+            <Label layoutX="11.0" layoutY="14.0" text="Description">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="spellDescriptions" onAction="#SpellDescriptionButton" layoutX="46.0" layoutY="187.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-text-fill: blue;" text="Click Here For Spell Descriptions" visible="false" />
+         </children>
+      </Pane>
+      <ListView fx:id="lv" layoutX="47.0" layoutY="168.0" prefHeight="236.0" prefWidth="341.0" stylesheets="@../../CSS/Listview.css">
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Keen Senses" />
+                  <String fx:value="Elf Weapon Training" />
+                  <String fx:value="Fleet of Foot" />
+                  <String fx:value="Dark Elf Spells" />
+                  <String fx:value="Mask of the Wild" />
+                  <String fx:value="Wizard Cantrip" />
+                  <String fx:value="Swim Speed" />
+              </FXCollections>
+          </items>
+      </ListView>
+   </children>
+</AnchorPane>

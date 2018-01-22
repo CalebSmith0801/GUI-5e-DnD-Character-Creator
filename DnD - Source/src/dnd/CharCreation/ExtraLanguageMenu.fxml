@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import java.util.ArrayList?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="329.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.ExtraLanguageMenuController">
+    <children>
+      <Label layoutX="172.0" layoutY="14.0" text="Extra Language">
+         <font>
+            <Font name="Copperplate Gothic Light" size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="187.0" layoutY="53.0" text="Choose an extra language for your character.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="nextBut" disable="true" layoutX="569.0" layoutY="281.0" mnemonicParsing="false" onAction="#nextButton" prefHeight="34.0" prefWidth="80.0" text="Next">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="backBut" layoutX="475.0" layoutY="281.0" mnemonicParsing="false" prefHeight="34.0" onAction="#backButton" prefWidth="80.0" text="Back">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+      
+      <Label layoutX="115.0" layoutY="91.0" text="Standard Languages">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="rb1" layoutX="79.0" layoutY="127.0" mnemonicParsing="false" text="Common">
+        <toggleGroup>
+              <ToggleGroup fx:id="tg" />
+          </toggleGroup>
+        </RadioButton>
+      <RadioButton fx:id="rb2" layoutX="79.0" layoutY="157.0" mnemonicParsing="false" text="Dwarvish" toggleGroup="$tg" />
+      <RadioButton fx:id="rb3" layoutX="79.0" layoutY="187.0" mnemonicParsing="false" text="Elvish" toggleGroup="$tg" />
+      <RadioButton fx:id="rb4" layoutX="79.0" layoutY="217.0" mnemonicParsing="false" text="Giant" toggleGroup="$tg" />
+      <RadioButton fx:id="rb5" layoutX="203.0" layoutY="127.0" mnemonicParsing="false" text="Gnomish" toggleGroup="$tg" />
+      <RadioButton fx:id="rb6" layoutX="203.0" layoutY="157.0" mnemonicParsing="false" text="Goblin" toggleGroup="$tg" />
+      <RadioButton fx:id="rb7" layoutX="203.0" layoutY="187.0" mnemonicParsing="false" text="Halfling" toggleGroup="$tg" />
+      <RadioButton fx:id="rb8" layoutX="203.0" layoutY="217.0" mnemonicParsing="false" text="Orc" toggleGroup="$tg" />
+      <Label layoutX="414.0" layoutY="91.0" text="Exotic Languages">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="rb9" layoutX="360.0" layoutY="127.0" mnemonicParsing="false" text="Abyssal" toggleGroup="$tg" />
+      <RadioButton fx:id="rb10" layoutX="360.0" layoutY="157.0" mnemonicParsing="false" text="Celestial" toggleGroup="$tg" />
+      <RadioButton fx:id="rb11" layoutX="360.0" layoutY="187.0" mnemonicParsing="false" text="Draconic" toggleGroup="$tg" />
+      <RadioButton fx:id="rb12" layoutX="360.0" layoutY="217.0" mnemonicParsing="false" text="Deep Speech" toggleGroup="$tg" />
+      <RadioButton fx:id="rb13" layoutX="505.0" layoutY="127.0" mnemonicParsing="false" text="Infernal" toggleGroup="$tg" />
+      <RadioButton fx:id="rb14" layoutX="505.0" layoutY="157.0" mnemonicParsing="false" text="Primordial" toggleGroup="$tg" />
+      <RadioButton fx:id="rb15" layoutX="505.0" layoutY="187.0" mnemonicParsing="false" text="Sylvian" toggleGroup="$tg" />
+      <RadioButton fx:id="rb16" layoutX="505.0" layoutY="217.0" mnemonicParsing="false" text="Undercommon" toggleGroup="$tg" />
+   </children>
+   <fx:define>
+        <ArrayList fx:id="rbList">
+            <fx:reference source="rb1" />
+            <fx:reference source="rb2" /> 
+            <fx:reference source="rb3" /> 
+            <fx:reference source="rb4" /> 
+            <fx:reference source="rb5" /> 
+            <fx:reference source="rb6" /> 
+            <fx:reference source="rb7" /> 
+            <fx:reference source="rb8" /> 
+            <fx:reference source="rb9" /> 
+            <fx:reference source="rb10" /> 
+            <fx:reference source="rb11" /> 
+            <fx:reference source="rb12" /> 
+            <fx:reference source="rb13" /> 
+            <fx:reference source="rb14" /> 
+            <fx:reference source="rb15" /> 
+            <fx:reference source="rb16" /> 
+        </ArrayList>
+    </fx:define>
+</AnchorPane>

@@ -20,7 +20,7 @@ public class DD extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("gui/StartMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("CharCreation/StartMenu.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);

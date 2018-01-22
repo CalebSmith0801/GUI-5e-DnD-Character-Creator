@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.Races.DwarfToolProficiencyMenuController">
+   <children>
+      <Label layoutX="66.0" layoutY="14.0" text="Dwarven Tool Proficieny">
+         <font>
+            <Font name="Copperplate Gothic Light" size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="125.0" layoutY="53.0" text="Choose the artisan tools you want to be proficient in." textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="197.0" text="Your proficiency lets you add your proficiency bonus to any ability check you make using that tool">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <RadioButton layoutX="175.0" layoutY="94.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="172.0" text="Smith's Tools - (Metalwork)">
+          <toggleGroup>
+            <ToggleGroup fx:id="choices" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="175.0" layoutY="123.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="221.0" text="Brewer's Supplies - (Brewing Drinks)" toggleGroup="$choices" />
+      <RadioButton layoutX="175.0" layoutY="152.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="184.0" text="Mason's Tools - (Stonework)" toggleGroup="$choices" />
+      <Button fx:id="dwarfNextBut" disable="true" layoutX="506.0" layoutY="227.0" mnemonicParsing="false" onAction="#dwarfNext" prefHeight="34.0" prefWidth="80.0" text="Next">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="dwarfBackBut" layoutX="412.0" layoutY="227.0" mnemonicParsing="false" onAction="#dwarfBack" prefHeight="34.0" prefWidth="80.0" text="Back">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -12,12 +12,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Caleb/Desktop/Project/DnD/src/dnd/gui/Races/Lizardfolk.fxml</file>
-            <file>file:/C:/Users/Caleb/Desktop/Project/DnD/src/dnd/gui/ExtraLanguageMenuController.java</file>
-            <file>file:/C:/Users/Caleb/Desktop/Project/DnD/src/dnd/gui/Races/LizardfolkController.java</file>
-            <file>file:/C:/Users/Caleb/Desktop/Project/DnD/src/dnd/gui/Races/KenkuController.java</file>
-            <file>file:/C:/Users/Caleb/Desktop/Project/DnD/src/dnd/Character.java</file>
-            <file>file:/C:/Users/Caleb/Desktop/Project/DnD/src/dnd/gui/RaceSelectionMenuController.java</file>
+            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/Races/KenkuController.java</file>
+            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/Races/DwarfToolProficiencyMenuController.java</file>
+            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/Races/AbilityRaceBonusMenuController.java</file>
+            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/ClassMenuController.java</file>
+            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/Races/LizardfolkController.java</file>
         </group>
     </open-files>
 </project-private>
