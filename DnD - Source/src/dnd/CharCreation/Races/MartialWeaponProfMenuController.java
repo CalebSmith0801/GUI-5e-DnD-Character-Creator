@@ -146,6 +146,15 @@ public class MartialWeaponProfMenuController implements Initializable {
         character = new Character(c);
     }
     
+    public void setSceneOnReload(ArrayList<String> prevWeaponChoices){
+        cblist.forEach((CheckBox checkbox) -> {
+            prevWeaponChoices.forEach((String weapon) -> { 
+                if (checkbox.getText().equals(weapon))
+                    checkbox.setSelected(true);
+            });
+        });
+    }
+    
     //Needed so back button knows which window to transition to since the ExtraLanguageMenu
     //is used in multiple combinations
     public void setPreviousWindows(ArrayList<String> list){

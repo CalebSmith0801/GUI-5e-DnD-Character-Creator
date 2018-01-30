@@ -93,12 +93,12 @@
                   <Font name="Copperplate Gothic Light" size="30.0" />
                </font>
             </Label>
-            <Button fx:id="nextBut" layoutX="687.0" layoutY="602.0" mnemonicParsing="false" onAction="#nextButton" prefHeight="34.0" prefWidth="80.0" text="Next" visible="false">
+            <Button fx:id="nextBut" layoutX="687.0" layoutY="602.0" mnemonicParsing="false" onAction="#nextButton" prefHeight="34.0" prefWidth="80.0" text="Next">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="backBut" disable="true" layoutX="587.0" layoutY="602.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" text="Back" visible="false">
+            <Button fx:id="backBut" disable="true" layoutX="587.0" layoutY="602.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" text="Back">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>

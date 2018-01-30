@@ -1,12 +1,3 @@
-Race Selection
-	-make subrace box default to first subrace of chosen race and delete empty subrace pane.
-	-Half elf will have 2 subraces (half-elf and half-elf variant)
-
-Dwarven Tool Proficieny
-	-make radiobutton text all one string, split by hypen in code
-
-
-
 When Calculating AC
 	LizardFolk
 		When you aren't wearing armor, your AC is 13 + your Dexterity modifier. You can use your natural armor to determine 			your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your 			natural armor.

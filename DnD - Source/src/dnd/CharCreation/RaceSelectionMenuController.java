@@ -64,9 +64,7 @@ public class RaceSelectionMenuController implements Initializable {
             SetupRaceInfoWebView(newValue);
             raceName.setText(newValue);
             racePicDisplay();
-            nextBut.setVisible(true);
-            backBut.setVisible(true);
-            
+           
             //Makes subrace Combobox show correct subraces based on race picked from raceBox
             //default chooses first subrace
             MakeSubraceComboBox(newValue);

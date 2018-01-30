@@ -1,8 +1,10 @@
 package dnd.CharCreation;
 
 import dnd.CharCreation.Races.DwarfToolProficiencyMenuController;
+import dnd.CharCreation.Races.FeralTieflingController;
 import dnd.CharCreation.Races.KenkuController;
 import dnd.CharCreation.Races.LizardfolkController;
+import dnd.CharCreation.Races.MartialWeaponProfMenuController;
 import dnd.Character;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -106,6 +108,8 @@ public class ClassMenuController implements Initializable {
     
     }
     
+    //When going back you must reverse the actions of the previous window which can sometimes
+    //mean adding something back that was removed
     @FXML
     private void backButton(ActionEvent event){
         Parent root;
@@ -175,7 +179,44 @@ public class ClassMenuController implements Initializable {
                     lizCtrl.setSceneOnReload(chosenSkills);
                     lizCtrl.setCharacter(character);
                     lizCtrl.setPreviousWindows(prevWindows);
-                    break;    
+                    break;
+                case "Races/FeralTiefling.fxml":
+                    FeralTieflingController ferTiefCtrl = loader.getController();
+                    if (character.hasTrait("Devil's Tongue")){
+                        character.RemoveTrait("Devil's Tongue");
+                        character.RemoveSpell("Vicious Mockery");
+                        character.addTrait("Infernal Legacy", "You know the Thaumaturgy cantrip. Charisma is your spellcasting ability for it");
+                        character.addSpell("Thaumaturgy");
+                        ferTiefCtrl.setSceneOnReload("Devil's Tongue");
+                    }
+                    else if (character.hasTrait("Infernal Legacy (Hellfire)")){
+                        character.RemoveTrait("Infernal Legacy (Hellfire)");
+                        character.addTrait("Infernal Legacy", "You know the Thaumaturgy cantrip. Charisma is your spellcasting ability for it");
+                        ferTiefCtrl.setSceneOnReload("Hellfire");
+                    }
+                    else if (character.hasTrait("Winged")){
+                        character.RemoveTrait("Winged");
+                        character.addTrait("Infernal Legacy", "You know the Thaumaturgy cantrip. Charisma is your spellcasting ability for it");
+                        character.addSpell("Thaumaturgy");
+                        ferTiefCtrl.setSceneOnReload("Winged");
+                    }
+                    else{
+                        ferTiefCtrl.setSceneOnReload("None");
+                    }
+                    ferTiefCtrl.setCharacter(character);
+                    ferTiefCtrl.setPreviousWindows(prevWindows);
+                    break;
+                case "Races/MartialWeaponProfMenu.fxml":
+                    MartialWeaponProfMenuController mwProfCtrl = loader.getController();
+                    chosenSkills = new ArrayList<>();
+                    int charProfsize = character.getProficienciesSize();
+                    chosenSkills.add(character.getProficiency(charProfsize-1));
+                    chosenSkills.add(character.getProficiency(charProfsize-2));
+                    character.RemoveLastProficiency(); character.RemoveLastProficiency();
+                    mwProfCtrl.setSceneOnReload(chosenSkills);
+                    mwProfCtrl.setCharacter(character);
+                    mwProfCtrl.setPreviousWindows(prevWindows);
+                    break;
                 default:
                     break;
             }
