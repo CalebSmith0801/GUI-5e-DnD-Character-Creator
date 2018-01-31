@@ -5,3 +5,7 @@ When Calculating AC
 		Your shell provides ample protection, however; it gibes you a base AC of 17 (your Dexterity modifier doesn't affect 			this number). You gain no benefit from wearing armor, but if you are using a shield, you can apply the shield's bonus 			as normal.
 Tortle
 	no benefit from armor but can use shield
+Health
+	-exhaustion level 4 hit point maximum halved (give way to temporarily reduce max health)
+
+Add in Barbarian Path of Totem Warrior totems from Sword Coasts
