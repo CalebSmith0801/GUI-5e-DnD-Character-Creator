@@ -4,3 +4,18 @@ Barbarian
 		(a) a greataxe or (b) any martial melee weapon
 		(a) two handaxes or (b) any simple weapon
 		An explorer's pack and four javelins
+
+
+
+Bard
+	Proficiencies
+		Tools: Three musical instruments of your choice
+	Skills
+		Choose any 3
+	Equipment:
+		(a) a rapier, (b) a longsword, or (c) any simple weapon
+		(a) a diplomat’s pack or (b) an entertainer's pack
+		(a) a lute or (b) any other musical instrument
+		Leather arm or and a dagger
+
+	You know two cantrips of your choice from the bard spell list. 
