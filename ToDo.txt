@@ -9,3 +9,5 @@ Health
 	-exhaustion level 4 hit point maximum halved (give way to temporarily reduce max health)
 
 Add in Barbarian Path of Totem Warrior totems from Sword Coasts
+
+Cleric - ability to change cleric cantrips after rest
