@@ -7,6 +7,7 @@ and open the template in the editor.
     Created on : Sep 29, 2017, 12:40:37 PM
     Author     : calebs
 */
+@import url("WindowsScrollBar.css");
 
 .combo-box-popup .list-view {
     -fx-font-family: "Segoe UI";
