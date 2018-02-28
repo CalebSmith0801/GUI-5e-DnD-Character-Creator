@@ -135,12 +135,12 @@ public class ExtraLanguageMenuController implements Initializable {
                 case "Races/HalfElfVariant.fxml":
                     HalfElfVariantController halfElfVarCtrl = loader.getController();
                     if (character.hasProficiency("Perception")){
-                        character.RemoveProficiency("Perception");
+                        character.RemoveSkill("Perception");
                         character.RemoveTrait("Keen Senses");
                         halfElfVarCtrl.setSceneOnReload("Keen Senses");
                     }
                     else if(character.hasProficiency("Longsword")){
-                        character.RemoveProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
+                        character.RemoveWeaponProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
                         halfElfVarCtrl.setSceneOnReload("Elf Weapon Training");
                     }
                     else if(character.getSpeed() == 35){

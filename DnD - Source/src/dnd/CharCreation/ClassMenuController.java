@@ -1,5 +1,6 @@
 package dnd.CharCreation;
 
+import dnd.CharCreation.ClassMenus.BarbarianSkillsMenuController;
 import dnd.CharCreation.Races.DwarfToolProficiencyMenuController;
 import dnd.CharCreation.Races.FeralTieflingController;
 import dnd.CharCreation.Races.KenkuController;
@@ -105,7 +106,34 @@ public class ClassMenuController implements Initializable {
     
     @FXML
     private void nextButton(ActionEvent event){
-    
+        prevWindows.add("ClassMenu.fxml");
+        character.setclassName(classBox.getValue());
+        /*if(!subraceBox.isDisabled())
+            character.setsubraceName(subraceBox.getValue());*/
+            
+        try{
+            FXMLLoader loader;// = new FXMLLoader(getClass().getResource("ClassMenu.fxml"));
+            Parent root = null;// = loader.load();
+            //ClassMenuController classMenuCtrl = loader.getController();*/
+            switch(classBox.getValue()){
+                case "Barbarian":
+                    setBarbarianTraits();
+                    loader = new FXMLLoader(getClass().getResource("Classes/BarbarianSkillsMenu.fxml"));
+                    root = loader.load();
+                    BarbarianSkillsMenuController barbSkillCtrl = loader.getController();
+                    barbSkillCtrl.setCharacter(character);
+                    barbSkillCtrl.setPreviousWindows(prevWindows);
+                    break;
+                default:
+                    break;
+            }
+            /*classMenuCtrl.setCharacter(character);
+            classMenuCtrl.setPreviousWindows(new ArrayList<>(Arrays.asList("raceSelectionMenu.fxml")));*/
+            switchScene(root);
+        }
+        catch(IOException e){
+            System.out.println("Stage could not be loaded\nIOException");
+        }    
     }
     
     //When going back you must reverse the actions of the previous window which can sometimes
@@ -124,8 +152,8 @@ public class ClassMenuController implements Initializable {
             switch(prevWindow){                
                 case "Races/DwarfToolProficiencyMenu.fxml":                    
                     DwarfToolProficiencyMenuController dwarfCtrl = loader.getController();
-                    String chosenToolProf = character.getProficiency(character.getProficienciesSize()-1);
-                    character.RemoveProficiency(chosenToolProf);
+                    String chosenToolProf = character.getToolProficiency(character.getToolProficienciesSize()-1);
+                    character.RemoveToolProficiency(chosenToolProf);
                     dwarfCtrl.setSceneOnReload(chosenToolProf);
                     dwarfCtrl.setCharacter(character);
                     dwarfCtrl.setPreviousWindows(prevWindows);
@@ -154,7 +182,7 @@ public class ClassMenuController implements Initializable {
                     if (character.hasProficiency("Sleight of Hand"))
                         chosenSkills.add("Sleight of Hand");
                     chosenSkills.forEach((skill) -> {
-                        character.RemoveProficiency(skill);
+                        character.RemoveSkill(skill);
                     });
                     kenkuCtrl.setSceneOnReload(chosenSkills);
                     kenkuCtrl.setCharacter(character);
@@ -174,7 +202,7 @@ public class ClassMenuController implements Initializable {
                     if (character.hasProficiency("Survival"))
                         chosenSkills.add("Survival");
                     chosenSkills.forEach((skill) -> {
-                        character.RemoveProficiency(skill);
+                        character.RemoveSkill(skill);
                     });
                     lizCtrl.setSceneOnReload(chosenSkills);
                     lizCtrl.setCharacter(character);
@@ -209,10 +237,10 @@ public class ClassMenuController implements Initializable {
                 case "Races/MartialWeaponProfMenu.fxml":
                     MartialWeaponProfMenuController mwProfCtrl = loader.getController();
                     chosenSkills = new ArrayList<>();
-                    int charProfsize = character.getProficienciesSize();
-                    chosenSkills.add(character.getProficiency(charProfsize-1));
-                    chosenSkills.add(character.getProficiency(charProfsize-2));
-                    character.RemoveLastProficiency(); character.RemoveLastProficiency();
+                    int charWeaponProfsize = character.getWeaponProficienciesSize();
+                    chosenSkills.add(character.getWeaponProficiency(charWeaponProfsize-1));
+                    chosenSkills.add(character.getWeaponProficiency(charWeaponProfsize-2));
+                    character.RemoveLastWeaponProficiency(); character.RemoveLastWeaponProficiency();
                     mwProfCtrl.setSceneOnReload(chosenSkills);
                     mwProfCtrl.setCharacter(character);
                     mwProfCtrl.setPreviousWindows(prevWindows);
@@ -251,5 +279,28 @@ public class ClassMenuController implements Initializable {
                 stage.setY(oldY + (oldHeight / 2.0) - (stage.getHeight() / 2.0));
         });
         stage.show();
+    }
+    
+    
+    
+    
+    public void setBarbarianTraits(){
+        character.setHitDice("1d12");
+        //duplicates are removed at very end of character creation
+        character.addArmorProficiency("Light Armor", "Medium Armor", "Shields");
+        character.addWeaponProficiency("Simple Weapons", "Martial Weapons");
+        character.addSaves("Strength", "Constitution");
+        character.addTrait("Rage", "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.\n"
+                + "   While raging, you gain the following benefits if you aren't wearing heavy armor:\n"
+                + "     -You have advantage on Strength checks and Strength saving throws.\n"
+                + "     -When you make a melee weapon attack using Strength, you gain a bonus +2 to the damage roll (increases with level).\n"
+                + "     -You have resistance to bludgeoning, piercing, and slashing damage.\n"
+                + "If you are able to cast spells, you can't cast them or concentrate on them while raging.\n"
+                + "   Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and "
+                + "you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on "
+                + "your turn as a bonus action.\n"
+                + "   Once you have raged 2 times you must finish a long rest before you can rage again.");
+        character.addTrait("Unarmored Defense", "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your "
+                + "Constitution modifier. You can use a shield and still gain this benefit.");
     }
 }

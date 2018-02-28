@@ -16,11 +16,16 @@ import javafx.util.Pair;
 public class Character {
     private String raceName;
     private String subraceName;
+    private String className;
     private String alignment;
+    private String hitDice;
     private String size;
     private String spellCastingAbility;
     private ArrayList<Pair<String, String>> traits;
-    private ArrayList<String> proficiencies;
+    private ArrayList<String> armorProficiencies;
+    private ArrayList<String> weaponProficiencies;
+    private ArrayList<String> toolProficiencies;
+    private ArrayList<String> skills;
     private ArrayList<String> languages;
     private ArrayList<String> saves;
     private ArrayList<String> spells;
@@ -39,11 +44,16 @@ public class Character {
     public Character(){
         raceName="";
         subraceName="";
+        className="";
         alignment="";
+        hitDice="";
         size="";
         spellCastingAbility = "";
         traits = new ArrayList<>();
-        proficiencies = new ArrayList<>();
+        armorProficiencies = new ArrayList<>();
+        weaponProficiencies = new ArrayList<>();
+        toolProficiencies = new ArrayList<>();
+        skills = new ArrayList<>();
         languages = new ArrayList<>();
         saves = new ArrayList<>();
         spells = new ArrayList<>();
@@ -62,11 +72,16 @@ public class Character {
     public Character(Character r){
         this.raceName = r.raceName;
         this.subraceName = r.subraceName;
+        this.className = r.className;
         this.alignment = r.alignment;
+        this.hitDice = r.hitDice;
         this.size = r.size;
         this.spellCastingAbility = r.spellCastingAbility;
         this.traits = new ArrayList<>(r.traits);
-        this.proficiencies = new ArrayList<>(r.proficiencies);
+        this.armorProficiencies = new ArrayList<>(r.armorProficiencies);
+        this.weaponProficiencies = new ArrayList<>(r.weaponProficiencies);
+        this.toolProficiencies = new ArrayList<>(r.toolProficiencies);
+        this.skills = new ArrayList<>(r.skills);
         this.languages = new ArrayList<>(r.languages);
         this.saves = new ArrayList<>(r.saves);
         this.spells = new ArrayList<>(r.spells);
@@ -91,8 +106,16 @@ public class Character {
         return subraceName;
     }
     
+    public String getclassName(){
+        return className;
+    }
+    
     public String getAlignment(){
         return alignment;
+    }
+    
+    public String getHitDice(){
+        return hitDice;
     }
     
     public String getSize(){
@@ -234,8 +257,16 @@ public class Character {
         subraceName = r;
     }
     
+    public void setclassName(String r){
+        className = r;
+    }
+    
     public void setAlignment(String a){
         alignment = a;
+    }
+    
+    public void setHitDice(String h){
+        hitDice = h;
     }
     
     public void setSize(String s){
@@ -345,16 +376,28 @@ public class Character {
         traits.add(new Pair(trait, descrip));
     }
     
-    public void addProficiency(String... p){
-        proficiencies.addAll(Arrays.asList(p));
+    public void addArmorProficiency(String... p){
+        armorProficiencies.addAll(Arrays.asList(p));
+    }
+    
+    public void addWeaponProficiency(String... p){
+        weaponProficiencies.addAll(Arrays.asList(p));
+    }
+    
+    public void addToolProficiency(String... p){
+        toolProficiencies.addAll(Arrays.asList(p));
+    }
+    
+    public void addSkill(String... p){
+        skills.addAll(Arrays.asList(p));
     }
     
     public void addLanguage(String... l){
         languages.addAll(Arrays.asList(l));
     }
     
-    public void addSave(String s){
-        saves.add(s);
+    public void addSaves(String... s){
+        saves.addAll(Arrays.asList(s));
     }
     
     public void addSpell(String... spell){
@@ -386,18 +429,54 @@ public class Character {
     public void RemoveAllSpells(){
         spells.clear();
     }
+
+    public void RemoveLastArmorProficiency(){
+        armorProficiencies.remove(armorProficiencies.size()-1);
+    }
     
-    public void RemoveLastProficiency(){
-        proficiencies.remove(proficiencies.size()-1);
+    public void RemoveLastWeaponProficiency(){
+        weaponProficiencies.remove(weaponProficiencies.size()-1);
+    }
+    
+    public void RemoveLastToolProficiency(){
+        toolProficiencies.remove(toolProficiencies.size()-1);
+    }
+    
+    public void RemoveLastSkill(){
+        skills.remove(skills.size()-1);
     }
     
     //Remove specific proficiency given its name
-    public void RemoveProficiency(String... s){
-        proficiencies.removeAll(Arrays.asList(s));
+    public void RemoveArmorProficiency(String... s){
+        armorProficiencies.removeAll(Arrays.asList(s));
     }
     
-    public void RemoveAllProficiencies(){
-        proficiencies.clear();
+    public void RemoveWeaponProficiency(String... s){
+        weaponProficiencies.removeAll(Arrays.asList(s));
+    }
+    
+    public void RemoveToolProficiency(String... s){
+        toolProficiencies.removeAll(Arrays.asList(s));
+    }
+    
+    public void RemoveSkill(String... s){
+        skills.removeAll(Arrays.asList(s));
+    }
+    
+    public void RemoveAllArmorProficiencies(){
+        armorProficiencies.clear();
+    }
+    
+    public void RemoveAllWeaponProficiencies(){
+        weaponProficiencies.clear();
+    }
+    
+    public void RemoveAllToolProficiencies(){
+        toolProficiencies.clear();
+    }
+    
+    public void RemoveAllSkills(){
+        skills.clear();
     }
     
     public void RemoveLanuguage(String s){
@@ -426,9 +505,20 @@ public class Character {
         return traits.size();
     }
     
+    public int getArmorProficienciesSize(){
+        return armorProficiencies.size();
+    }
     
-    public int getProficienciesSize(){
-        return proficiencies.size();
+    public int getWeaponProficienciesSize(){
+        return weaponProficiencies.size();
+    }
+    
+    public int getToolProficienciesSize(){
+        return toolProficiencies.size();
+    }
+    
+    public int getSkillsSize(){
+        return skills.size();
     }
     
     public int getLanguagesSize(){
@@ -447,8 +537,20 @@ public class Character {
         return traits.get(index).getValue();
     }
     
-    public String getProficiency(int index){
-        return proficiencies.get(index);
+    public String getArmorProficiency(int index){
+        return armorProficiencies.get(index);
+    }
+    
+    public String getWeaponProficiency(int index){
+        return weaponProficiencies.get(index);
+    }
+    
+    public String getToolProficiency(int index){
+        return toolProficiencies.get(index);
+    }
+    
+    public String getSkills(int index){
+        return skills.get(index);
     }
     
     public ArrayList getAllLanguages(){
@@ -472,7 +574,8 @@ public class Character {
     }
     
     public boolean hasProficiency(String proficiency){
-        return proficiencies.contains(proficiency);
+        return (armorProficiencies.contains(proficiency) || weaponProficiencies.contains(proficiency) || 
+                toolProficiencies.contains(proficiency) || skills.contains(proficiency));
     }
     
     public boolean hasSpell(String spell){
@@ -502,7 +605,8 @@ public class Character {
     
     //for testing purposes
     public void printCharacter(){
-        System.out.println("Race: " + raceName + " Subrace: " + subraceName);
+        System.out.println("Race: " + raceName + " Subrace: " + subraceName + " Class: " + className);
+        System.out.println("HitDice: " + hitDice);
         System.out.println("Str:   Score: " + strScore + " Mod: " + strMod + " Save: " + strSave + " Bonus: " + strRaceBonus);
         System.out.println("Dex:   Score: " + dexScore + " Mod: " + dexMod + " Save: " + dexSave + " Bonus: " + dexRaceBonus);
         System.out.println("Con:   Score: " + conScore + " Mod: " + conMod + " Save: " + conSave + " Bonus: " + conRaceBonus);
@@ -513,7 +617,10 @@ public class Character {
 		System.out.println("Alignment: " + alignment + " Age: " + age + " Proficiency Bonus: " + proficiencyBonus);
 		System.out.println("Spellcasting Ability: " + spellCastingAbility);
         System.out.println("Languages: " + Arrays.toString(languages.toArray()));
-        System.out.println("Proficiencies: " + Arrays.toString(proficiencies.toArray()));
+        System.out.println("Armor Proficiencies: " + Arrays.toString(armorProficiencies.toArray()));
+        System.out.println("Weapon Proficiencies: " + Arrays.toString(weaponProficiencies.toArray()));
+        System.out.println("Tool Proficiencies: " + Arrays.toString(toolProficiencies.toArray()));
+        System.out.println("Skills: " + Arrays.toString(skills.toArray()));
         System.out.println("Saves: " + Arrays.toString(saves.toArray()));
         System.out.println("Spells: " + Arrays.toString(spells.toArray()));
         System.out.println("Traits: " + Arrays.toString(traits.toArray()));

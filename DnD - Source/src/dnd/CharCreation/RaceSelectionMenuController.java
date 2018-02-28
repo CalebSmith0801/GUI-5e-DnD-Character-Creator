@@ -52,6 +52,7 @@ public class RaceSelectionMenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         character = new Character();
         
+        
         //default is to display Aarakocra race + info
         raceBox.getSelectionModel().select(0);
         raceName.setText(raceBox.getValue());
@@ -390,7 +391,7 @@ public class RaceSelectionMenuController implements Initializable {
                 + " medium or heavy armor.");
         character.addTrait("Talons", "You are proficient with your unarmed strikes, which deal 1d4 slashing damage"
                 + " on a hit.");
-        character.addProficiency("Unarmed");
+        character.addSkill("Unarmed");
         character.addLanguage("Common", "Aarakocra", "Auran");
     }
     
@@ -439,7 +440,7 @@ public class RaceSelectionMenuController implements Initializable {
         character.addTrait("Sneaky", "You are proficient in the Stealth skill.");
         character.addTrait("Surprise Attack", "If you surprise a creature and hit it with an attack on your first turn in combat, "
                 + "the attack deals an extra 2d6 damage to it. You can use this trait only once per combat.");
-        character.addProficiency("Stealth");
+        character.addSkill("Stealth");
         character.addLanguage("Common", "Goblin");
     }
     
@@ -511,7 +512,7 @@ public class RaceSelectionMenuController implements Initializable {
         character.addTrait("Stonecunning", "Whenever you make an Intelligence (History) check related to the origin"
                 + " of stonework, you are considered proficient in the History skill and add double your "
                 + "proficiency bonus to the check, instead of your normal proficiency bonus.");
-        character.addProficiency("Battleaxe", "Handaxe", "Light Hammer", "Warhammer");
+        character.addWeaponProficiency("Battleaxe", "Handaxe", "Light Hammer", "Warhammer");
         character.addLanguage("Common", "Dwarvish");    
         
         switch(subraceBox.getValue()){
@@ -522,7 +523,7 @@ public class RaceSelectionMenuController implements Initializable {
                 break;
             case "Mountain Dwarf":
                 character.setStrRaceBonus(2);
-                character.addProficiency("Light Armor", "Medium Armor");
+                character.addArmorProficiency("Light Armor", "Medium Armor");
                 break;
             case "Gray Dwarf":
                 character.setStrRaceBonus(1);
@@ -555,17 +556,17 @@ public class RaceSelectionMenuController implements Initializable {
         character.addTrait("Fey Ancestry", "You have advantage on saving throws against being charmed, and magic can't put you to sleep.");
         character.addTrait("Trance", "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a "
                 + "day. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.");
-        character.addProficiency("Perception");
+        character.addSkill("Perception");
         character.addLanguage("Common", "Elvish");
         
         switch(subraceBox.getValue()){
             case "High Elf":
                 character.setIntRaceBonus(1);
-                character.addProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
+                character.addWeaponProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
                 break;
             case "Wood Elf":
                 character.setWisRaceBonus(1);
-                character.addProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
+                character.addWeaponProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
                 character.setSpeed(35);
                 character.addTrait("Mask of the Wild", "You can attempt to hide even when you are only lightly obscured by foliage,"
                         + " heavy rain, falling snow, mist, and other natural phenomena.");
@@ -582,11 +583,11 @@ public class RaceSelectionMenuController implements Initializable {
                 character.addTrait("Drow Magic", "You know the Dancing Lights cantrip. Charisma is your spellcasting ability for it.");
                 character.addSpell("Dancing Lights");
                 character.setDarkVision(120);
-                character.addProficiency("Rapier", "Shortsword", "Hand Crossbow");
+                character.addWeaponProficiency("Rapier", "Shortsword", "Hand Crossbow");
                 break;
             case "Eladrin":
                 character.setIntRaceBonus(1);
-                character.addProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
+                character.addWeaponProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
                 character.addTrait("Fey Step", "You can cast the Misty Step spell once using this trait. You regain the ability to do"
                         + " so when you finish a short or long rest.");
                 character.addSpell("Misty Step");
@@ -700,7 +701,7 @@ public class RaceSelectionMenuController implements Initializable {
                         + "Using the device requires your action.\n\n"
                         + "Music Box: When opened, this music box plays a single song at a moderate volume. The box stops playing when it "
                         + "reaches the song's end or when it is closed.");
-                character.addProficiency("Artisan's Tools (Tinker's Tools");
+                character.addToolProficiency("Artisan's Tools (Tinker's Tools");
                 break;
             case "Deep Gnome":
                 character.setDexRaceBonus(1);
@@ -741,7 +742,7 @@ public class RaceSelectionMenuController implements Initializable {
         character.setSize("Medium");
         character.setSpeed(30);
         character.addTrait("Natural Athlete", "You have proficiency in the Athletics skill.");
-        character.addProficiency("Athletics");
+        character.addSkill("Athletics");
         character.addTrait("Stone's Endurance", "You can focus yourself to occasionally shrug off injury. When you take damage, you can use"
                 + " your reaction to roll a d12. Add your Constitution modifier to the number rolled, and reduce the damage by that total. "
                 + "After you use this trait, you can't use it again until you finish a short or long rest.");
@@ -807,7 +808,7 @@ public class RaceSelectionMenuController implements Initializable {
                 + "light, and in darkness as if it were dim light. You can't discern color in darkness, "
                 + "only shades of gray.");
         character.addTrait("Menacing", "You gain proficiency in the Intimidation skill.");
-        character.addProficiency("Intimidation");
+        character.addSkill("Intimidation");
         character.addTrait("Relentless Endurance", "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit "
                 + "point instead. You can't use this feature again until you finish a long rest.");
         character.addTrait("Savage Attacks", "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's "
@@ -824,7 +825,7 @@ public class RaceSelectionMenuController implements Initializable {
         character.addTrait("Darkvision", "You can see in dim light within 60 feet of you as if it were bright "
                 + "light, and in darkness as if it were dim light. You can't discern color in darkness, "
                 + "only shades of gray.");
-        character.addProficiency("Light Armor");
+        character.addArmorProficiency("Light Armor");
         character.addTrait("Saving Face", "Hobgoblins are careful not to show weakness in front of their allies, for fear of "
                 + "losing status. If you miss with an attack roll or fail an ability check or a saving throw, you can gain a "
                 + "bonus to the roll equal to the number of allies you can see within 30 feet of you (maximum bonus of +5). "
@@ -912,7 +913,7 @@ public class RaceSelectionMenuController implements Initializable {
         character.addTrait("Aggressive", "As a bonus action, you can move up to your speed toward an enemy of your choice"
                 + " that you can see or hear. You must end this move closer to the enemy than you started.");
         character.addTrait("Menacing", "You are proficient in the Intimidation skill.");
-        character.addProficiency("Intimidation");
+        character.addSkill("Intimidation");
         character.addTrait("Powerful Build", "You count as one size larger when determining your carrying capacity and the "
                 + "weight you can push, drag, or lift.");
         character.addLanguage("Common", "Orc");
@@ -934,7 +935,7 @@ public class RaceSelectionMenuController implements Initializable {
                 + " weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to ld4 + your"
                 + " Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.");
         character.addTrait("Cat's Talent", "You have proficiency in the Perception and Stealth skills.");
-        character.addProficiency("Perception", "Stealth");
+        character.addSkill("Perception", "Stealth");
         character.addLanguage("Common");
     }
     
@@ -979,7 +980,7 @@ public class RaceSelectionMenuController implements Initializable {
                 + "action you can take is a bonus action to emerge from your shell.");
         character.addTrait("Survival Instinct", "You gain proficiency in the Survival skill. Tortles have finely honed survival "
                 + "instincts.");
-        character.addProficiency("Survival");
+        character.addSkill("Survival");
         character.addLanguage("Aquan", "Common");
     }
     

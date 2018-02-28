@@ -5,7 +5,7 @@
 //NEXT WINDOW: ClassMenu                                                      //
 //                                                                            //
 //Changes to Character in this Window:                                        //
-//---Add proficiency                                                          //
+//---Add toolProficiency                                                          //
 //============================================================================//
 package dnd.CharCreation.Races;
 
@@ -81,7 +81,7 @@ public class DwarfToolProficiencyMenuController implements Initializable {
         String[] selection = SelectedRB.getText().split("-"); //Example text of RadioButton text is 'Smith's tools - (Metalwork)'
         character.addTrait("Tool Proficiency", "You gain proficiency with " + selection[0].trim() +
                       "\nLet's you add your proficiency to any ability checks you make using the those tools.");
-        character.addProficiency(selection[0].trim());
+        character.addToolProficiency(selection[0].trim());
         prevWindows.add("Races/DwarfToolProficiencyMenu.fxml");
 
         Parent root;

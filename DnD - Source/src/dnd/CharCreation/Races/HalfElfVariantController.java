@@ -140,10 +140,10 @@ public class HalfElfVariantController implements Initializable {
             switch(lv.getSelectionModel().getSelectedItem()){
                 case "Keen Senses":
                     character.addTrait("Keen Senses", "You are proficient in the Perception skill.");
-                    character.addProficiency("Perception");
+                    character.addSkill("Perception");
                     break;
                 case "Elf Weapon Training":
-                    character.addProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
+                    character.addWeaponProficiency("Longsword", "Shortsword", "Shortbow", "Longbow");
                     break;
                 case "Fleet of Foot":
                     character.setSpeed(35);

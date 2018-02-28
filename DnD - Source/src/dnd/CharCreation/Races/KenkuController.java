@@ -81,7 +81,7 @@ public class KenkuController implements Initializable {
     private void nextButton(){
         prevWindows.add("Races/Kenku.fxml");
         selectedCB.forEach((cb) -> {
-            character.addProficiency(cb.getText());
+            character.addSkill(cb.getText());
         });
         Parent root;
         try{

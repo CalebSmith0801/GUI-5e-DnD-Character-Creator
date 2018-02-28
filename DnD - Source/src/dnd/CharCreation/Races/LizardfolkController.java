@@ -83,7 +83,7 @@ public class LizardfolkController implements Initializable {
     private void nextButton(){
         prevWindows.add("Races/Lizardfolk.fxml");
         selectedCB.forEach((cb) -> {
-            character.addProficiency(cb.getText());
+            character.addSkill(cb.getText());
         });
         Parent root;
         try{

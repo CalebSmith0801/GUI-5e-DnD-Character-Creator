@@ -1,88 +1,41 @@
-//============================================================================//
-//PREVIOUS WINDOWS: raceSelectionMenu                                         //
-//                 (loads when race = Hobgoblin)                              //
-//                                                                            //
-//NEXT WINDOW: ClassMenu                                                      //
-//                                                                            //
-//Changes to Character in this Window:                                        //
-//---Add two Martial weapon proficiencies                                     //
-//============================================================================//
-package dnd.CharCreation.Races;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dnd.CharCreation.ClassMenus;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
-import dnd.Character;
 import dnd.CharCreation.ClassMenuController;
 import dnd.CharCreation.RaceSelectionMenuController;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-/**
- * FXML Controller class
- *
- * @author calebs
- */
-public class MartialWeaponProfMenuController implements Initializable {
 
-    private Character character;
+public class BarbarianSkillsMenuController implements Initializable {
+
+    private dnd.Character character;
     private ArrayList<String> prevWindows;
-    private final ArrayList<CheckBox> selectedCB = new ArrayList<>();
-    private ArrayList<CheckBox> unselectedCB;
-    private int choices = 0;
     @FXML private Button nextBut;
     @FXML private Button backBut;
-    @FXML ArrayList<CheckBox> cblist;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        AddListener(cblist);
-        unselectedCB = new ArrayList<>(cblist);
-    }
-
-    private void AddListener(ArrayList<CheckBox> list){
-        for(CheckBox cb : list){
-            cb.selectedProperty().addListener((observable, oldValue, newValue) ->{
-            if (newValue.equals(true)){
-                selectedCB.add(cb);
-                unselectedCB.remove(cb);
-                choices++;
-            }
-            else{
-                selectedCB.remove(cb);
-                unselectedCB.add(cb);
-                choices--;
-            }
-            if (choices == 2){
-                unselectedCB.forEach((checkbox) -> {
-                    checkbox.setDisable(true);
-                });
-                nextBut.setDisable(false);
-            }
-            else{
-                unselectedCB.forEach((checkbox) -> {
-                    checkbox.setDisable(false);
-                });
-                nextBut.setDisable(true);
-            }
-        });
-        }
+        // TODO
     }
     
     @FXML
     private void nextButton(){
-        prevWindows.add("Races/MartialWeaponProfMenu.fxml");
-        selectedCB.forEach((checkbox) -> {
-            character.addWeaponProficiency(checkbox.getText());
-        });
+        prevWindows.add("Races/Lizardfolk.fxml");
         Parent root;
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/ClassMenu.fxml"));
@@ -141,28 +94,14 @@ public class MartialWeaponProfMenuController implements Initializable {
         });
         stage.show();
     }
-    
-    public void setCharacter(Character c){
-        character = new Character(c);
+
+
+    public void setCharacter(dnd.Character r){
+        character = new dnd.Character(r);
     }
-    
-    public void setSceneOnReload(ArrayList<String> prevWeaponChoices){
-        cblist.forEach((CheckBox checkbox) -> {
-            prevWeaponChoices.forEach((String weapon) -> { 
-                if (checkbox.getText().equals(weapon))
-                    checkbox.setSelected(true);
-            });
-        });
-    }
-    
-    //Needed so back button knows which window to transition to since the ExtraLanguageMenu
-    //is used in multiple combinations
+   
     public void setPreviousWindows(ArrayList<String> list){
         prevWindows = new ArrayList(list);
     }
     
-    public void testPrint(){
-        character.printCharacter();
-        System.out.println(prevWindows.toString());
-    }
 }
