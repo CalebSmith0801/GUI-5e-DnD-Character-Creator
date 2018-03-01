@@ -28,6 +28,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import dnd.Character;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.stage.WindowEvent;
@@ -46,12 +51,13 @@ public class RaceSelectionMenuController implements Initializable {
     @FXML private ImageView racePic;
     @FXML private Button nextBut;
     @FXML private Button backBut;
+    @FXML private Button plus;
+    @FXML private Button minus;
     private Character character;
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        character = new Character();
-        
+        character = new Character();             
         
         //default is to display Aarakocra race + info
         raceBox.getSelectionModel().select(0);
@@ -379,6 +385,66 @@ public class RaceSelectionMenuController implements Initializable {
                 break;
         }
     }
+    
+    //increase html body font size to 13
+    @FXML
+    private void plusButton(ActionEvent event){ 
+        changeHtmlTextSize("plus");
+    }
+    
+    @FXML
+    private void minusButton(ActionEvent event){ 
+        changeHtmlTextSize("minus");
+    }
+    
+    private void changeHtmlTextSize(String direction){
+        ArrayList<String> results = new ArrayList<>();
+        File[] files = new File("Data/RaceInfo").listFiles(new FilenameFilter(){ 
+            @Override 
+            public boolean accept(File dir, String name){ 
+                return name.endsWith(".html"); 
+            } 
+        });
+        
+        for (File file : files){
+            File raceFile = file;
+            String oldContent = "";
+            String newContent = "";
+            try{
+                BufferedReader reader = new BufferedReader(new FileReader(raceFile));
+                String line = reader.readLine();
+                while(line != null){
+                    oldContent = oldContent + line + System.lineSeparator();
+                    line = reader.readLine();
+                }
+                
+                if (direction.equals("plus")){
+                    newContent = oldContent.replaceAll("<body style = \"Font-family: Segoe UI; Font-size:12px\";>", 
+                                                       "<body style = \"Font-family: Segoe UI; Font-size:13px\";>");
+                    plus.setDisable(true);
+                    minus.setDisable(false);
+                }
+                
+                else{
+                    newContent = oldContent.replaceAll("<body style = \"Font-family: Segoe UI; Font-size:13px\";>", 
+                                                       "<body style = \"Font-family: Segoe UI; Font-size:12px\";>");
+                    plus.setDisable(false);
+                    minus.setDisable(true);
+                }
+                FileWriter writer = new FileWriter(raceFile);
+                writer.write(newContent);
+                reader.close();
+                writer.close();
+            }
+            catch (Exception e){
+                System.out.println("Error reading/modifying/writing contents");
+            }
+            SetupRaceInfoWebView(raceName.getText());
+        }
+    }
+    
+    
+    
 
     
     //***********************Setting Character Traits***********************//

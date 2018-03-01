@@ -23,13 +23,13 @@
          <font>
             <Font size="13.0" />
          </font></Label>
-      <RadioButton layoutX="175.0" layoutY="94.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="172.0" text="Smith's Tools - (Metalwork)">
+      <RadioButton layoutX="200.0" layoutY="87.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="172.0" text="Smith's Tools - (Metalwork)">
           <toggleGroup>
             <ToggleGroup fx:id="choices" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="175.0" layoutY="123.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="221.0" text="Brewer's Supplies - (Brewing Drinks)" toggleGroup="$choices" />
-      <RadioButton layoutX="175.0" layoutY="152.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="184.0" text="Mason's Tools - (Stonework)" toggleGroup="$choices" />
+      <RadioButton layoutX="200.0" layoutY="116.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="221.0" text="Brewer's Supplies - (Brewing Drinks)" toggleGroup="$choices" />
+      <RadioButton layoutX="200.0" layoutY="145.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="184.0" text="Mason's Tools - (Stonework)" toggleGroup="$choices" />
       <Button fx:id="dwarfNextBut" disable="true" layoutX="506.0" layoutY="227.0" mnemonicParsing="false" onAction="#dwarfNext" prefHeight="34.0" prefWidth="80.0" text="Next">
          <font>
             <Font name="Segoe UI" size="15.0" />

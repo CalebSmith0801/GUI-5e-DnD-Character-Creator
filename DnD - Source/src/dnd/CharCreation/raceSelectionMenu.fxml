@@ -2,6 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -77,9 +78,9 @@
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label layoutX="222.0" layoutY="58.0" text="Note: this application stores all data, you don't need to memorize anything.">
+            <Label layoutX="210.0" layoutY="58.0" text="Note: this application stores all data, you don't need to memorize anything.">
                <font>
-                  <Font name="Segoe UI Italic" size="11.0" />
+                  <Font name="Segoe UI Italic" size="12.0" />
                </font>
             </Label>
             <WebView fx:id="wv" blendMode="DARKEN" layoutX="400.0" layoutY="120.0" prefHeight="450.0" prefWidth="368.0" stylesheets="@../CSS/WindowsScrollBar.css" />
@@ -103,11 +104,21 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Button>
-            <Label layoutX="256.0" layoutY="602.0" text="Any choice required will be provided on the following screens">
+            <Label layoutX="247.0" layoutY="602.0" text="Any choice required will be provided on the following screens">
                <font>
-                  <Font name="Segoe UI Italic" size="11.0" />
+                  <Font name="Segoe UI Italic" size="12.0" />
                </font>
             </Label>
+            <Button fx:id="plus" layoutX="772.0" layoutY="133.0" mnemonicParsing="false" onAction="#plusButton" opacity="0.16" prefHeight="25.0" prefWidth="29.0" text="+">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="minus" layoutX="772.0" layoutY="165.0" mnemonicParsing="false" onAction="#minusButton" opacity="0.21" prefHeight="25.0" prefWidth="29.0" text="-">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
          </children>
       </AnchorPane>
    </children>

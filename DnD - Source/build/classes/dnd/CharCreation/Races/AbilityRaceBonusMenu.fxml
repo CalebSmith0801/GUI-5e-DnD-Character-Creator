@@ -13,12 +13,30 @@
             <Font name="Copperplate Gothic Light" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="95.0" layoutY="60.0" text="Choose two abilities scores that you want to increase by 1" />
-      <CheckBox fx:id="strCB" layoutX="120.0" layoutY="98.0" mnemonicParsing="false" text="Strength" />
-      <CheckBox fx:id="dexCB" layoutX="120.0" layoutY="138.0" mnemonicParsing="false" text="Dexterity" />
-      <CheckBox fx:id="intCB" layoutX="325.0" layoutY="98.0" mnemonicParsing="false" text="Intelligence" />
-      <CheckBox fx:id="wisCB" layoutX="325.0" layoutY="138.0" mnemonicParsing="false" text="Wisdom" />
-      <CheckBox fx:id="conCB" layoutX="120.0" layoutY="178.0" mnemonicParsing="false" text="Constitution" />
+      <Label alignment="CENTER" layoutX="1.0" layoutY="62.0" prefHeight="17.0" prefWidth="572.0" text="Choose two abilities scores that you want to increase by 1">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <CheckBox fx:id="strCB" layoutX="131.0" layoutY="98.0" mnemonicParsing="false" text="Strength">
+         <font>
+            <Font size="13.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="dexCB" layoutX="130.0" layoutY="135.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Dexterity">
+         <font>
+            <Font size="13.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="intCB" layoutX="325.0" layoutY="98.0" mnemonicParsing="false" text="Intelligence">
+         <font>
+            <Font size="13.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="wisCB" layoutX="325.0" layoutY="138.0" mnemonicParsing="false" text="Wisdom">
+         <font>
+            <Font size="13.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="conCB" layoutX="131.0" layoutY="177.0" mnemonicParsing="false" text="Constitution">
+         <font>
+            <Font size="13.0" />
+         </font></CheckBox>
       <Label fx:id="halfElflabel" layoutX="101.0" layoutY="235.0" text="You charisma score already increases by 2 due to your racial trait">
          <font>
             <Font size="13.0" />
