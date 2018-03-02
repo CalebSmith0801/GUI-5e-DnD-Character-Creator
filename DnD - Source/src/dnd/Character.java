@@ -557,6 +557,10 @@ public class Character {
         return languages;
     }
     
+    public ArrayList getAllSkills(){
+        return skills;
+    }
+    
     public String getLanguage(int index){
         return languages.get(index);
     }

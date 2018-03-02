@@ -118,7 +118,7 @@ public class ClassMenuController implements Initializable {
             switch(classBox.getValue()){
                 case "Barbarian":
                     setBarbarianTraits();
-                    loader = new FXMLLoader(getClass().getResource("Classes/BarbarianSkillsMenu.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("ClassMenus/BarbarianSkillsMenu.fxml"));
                     root = loader.load();
                     BarbarianSkillsMenuController barbSkillCtrl = loader.getController();
                     barbSkillCtrl.setCharacter(character);

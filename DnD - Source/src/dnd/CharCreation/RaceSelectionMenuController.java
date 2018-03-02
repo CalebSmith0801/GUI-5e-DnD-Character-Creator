@@ -36,7 +36,6 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.stage.WindowEvent;
-import javax.swing.text.StyleConstants;
 
 /**
  *

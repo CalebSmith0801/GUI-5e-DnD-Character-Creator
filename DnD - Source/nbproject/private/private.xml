@@ -13,8 +13,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/RaceSelectionMenuController.java</file>
-            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/StartMenu.fxml</file>
-            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/raceSelectionMenu.fxml</file>
+            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/ClassMenus/BarbarianSkillsMenu.fxml</file>
+            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/ClassMenus/BarbarianSkillsMenuController.java</file>
+            <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/CharCreation/ClassMenuController.java</file>
             <file>file:/C:/Users/calebs/Documents/GitHub/GUI-5e-DnD-Character-Creator/DnD%20-%20Source/src/dnd/Character.java</file>
         </group>
     </open-files>
