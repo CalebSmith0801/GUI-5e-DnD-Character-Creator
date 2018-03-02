@@ -400,7 +400,6 @@ public class RaceSelectionMenuController implements Initializable {
     }
     
     private void changeHtmlTextSize(String direction){
-        ArrayList<String> results = new ArrayList<>();
         File[] files = new File("Data/RaceInfo").listFiles(new FilenameFilter(){ 
             @Override 
             public boolean accept(File dir, String name){ 
