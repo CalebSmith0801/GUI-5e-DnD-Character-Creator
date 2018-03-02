@@ -36,6 +36,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.stage.WindowEvent;
+import javax.swing.text.StyleConstants;
 
 /**
  *
@@ -245,9 +246,10 @@ public class RaceSelectionMenuController implements Initializable {
     }
     
     public void SetupRaceInfoWebView(String race){
-         wv.getEngine().loadContent(readDataFile("RaceInfo/"+race));
-         //Apply CSS to HTML Accordions
-         wv.getEngine().setUserStyleSheetLocation(getClass().getResource("/dnd/CSS/Accordion.css").toString());
+        wv.getEngine().loadContent(readDataFile("RaceInfo/"+race));
+         
+        //Apply CSS to HTML Accordions
+        wv.getEngine().setUserStyleSheetLocation(getClass().getResource("/dnd/CSS/Accordion.css").toString());
     }
     
     public String readDataFile(String Name){
@@ -386,7 +388,7 @@ public class RaceSelectionMenuController implements Initializable {
         }
     }
     
-    //increase html body font size to 13
+    //increase html body font size
     @FXML
     private void plusButton(ActionEvent event){ 
         changeHtmlTextSize("plus");
@@ -413,34 +415,36 @@ public class RaceSelectionMenuController implements Initializable {
             try{
                 BufferedReader reader = new BufferedReader(new FileReader(raceFile));
                 String line = reader.readLine();
+                int currentSize = Integer.parseInt(line.replaceAll("[\\W+]", "").trim());
                 while(line != null){
                     oldContent = oldContent + line + System.lineSeparator();
                     line = reader.readLine();
                 }
                 
-                if (direction.equals("plus")){
-                    newContent = oldContent.replaceAll("<body style = \"Font-family: Segoe UI; Font-size:12px\";>", 
-                                                       "<body style = \"Font-family: Segoe UI; Font-size:13px\";>");
-                    plus.setDisable(true);
-                    minus.setDisable(false);
+                if (direction.equals("plus") && currentSize < 14){
+                    newContent = oldContent.replace("<!-- " + currentSize +" -->", "<!-- " + (currentSize+1) +" -->")
+                                           .replace("<body style = \"Font-family: Segoe UI; Font-size:" + currentSize + "px\";>", 
+                                                    "<body style = \"Font-family: Segoe UI; Font-size:" + (currentSize+1) +"px\";>");
                 }
                 
-                else{
-                    newContent = oldContent.replaceAll("<body style = \"Font-family: Segoe UI; Font-size:13px\";>", 
-                                                       "<body style = \"Font-family: Segoe UI; Font-size:12px\";>");
-                    plus.setDisable(false);
-                    minus.setDisable(true);
+                else if (direction.equals("minus") && currentSize > 11){
+                    newContent = oldContent.replace("<!-- " + currentSize +" -->", "<!-- " + (currentSize-1) +" -->")
+                                           .replace("<body style = \"Font-family: Segoe UI; Font-size:" + currentSize + "px\";>", 
+                                                    "<body style = \"Font-family: Segoe UI; Font-size:" + (currentSize-1) +"px\";>");
                 }
-                FileWriter writer = new FileWriter(raceFile);
-                writer.write(newContent);
+                
+                if (!newContent.equals("")){
+                    FileWriter writer = new FileWriter(raceFile);
+                    writer.write(newContent);
+                    writer.close();
+                }
                 reader.close();
-                writer.close();
             }
             catch (Exception e){
                 System.out.println("Error reading/modifying/writing contents");
             }
-            SetupRaceInfoWebView(raceName.getText());
         }
+        SetupRaceInfoWebView(raceName.getText());
     }
     
     
@@ -563,8 +567,7 @@ public class RaceSelectionMenuController implements Initializable {
         character.addLanguage("Common", "Draconic");
         
     }
-    
-    
+      
     private void setDwarfTraits(){
         character.setConRaceBonus(2);
         character.setSpeed(25);
