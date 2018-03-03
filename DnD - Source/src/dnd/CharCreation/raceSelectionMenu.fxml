@@ -113,6 +113,9 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
             <Button fx:id="minus" layoutX="772.0" layoutY="165.0" mnemonicParsing="false" onAction="#minusButton" opacity="0.21" prefHeight="25.0" prefWidth="29.0" text="-">
                <opaqueInsets>

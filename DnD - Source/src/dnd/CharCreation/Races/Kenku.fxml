@@ -13,7 +13,7 @@
             <Font name="Copperplate Gothic Light" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="142.0" layoutY="57.0" text="Choose two of the skills below to become proficient in" />
+      <Label alignment="CENTER" layoutY="57.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="572.0" text="Choose two of the skills below to become proficient in" textAlignment="CENTER" />
       <CheckBox fx:id="acrobaticsCB" layoutX="120.0" layoutY="98.0" mnemonicParsing="false" text="Acrobatics" />
       <CheckBox fx:id="deceptionCB" layoutX="120.0" layoutY="138.0" mnemonicParsing="false" text="Deception" />
       <CheckBox fx:id="stealthCB" layoutX="325.0" layoutY="98.0" mnemonicParsing="false" text="Stealth" />
