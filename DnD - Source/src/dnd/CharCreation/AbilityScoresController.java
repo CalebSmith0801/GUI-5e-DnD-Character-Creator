@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,24 +50,8 @@ public class AbilityScoresController implements Initializable {
     @FXML private Label intModLabel;
     @FXML private Label wisModLabel;
     @FXML private Label charModLabel;
-    @FXML private TextField customStrTF;
-    @FXML private TextField customDexTF;
-    @FXML private TextField customConTF;
-    @FXML private TextField customIntTF;
-    @FXML private TextField customWisTF;
-    @FXML private TextField customCharTF;
-    @FXML private Label simpleStrText;
-    @FXML private Label simpleDexText;
-    @FXML private Label simpleConText;
-    @FXML private Label simpleIntText;
-    @FXML private Label simpleWisText;
-    @FXML private Label simpleCharText;
-    @FXML private Label simple15;
-    @FXML private Label simple14;
-    @FXML private Label simple13;
-    @FXML private Label simple12;
-    @FXML private Label simple10;
-    @FXML private Label simple8;
+    @FXML private TextField customStrTF, customDexTF, customConTF;
+    @FXML private TextField customIntTF, customWisTF, customCharTF;
     @FXML private Label pointStr;
     @FXML private Label pointDex;
     @FXML private Label pointCon;
@@ -93,7 +78,9 @@ public class AbilityScoresController implements Initializable {
     @FXML private GridPane customPane;
     @FXML private GridPane simplePane;
     @FXML private AnchorPane pointPane;
+    @FXML private GridPane pointGridPane;
     @FXML private AnchorPane rollPane;
+    ArrayList<Button> pointBuyPlusButtons;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -103,6 +90,35 @@ public class AbilityScoresController implements Initializable {
         MakeIntTextField(customIntTF);
         MakeIntTextField(customWisTF);
         MakeIntTextField(customCharTF);
+        setPointBuyLimit(pointStr);
+        setPointBuyLimit(pointDex);
+        setPointBuyLimit(pointCon);
+        setPointBuyLimit(pointInt);
+        setPointBuyLimit(pointWis);
+        setPointBuyLimit(pointChar);
+        pointBuyPlusButtons = new ArrayList<>(Arrays.asList((Button) getNodeFromGridPane(pointGridPane, 3, 0), 
+                                                            (Button) getNodeFromGridPane(pointGridPane, 3, 1),
+                                                            (Button) getNodeFromGridPane(pointGridPane, 3, 2),
+                                                            (Button) getNodeFromGridPane(pointGridPane, 3, 3),
+                                                            (Button) getNodeFromGridPane(pointGridPane, 3, 4),
+                                                            (Button) getNodeFromGridPane(pointGridPane, 3, 5)));
+
+        pointsRemaining.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (newValue.equals("0")){
+                for (Button button : pointBuyPlusButtons){
+                    button.setDisable(true);
+                    nextBut.setDisable(false);
+                }
+            }
+            else if (newValue.equals("1")){
+                ArrayList<Label> pointBuyAbilityLabels= new ArrayList<>(Arrays.asList(pointStr, pointDex, pointCon, pointInt, pointWis, pointChar));
+                for (int i = 0; i < 6; i++){
+                    if (!pointBuyAbilityLabels.get(i).getText().equals("15"))
+                        pointBuyPlusButtons.get(i).setDisable(false);
+                }
+                    
+            }
+        });
     }
     
     
@@ -123,6 +139,12 @@ public class AbilityScoresController implements Initializable {
                 String s = tf.getText().substring(0, 2);
                 tf.setText(s);
             }
+            
+            if (tf.getText().length() == 0)
+                nextBut.setDisable(true);
+            else
+               nextBut.setDisable(false);
+            
         });
         RemoveUndoRedoShortcut(tf);
     }
@@ -135,6 +157,25 @@ public class AbilityScoresController implements Initializable {
         });
     }
     
+    private void setPointBuyLimit(Label abilityLabel){
+        abilityLabel.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                Button minusButton = (Button) getNodeFromGridPane(pointGridPane, 1, GridPane.getRowIndex(abilityLabel));
+                Button plusButton = (Button) getNodeFromGridPane(pointGridPane, 3, GridPane.getRowIndex(abilityLabel));
+                if (newValue.equals("8"))
+                   minusButton.setDisable(true);               
+                else if (newValue.equals("15"))
+                   plusButton.setDisable(true);
+                else{
+                    minusButton.setDisable(false);
+                    plusButton.setDisable(false);
+                }
+                
+            }
+        }); 
+    }
+    
     //Definately feels hacky, probably a better way but it created a string of the form +2 Dex, +1 Wis from race bonuses.
     private void setupRaceBonusLabels(){
         ArrayList<String> abilityNames = new ArrayList<>(Arrays.asList("Str", "Dex", "Con", "Int", "Wis", "Char"));
@@ -143,7 +184,7 @@ public class AbilityScoresController implements Initializable {
         for (int i = 0; i < 6; i++){
             if (raceBonuses.get(i) < 0)
                 bonusConstruct.add(raceBonuses.get(i) + " " + abilityNames.get(i));
-            if (raceBonuses.get(i) > 0)
+            else if (raceBonuses.get(i) > 0)
                 bonusConstruct.add("+" + raceBonuses.get(i) + " " + abilityNames.get(i));
         }
         bonus = bonusConstruct.get(0);
@@ -171,7 +212,11 @@ public class AbilityScoresController implements Initializable {
         pointLine.setStrokeWidth(1);
         rollLine.setStrokeWidth(1);
         setModifiers(Integer.parseInt(0 + customStrTF.getText()), Integer.parseInt(0 + customDexTF.getText()), Integer.parseInt(0 + customConTF.getText()), 
-                     Integer.parseInt(0 + customIntTF.getText()), Integer.parseInt(0+ customWisTF.getText()), Integer.parseInt(0 + customCharTF.getText()));        
+                     Integer.parseInt(0 + customIntTF.getText()), Integer.parseInt(0+ customWisTF.getText()), Integer.parseInt(0 + customCharTF.getText())); 
+
+        if (customStrTF.getText().equals("") || customDexTF.getText().equals("") || customConTF.getText().equals("") || 
+            customIntTF.getText().equals("") || customWisTF.getText().equals("") || customCharTF.getText().equals(""))
+            nextBut.setDisable(true);
     }
     
     @FXML
@@ -194,6 +239,7 @@ public class AbilityScoresController implements Initializable {
         rollLine.setStrokeWidth(1);
         abilities = getAbilitiesFromGrid(simplePane);
         setModifiers(abilities.get(0), abilities.get(1), abilities.get(2), abilities.get(3), abilities.get(4), abilities.get(5));
+        nextBut.setDisable(false);
     }
     
     @FXML
@@ -214,6 +260,11 @@ public class AbilityScoresController implements Initializable {
         simpleLine.setStrokeWidth(1);
         pointLine.setStrokeWidth(3);
         rollLine.setStrokeWidth(1);
+        abilities = getAbilitiesFromGrid(pointGridPane);
+        setModifiers(Integer.parseInt(pointStr.getText()), Integer.parseInt(pointDex.getText()), Integer.parseInt(pointCon.getText()),
+                     Integer.parseInt(pointInt.getText()), Integer.parseInt(pointWis.getText()), Integer.parseInt(pointChar.getText()));
+        if (!pointsRemaining.getText().equals("0"))
+            nextBut.setDisable(true);
     }
     
     @FXML
@@ -234,6 +285,7 @@ public class AbilityScoresController implements Initializable {
         simpleLine.setStrokeWidth(1);
         pointLine.setStrokeWidth(1);
         rollLine.setStrokeWidth(3);
+        nextBut.setDisable(false);
     }
 
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
@@ -276,7 +328,7 @@ public class AbilityScoresController implements Initializable {
                         break;
                 }
             }
-        }
+        }            
         
         else{
             
@@ -368,8 +420,81 @@ public class AbilityScoresController implements Initializable {
                 System.out.println("Misspelling");
         }
         abilities = getAbilitiesFromGrid(simplePane);
-        System.out.println(abilities);
         setModifiers(abilities.get(0), abilities.get(1), abilities.get(2), abilities.get(3), abilities.get(4), abilities.get(5));
+    }
+    
+    @FXML
+    private void increaseStr(){
+        increaseAbilitiyPoint(pointStr);
+    }
+    
+    @FXML
+    private void increaseDex(){
+        increaseAbilitiyPoint(pointDex);
+    }
+    
+    @FXML
+    private void increaseCon(){
+        increaseAbilitiyPoint(pointCon);
+    }
+    
+    @FXML
+    private void increaseInt(){
+        increaseAbilitiyPoint(pointInt);
+    }
+    
+    @FXML
+    private void increaseWis(){
+        increaseAbilitiyPoint(pointWis);
+    }
+    
+    @FXML
+    private void increaseChar(){
+        increaseAbilitiyPoint(pointChar);
+    }
+    
+    @FXML
+    private void decreaseStr(){
+        decreaseAbilitiyPoint(pointStr);
+    }
+    
+    @FXML
+    private void decreaseDex(){
+        decreaseAbilitiyPoint(pointDex);
+    }
+    
+    @FXML
+    private void decreaseCon(){
+        decreaseAbilitiyPoint(pointCon);
+    }
+    
+    @FXML
+    private void decreaseInt(){
+        decreaseAbilitiyPoint(pointInt);
+    }
+    
+    @FXML
+    private void decreaseWis(){
+        decreaseAbilitiyPoint(pointWis);
+    }
+    
+    @FXML
+    private void decreaseChar(){
+        decreaseAbilitiyPoint(pointChar);
+    }
+    
+    private void increaseAbilitiyPoint(Label abilityLabel){
+        abilityLabel.setText(Integer.toString(Integer.parseInt(abilityLabel.getText())+1));
+        pointsRemaining.setText(Integer.toString(Integer.parseInt(pointsRemaining.getText())-1));
+        setModifiers(Integer.parseInt(pointStr.getText()), Integer.parseInt(pointDex.getText()), Integer.parseInt(pointCon.getText()),
+                     Integer.parseInt(pointInt.getText()), Integer.parseInt(pointWis.getText()), Integer.parseInt(pointChar.getText()));
+    }
+    
+    private void decreaseAbilitiyPoint(Label abilityLabel){
+        abilityLabel.setText(Integer.toString(Integer.parseInt(abilityLabel.getText())-1));
+        pointsRemaining.setText(Integer.toString(Integer.parseInt(pointsRemaining.getText())+1));
+        setModifiers(Integer.parseInt(pointStr.getText()), Integer.parseInt(pointDex.getText()), Integer.parseInt(pointCon.getText()),
+                     Integer.parseInt(pointInt.getText()), Integer.parseInt(pointWis.getText()), Integer.parseInt(pointChar.getText()));
     }
     
     @FXML
