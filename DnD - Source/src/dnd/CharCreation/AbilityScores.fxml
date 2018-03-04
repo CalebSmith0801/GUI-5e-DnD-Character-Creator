@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.AbilityScoresController">
+    <children>
+      <Label layoutX="68.0" layoutY="14.0" text="Feral Tiefling Trait Replacement">
+         <font>
+            <Font name="Copperplate Gothic Light" size="35.0" />
+         </font>
+      </Label>
+      <Button fx:id="nextBut" layoutX="663.0" layoutY="333.0" mnemonicParsing="false" onAction="#nextButton" prefHeight="34.0" prefWidth="80.0" text="Next">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="backBut" layoutX="572.0" layoutY="333.0" mnemonicParsing="false" onAction="#backButton" prefHeight="34.0" prefWidth="80.0" text="Back">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER" layoutX="23.0" layoutY="64.0" prefHeight="34.0" prefWidth="719.0" spacing="25.0">
+         <children>
+          <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="CUSTOM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="SIMPLE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="POINT BUY">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="ROLL">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

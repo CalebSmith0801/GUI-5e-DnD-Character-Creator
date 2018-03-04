@@ -1,11 +1,12 @@
 package dnd.CharCreation;
 
+import dnd.CharCreation.RaceMenus.ExtraLanguageMenuController;
 import dnd.CharCreation.ClassMenus.BarbarianSkillsMenuController;
-import dnd.CharCreation.Races.DwarfToolProficiencyMenuController;
-import dnd.CharCreation.Races.FeralTieflingController;
-import dnd.CharCreation.Races.KenkuController;
-import dnd.CharCreation.Races.LizardfolkController;
-import dnd.CharCreation.Races.MartialWeaponProfMenuController;
+import dnd.CharCreation.RaceMenus.DwarfToolProficiencyMenuController;
+import dnd.CharCreation.RaceMenus.FeralTieflingController;
+import dnd.CharCreation.RaceMenus.KenkuController;
+import dnd.CharCreation.RaceMenus.LizardfolkController;
+import dnd.CharCreation.RaceMenus.MartialWeaponProfMenuController;
 import dnd.Character;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -150,7 +151,7 @@ public class ClassMenuController implements Initializable {
             root = loader.load();
             ArrayList<String> chosenSkills;
             switch(prevWindow){                
-                case "Races/DwarfToolProficiencyMenu.fxml":                    
+                case "RaceMenus/DwarfToolProficiencyMenu.fxml":                    
                     DwarfToolProficiencyMenuController dwarfCtrl = loader.getController();
                     String chosenToolProf = character.getToolProficiency(character.getToolProficienciesSize()-1);
                     character.RemoveToolProficiency(chosenToolProf);
@@ -162,7 +163,7 @@ public class ClassMenuController implements Initializable {
                     RaceSelectionMenuController raceSelCtrl = loader.getController();
                     raceSelCtrl.ReloadScene(character.getraceName(), character.getsubraceName());
                     break;
-                case "ExtraLanguageMenu.fxml":
+                case "RaceMenus/ExtraLanguageMenu.fxml":
                     ExtraLanguageMenuController extraLangCtrl = loader.getController();
                     String chosenLanguage = character.getLanguage(character.getLanguagesSize()-1);
                     character.RemoveLanuguage(chosenLanguage);
@@ -170,7 +171,7 @@ public class ClassMenuController implements Initializable {
                     extraLangCtrl.setCharacter(character);
                     extraLangCtrl.setPreviousWindows(prevWindows);
                     break;
-                case "Races/Kenku.fxml":
+                case "RaceMenus/Kenku.fxml":
                     KenkuController kenkuCtrl = loader.getController();
                     chosenSkills = new ArrayList<>();
                     if (character.hasProficiency("Acrobatics"))
@@ -188,7 +189,7 @@ public class ClassMenuController implements Initializable {
                     kenkuCtrl.setCharacter(character);
                     kenkuCtrl.setPreviousWindows(prevWindows);
                     break;
-                case "Races/Lizardfolk.fxml":
+                case "RaceMenus/Lizardfolk.fxml":
                     LizardfolkController lizCtrl = loader.getController();
                     chosenSkills = new ArrayList<>();
                     if (character.hasProficiency("Animal Handling"))
@@ -208,7 +209,7 @@ public class ClassMenuController implements Initializable {
                     lizCtrl.setCharacter(character);
                     lizCtrl.setPreviousWindows(prevWindows);
                     break;
-                case "Races/FeralTiefling.fxml":
+                case "RaceMenus/FeralTiefling.fxml":
                     FeralTieflingController ferTiefCtrl = loader.getController();
                     if (character.hasTrait("Devil's Tongue")){
                         character.RemoveTrait("Devil's Tongue");
@@ -234,7 +235,7 @@ public class ClassMenuController implements Initializable {
                     ferTiefCtrl.setCharacter(character);
                     ferTiefCtrl.setPreviousWindows(prevWindows);
                     break;
-                case "Races/MartialWeaponProfMenu.fxml":
+                case "RaceMenus/MartialWeaponProfMenu.fxml":
                     MartialWeaponProfMenuController mwProfCtrl = loader.getController();
                     chosenSkills = new ArrayList<>();
                     int charWeaponProfsize = character.getWeaponProficienciesSize();
@@ -279,6 +280,11 @@ public class ClassMenuController implements Initializable {
                 stage.setY(oldY + (oldHeight / 2.0) - (stage.getHeight() / 2.0));
         });
         stage.show();
+    }
+    
+    public void ReloadScene(String c){
+        classBox.setValue(c);
+        //subBox.setValue(sub);
     }
     
     

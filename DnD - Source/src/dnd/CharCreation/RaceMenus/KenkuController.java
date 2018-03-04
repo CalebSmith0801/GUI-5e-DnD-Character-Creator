@@ -1,19 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package dnd.CharCreation.ClassMenus;
+//============================================================================//
+//PREVIOUS WINDOWS: raceSelectionMenu                                         //
+//                  (loads when race = Kenku)                                 //
+//                                                                            //
+//NEXT WINDOW: ClassMenu                                                      //
+//                                                                            //
+//Changes to Character in this Window:                                        //
+//---Adds two skill proficiencies                                             //
+//============================================================================//
+package dnd.CharCreation.RaceMenus;
 
-import dnd.CharCreation.ClassMenuController;
-import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+import dnd.Character;
+import dnd.CharCreation.ClassMenuController;
+import dnd.CharCreation.RaceSelectionMenuController;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,27 +27,28 @@ import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * FXML Controller class
+ *
+ * @author calebs
+ */
+public class KenkuController implements Initializable {
 
-public class BarbarianSkillsMenuController implements Initializable {
-
-    private dnd.Character character;
+    private Character character;
     private ArrayList<String> prevWindows;
     private ArrayList<CheckBox> selectedCB = new ArrayList<>();
     private ArrayList<CheckBox> unselectedCB;
-    private ArrayList<CheckBox> knownSkills;
     @FXML private Button nextBut;
     @FXML private Button backBut;
-    @FXML private CheckBox animalCB;
-    @FXML private CheckBox athleticsCB;
-    @FXML private CheckBox intimidationCB;
-    @FXML private CheckBox natureCB;
-    @FXML private CheckBox perceptionCB;
-    @FXML private CheckBox survivalCB;
+    @FXML private CheckBox acrobaticsCB;
+    @FXML private CheckBox deceptionCB;
+    @FXML private CheckBox stealthCB;
+    @FXML private CheckBox slOfHandCB;
     private int choices = 0;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        unselectedCB = new ArrayList<>(Arrays.asList(animalCB, athleticsCB, intimidationCB, natureCB, perceptionCB, survivalCB));
+        unselectedCB = new ArrayList<>(Arrays.asList(acrobaticsCB, deceptionCB, stealthCB, slOfHandCB));
         unselectedCB.forEach((checkbox) -> {
             checkbox.selectedProperty().addListener((observable, oldValue, newValue) ->{
             if (newValue.equals(true)){
@@ -62,8 +69,7 @@ public class BarbarianSkillsMenuController implements Initializable {
             }
             else{
                 unselectedCB.forEach((cb) -> {
-                    if (!knownSkills.contains(cb))
-                        cb.setDisable(false);
+                    cb.setDisable(false);
                 });
                 nextBut.setDisable(true);
             }
@@ -73,17 +79,17 @@ public class BarbarianSkillsMenuController implements Initializable {
     
     @FXML
     private void nextButton(){
-        prevWindows.add("ClassMenus/BarbarianSkillsMenu.fxml");
+        prevWindows.add("RaceMenus/Kenku.fxml");
         selectedCB.forEach((cb) -> {
             character.addSkill(cb.getText());
         });
         Parent root;
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/ClassMenus/HitPoints.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/ClassMenu.fxml"));
             root = loader.load();
-            HitPointsController hitPointsCtrl = loader.getController();
-            hitPointsCtrl.setCharacter(character);
-            hitPointsCtrl.setPreviousWindows(prevWindows);
+            ClassMenuController classMenuCtrl = loader.getController();
+            classMenuCtrl.setCharacter(character);
+            classMenuCtrl.setPreviousWindows(prevWindows);
             switchScene(root);
         }
         catch(IOException e){
@@ -101,20 +107,8 @@ public class BarbarianSkillsMenuController implements Initializable {
             prevWindows.remove(prevWindow);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/"+prevWindow));
             root = loader.load();
-            ClassMenuController classMenuCtrl = loader.getController();
-            character.setHitDice("");
-            character.RemoveLastArmorProficiency(); //shields
-            character.RemoveLastArmorProficiency(); //medium armor
-            character.RemoveLastArmorProficiency(); //light armor
-            character.RemoveLastWeaponProficiency(); //martial weapons
-            character.RemoveLastWeaponProficiency(); //simple weapons
-            character.RemoveSave("Strength");
-            character.RemoveSave("Constitution");
-            character.RemoveTrait("Rage");
-            character.RemoveTrait("Unarmored Defense");
-            classMenuCtrl.setCharacter(character);
-            classMenuCtrl.setPreviousWindows(prevWindows);
-            classMenuCtrl.ReloadScene(character.getclassName());
+            RaceSelectionMenuController raceSelCtrl = loader.getController();
+            raceSelCtrl.ReloadScene(character.getraceName(), character.getsubraceName());
             switchScene(root);
         }
         catch(IOException e){
@@ -148,22 +142,33 @@ public class BarbarianSkillsMenuController implements Initializable {
         stage.show();
     }
 
-
-    public void setCharacter(dnd.Character r){
-        character = new dnd.Character(r);
-        knownSkills = new ArrayList<>();
-        //Disables checkboxes for known skills
-        for(int i = 0; i < unselectedCB.size(); i++){
-            if(r.getAllSkills().contains(unselectedCB.get(i).getText())){
-                knownSkills.add(unselectedCB.get(i));
-                unselectedCB.get(i).setDisable(true);
-            }
-                
-        }
+    
+    public void setCharacter(Character c){
+        character = new Character(c);
     }
-   
+    
+    //Needed so back button knows which window to transition to since the ExtraLanguageMenu
+    //is used in multiple combinations
     public void setPreviousWindows(ArrayList<String> list){
         prevWindows = new ArrayList(list);
     }
     
+    //when a back button is pressed that returns to this window, load previous choice(s)
+    public void setSceneOnReload(ArrayList<String> skillsList){
+        for (String skill : skillsList){
+            if (skill.equals(acrobaticsCB.getText()))
+                acrobaticsCB.setSelected(true);
+            if (skill.equals(deceptionCB.getText()))
+                deceptionCB.setSelected(true);
+            if (skill.equals(stealthCB.getText()))
+                stealthCB.setSelected(true);
+            if (skill.equals(slOfHandCB.getText()))
+                slOfHandCB.setSelected(true);
+        }
+    }
+    
+    public void testPrint(){
+        character.printCharacter();
+        System.out.println(prevWindows.toString());
+    }
 }

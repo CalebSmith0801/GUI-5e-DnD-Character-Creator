@@ -1,12 +1,13 @@
 package dnd.CharCreation;
 
-import dnd.CharCreation.Races.FeralTieflingController;
-import dnd.CharCreation.Races.DwarfToolProficiencyMenuController;
-import dnd.CharCreation.Races.WizardCantripMenuController;
-import dnd.CharCreation.Races.KenkuController;
-import dnd.CharCreation.Races.LizardfolkController;
-import dnd.CharCreation.Races.MartialWeaponProfMenuController;
-import dnd.CharCreation.Races.AbilityRaceBonusMenuController;
+import dnd.CharCreation.RaceMenus.ExtraLanguageMenuController;
+import dnd.CharCreation.RaceMenus.FeralTieflingController;
+import dnd.CharCreation.RaceMenus.DwarfToolProficiencyMenuController;
+import dnd.CharCreation.RaceMenus.WizardCantripMenuController;
+import dnd.CharCreation.RaceMenus.KenkuController;
+import dnd.CharCreation.RaceMenus.LizardfolkController;
+import dnd.CharCreation.RaceMenus.MartialWeaponProfMenuController;
+import dnd.CharCreation.RaceMenus.AbilityRaceBonusMenuController;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -107,7 +108,7 @@ public class RaceSelectionMenuController implements Initializable {
                     break;
                 case "Dwarf":
                     setDwarfTraits();
-                    loader = new FXMLLoader(getClass().getResource("Races/DwarfToolProficiencyMenu.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("RaceMenus/DwarfToolProficiencyMenu.fxml"));
                     root = loader.load();
                     DwarfToolProficiencyMenuController dwarfCtrl = loader.getController();
                     dwarfCtrl.setCharacter(character);
@@ -121,7 +122,7 @@ public class RaceSelectionMenuController implements Initializable {
                 case "Elf":
                     setElfTraits();
                     if(subraceBox.getValue().equals("High Elf")){
-                        loader = new FXMLLoader(getClass().getResource("Races/WizardCantripMenu.fxml"));
+                        loader = new FXMLLoader(getClass().getResource("RaceMenus/WizardCantripMenu.fxml"));
                         root = loader.load();
                         WizardCantripMenuController elfCtrl = loader.getController();
                         elfCtrl.setCharacter(character);
@@ -145,7 +146,7 @@ public class RaceSelectionMenuController implements Initializable {
                      break;
                 case "Half-Elf":
                     setHalfElfTraits();
-                    loader = new FXMLLoader(getClass().getResource("Races/AbilityRaceBonusMenu.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("RaceMenus/AbilityRaceBonusMenu.fxml"));
                     root = loader.load();
                     AbilityRaceBonusMenuController raceBonusCtrl = loader.getController();
                     raceBonusCtrl.setCharacter(character);
@@ -159,7 +160,7 @@ public class RaceSelectionMenuController implements Initializable {
                     break;
                 case "Hobgoblin":
                     setHobgoblinTraits();
-                    loader = new FXMLLoader(getClass().getResource("Races/MartialWeaponProfMenu.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("RaceMenus/MartialWeaponProfMenu.fxml"));
                     root = loader.load();
                     MartialWeaponProfMenuController weaponProfCtrl = loader.getController();
                     weaponProfCtrl.setCharacter(character);
@@ -168,7 +169,7 @@ public class RaceSelectionMenuController implements Initializable {
                 case "Human":
                     setHumanTraits();
                     if (character.getsubraceName().equals("Default")){
-                        loader = new FXMLLoader(getClass().getResource("ExtraLanguageMenu.fxml"));
+                        loader = new FXMLLoader(getClass().getResource("RaceMenus/ExtraLanguageMenu.fxml"));
                         root = loader.load();
                         ExtraLanguageMenuController extraLanguageCtrl = loader.getController();
                         extraLanguageCtrl.setCharacter(character);
@@ -176,7 +177,7 @@ public class RaceSelectionMenuController implements Initializable {
                     }
                     else{
                         character.RemoveAllRaceBonuses();
-                        loader = new FXMLLoader(getClass().getResource("Races/AbilityRaceBonusMenu.fxml"));//Choose Two Abilities window
+                        loader = new FXMLLoader(getClass().getResource("RaceMenus/AbilityRaceBonusMenu.fxml"));//Choose Two Abilities window
                         root = loader.load();
                         AbilityRaceBonusMenuController raceBonCtrl = loader.getController();
                         raceBonCtrl.setCharacter(character);
@@ -185,7 +186,7 @@ public class RaceSelectionMenuController implements Initializable {
                     break;
                 case "Kenku":
                     setKenkuTraits();
-                    loader = new FXMLLoader(getClass().getResource("Races/Kenku.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("RaceMenus/Kenku.fxml"));
                     root = loader.load();
                     KenkuController kenkuCtrl = loader.getController();
                     kenkuCtrl.setCharacter(character);
@@ -196,7 +197,7 @@ public class RaceSelectionMenuController implements Initializable {
                     break;
                 case "Lizardfolk":
                     setLizardfolkTraits();
-                    loader = new FXMLLoader(getClass().getResource("Races/Lizardfolk.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("RaceMenus/Lizardfolk.fxml"));
                     root = loader.load();
                     LizardfolkController lizardfolkCtrl = loader.getController();
                     lizardfolkCtrl.setCharacter(character);
@@ -207,7 +208,7 @@ public class RaceSelectionMenuController implements Initializable {
                     break;
                 case "Tabaxi":
                     setTabaxiTraits();
-                    loader = new FXMLLoader(getClass().getResource("ExtraLanguageMenu.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("RaceMenus/ExtraLanguageMenu.fxml"));
                     root = loader.load();
                     ExtraLanguageMenuController extraLanguageCtrl2 = loader.getController();
                     extraLanguageCtrl2.setCharacter(character);
@@ -216,7 +217,7 @@ public class RaceSelectionMenuController implements Initializable {
                 case "Tiefling":
                     setTieflingTraits();
                     if (subraceBox.getValue().equals("Feral Tiefling")){
-                        loader = new FXMLLoader(getClass().getResource("Races/FeralTiefling.fxml"));
+                        loader = new FXMLLoader(getClass().getResource("RaceMenus/FeralTiefling.fxml"));
                         root = loader.load();
                         FeralTieflingController feralTieflingCtrl = loader.getController();
                         feralTieflingCtrl.setCharacter(character);

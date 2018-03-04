@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dnd.CharCreation.ClassMenus;
 
 import dnd.CharCreation.ClassMenuController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,66 +11,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 
-public class BarbarianSkillsMenuController implements Initializable {
+public class HitPointsController implements Initializable {
 
     private dnd.Character character;
     private ArrayList<String> prevWindows;
-    private ArrayList<CheckBox> selectedCB = new ArrayList<>();
-    private ArrayList<CheckBox> unselectedCB;
-    private ArrayList<CheckBox> knownSkills;
     @FXML private Button nextBut;
     @FXML private Button backBut;
-    @FXML private CheckBox animalCB;
-    @FXML private CheckBox athleticsCB;
-    @FXML private CheckBox intimidationCB;
-    @FXML private CheckBox natureCB;
-    @FXML private CheckBox perceptionCB;
-    @FXML private CheckBox survivalCB;
-    private int choices = 0;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        unselectedCB = new ArrayList<>(Arrays.asList(animalCB, athleticsCB, intimidationCB, natureCB, perceptionCB, survivalCB));
-        unselectedCB.forEach((checkbox) -> {
-            checkbox.selectedProperty().addListener((observable, oldValue, newValue) ->{
-            if (newValue.equals(true)){
-                selectedCB.add(checkbox);
-                unselectedCB.remove(checkbox);
-                choices++;
-            }
-            else{
-                selectedCB.remove(checkbox);
-                unselectedCB.add(checkbox);
-                choices--;
-            }
-            if (choices == 2){
-                unselectedCB.forEach((cb) -> {
-                    cb.setDisable(true);
-                });
-                nextBut.setDisable(false);
-            }
-            else{
-                unselectedCB.forEach((cb) -> {
-                    if (!knownSkills.contains(cb))
-                        cb.setDisable(false);
-                });
-                nextBut.setDisable(true);
-            }
-            });
-        });
+        // TODO
     }
     
     @FXML
     private void nextButton(){
         prevWindows.add("ClassMenus/BarbarianSkillsMenu.fxml");
-        selectedCB.forEach((cb) -> {
-            character.addSkill(cb.getText());
-        });
+        
         Parent root;
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/ClassMenus/HitPoints.fxml"));
@@ -121,7 +75,7 @@ public class BarbarianSkillsMenuController implements Initializable {
             System.out.println("Stage could not be loaded\nIOException");
         }
     }
-    
+
     public void switchScene(Parent newRoot){
         Stage stage;
         stage = (Stage) nextBut.getScene().getWindow();
@@ -151,15 +105,6 @@ public class BarbarianSkillsMenuController implements Initializable {
 
     public void setCharacter(dnd.Character r){
         character = new dnd.Character(r);
-        knownSkills = new ArrayList<>();
-        //Disables checkboxes for known skills
-        for(int i = 0; i < unselectedCB.size(); i++){
-            if(r.getAllSkills().contains(unselectedCB.get(i).getText())){
-                knownSkills.add(unselectedCB.get(i));
-                unselectedCB.get(i).setDisable(true);
-            }
-                
-        }
     }
    
     public void setPreviousWindows(ArrayList<String> list){
