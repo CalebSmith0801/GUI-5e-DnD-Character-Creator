@@ -292,6 +292,7 @@ public class Character {
     public void setDarkVision(int d){
         darkvision = d;
     }
+
     
     
     //*********set ability scores*********//
