@@ -133,7 +133,7 @@ public class ClassMenuController implements Initializable {
             switchScene(root);
         }
         catch(IOException e){
-            System.out.println("Stage could not be loaded\nIOException");
+            System.out.println(e.getMessage());
         }    
     }
     
@@ -252,7 +252,7 @@ public class ClassMenuController implements Initializable {
             switchScene(root);
         }
         catch(IOException e){
-            System.out.println("Stage could not be loaded\nIOException");
+            System.out.println(e.getMessage());
         }
     }
     

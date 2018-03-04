@@ -51,7 +51,7 @@ public class StartMenuController implements Initializable {
 
         }
         catch(IOException e){
-            System.out.println("Stage could not be loaded\nIOException");
+            System.out.println(e.getMessage());
         }
         
         

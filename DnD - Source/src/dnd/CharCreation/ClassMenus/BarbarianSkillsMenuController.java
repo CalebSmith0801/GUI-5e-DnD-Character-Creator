@@ -5,6 +5,7 @@
  */
 package dnd.CharCreation.ClassMenus;
 
+import dnd.CharCreation.AbilityScoresController;
 import dnd.CharCreation.ClassMenuController;
 import java.io.IOException;
 import java.net.URL;
@@ -79,15 +80,15 @@ public class BarbarianSkillsMenuController implements Initializable {
         });
         Parent root;
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/ClassMenus/HitPoints.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/AbilityScores.fxml"));
             root = loader.load();
-            HitPointsController hitPointsCtrl = loader.getController();
+            AbilityScoresController hitPointsCtrl = loader.getController();
             hitPointsCtrl.setCharacter(character);
             hitPointsCtrl.setPreviousWindows(prevWindows);
             switchScene(root);
         }
         catch(IOException e){
-            System.out.println("Stage could not be loaded\nIOException");
+            System.out.println(e.getMessage());
         }
     }
     
@@ -118,7 +119,7 @@ public class BarbarianSkillsMenuController implements Initializable {
             switchScene(root);
         }
         catch(IOException e){
-            System.out.println("Stage could not be loaded\nIOException");
+            System.out.println(e.getMessage());
         }
     }
     

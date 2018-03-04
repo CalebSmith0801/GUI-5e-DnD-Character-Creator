@@ -1,6 +1,7 @@
 package dnd.CharCreation;
 
 import dnd.CharCreation.ClassMenus.HitPointsController;
+import dnd.Character;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -8,9 +9,14 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -21,14 +27,148 @@ import javafx.stage.WindowEvent;
  */
 public class AbilityScoresController implements Initializable {
 
-    private dnd.Character character;
+    private Character character;
     private ArrayList<String> prevWindows;
     @FXML private Button nextBut;
     @FXML private Button backBut;
+    @FXML private Button customBut;
+    @FXML private Button simpleBut;
+    @FXML private Button pointBut;
+    @FXML private Button rollBut;
+    @FXML Label raceBonus1;
+    @FXML Label raceBonus2;
+    @FXML Label strModLabel;
+    @FXML Label dexModLabel;
+    @FXML Label conModLabel;
+    @FXML Label intModLabel;
+    @FXML Label wisModLabel;
+    @FXML Label charModLabel;
+    @FXML Label simpleStr;
+    @FXML Label simpleDex;
+    @FXML Label simpleCon;
+    @FXML Label simpleInt;
+    @FXML Label simpleWis;
+    @FXML Label simpleChar;
+    @FXML Label pointStr;
+    @FXML Label pointDex;
+    @FXML Label pointCon;
+    @FXML Label pointInt;
+    @FXML Label pointWis;
+    @FXML Label pointChar;
+    @FXML Label pointsRemaining;
+    @FXML Label rollLabel1;
+    @FXML Label rollLabel2;
+    @FXML Label rollLabel3;
+    @FXML Label rollLabel4;
+    @FXML Label rollLabel5;
+    @FXML Label rollLabel6;
+    @FXML Label rollStr;
+    @FXML Label rollDex;
+    @FXML Label rollCon;
+    @FXML Label rollInt;
+    @FXML Label rollWis;
+    @FXML Label rollChar;
+    @FXML Line customLine;
+    @FXML Line simpleLine;
+    @FXML Line pointLine;
+    @FXML Line rollLine;
+    @FXML GridPane customPane;
+    @FXML GridPane simplePane;
+    @FXML AnchorPane pointPane;
+    @FXML AnchorPane rollPane;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+    
+    private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
+        for (Node node : gridPane.getChildren()) {
+            if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
+                return node;
+            }
+        }
+        return null;
+    }
+    
+    @FXML
+    private void customButton(){
+        simplePane.setVisible(false);
+        pointPane.setVisible(false);
+        rollPane.setVisible(false);
+        customPane.setVisible(true);
+        customBut.setDisable(true);
+        simpleBut.setDisable(false);
+        pointBut.setDisable(false);
+        rollBut.setDisable(false);
+        customBut.setStyle("-fx-font-weight: bold");
+        simpleBut.setStyle("-fx-font-weight: normal");
+        pointBut.setStyle("-fx-font-weight: normal");
+        rollBut.setStyle("-fx-font-weight: normal");
+        customLine.setStrokeWidth(3);
+        simpleLine.setStrokeWidth(1);
+        pointLine.setStrokeWidth(1);
+        rollLine.setStrokeWidth(1);
+    }
+    
+    @FXML
+    private void simpleButton(){
+        pointPane.setVisible(false);
+        rollPane.setVisible(false);
+        customPane.setVisible(false);
+        simplePane.setVisible(true);
+        customBut.setDisable(false);
+        simpleBut.setDisable(true);
+        pointBut.setDisable(false);
+        rollBut.setDisable(false);
+        customBut.setStyle("-fx-font-weight: normal;");
+        simpleBut.setStyle("-fx-font-weight: bold;");
+        pointBut.setStyle("-fx-font-weight: normal;");
+        rollBut.setStyle("-fx-font-weight: normal;");
+        customLine.setStrokeWidth(1);
+        simpleLine.setStrokeWidth(3);
+        pointLine.setStrokeWidth(1);
+        rollLine.setStrokeWidth(1);
+    }
+    
+    @FXML
+    private void pointButton(){
+        simplePane.setVisible(false);
+        rollPane.setVisible(false);
+        customPane.setVisible(false);
+        pointPane.setVisible(true);
+        customBut.setDisable(false);
+        simpleBut.setDisable(false);
+        pointBut.setDisable(true);
+        rollBut.setDisable(false);
+        customBut.setStyle("-fx-font-weight: normal");
+        simpleBut.setStyle("-fx-font-weight: normal");
+        pointBut.setStyle("-fx-font-weight: bold");
+        rollBut.setStyle("-fx-font-weight: normal");
+        customLine.setStrokeWidth(1);
+        simpleLine.setStrokeWidth(1);
+        pointLine.setStrokeWidth(3);
+        rollLine.setStrokeWidth(1);
+    }
+    
+    @FXML
+    private void rollButton(){
+        simplePane.setVisible(false);
+        pointPane.setVisible(false);
+        customPane.setVisible(false);
+        rollPane.setVisible(true);
+        customBut.setDisable(false);
+        simpleBut.setDisable(false);
+        pointBut.setDisable(false);
+        rollBut.setDisable(true);
+        customBut.setStyle("-fx-font-weight: normal");
+        simpleBut.setStyle("-fx-font-weight: normal");
+        pointBut.setStyle("-fx-font-weight: normal");
+        rollBut.setStyle("-fx-font-weight: bold");
+        customLine.setStrokeWidth(1);
+        simpleLine.setStrokeWidth(1);
+        pointLine.setStrokeWidth(1);
+        rollLine.setStrokeWidth(3);
     }
 
     @FXML
@@ -44,7 +184,7 @@ public class AbilityScoresController implements Initializable {
             switchScene(root);
         }
         catch(IOException e){
-            System.out.println("Stage could not be loaded\nIOException");
+            System.out.println(e.getMessage());
         }
     }
     
@@ -75,7 +215,7 @@ public class AbilityScoresController implements Initializable {
             switchScene(root);
         }
         catch(IOException e){
-            System.out.println("Stage could not be loaded\nIOException");
+            System.out.println(e.getMessage());
         }
     }
     
