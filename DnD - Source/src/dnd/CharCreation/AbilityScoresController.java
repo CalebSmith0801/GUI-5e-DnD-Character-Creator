@@ -44,20 +44,12 @@ public class AbilityScoresController implements Initializable {
     @FXML private Button pointBut;
     @FXML private Button rollBut;
     @FXML private Label raceBonusLabel;
-    @FXML private Label strModLabel;
-    @FXML private Label dexModLabel;
-    @FXML private Label conModLabel;
-    @FXML private Label intModLabel;
-    @FXML private Label wisModLabel;
-    @FXML private Label charModLabel;
+    @FXML private Label strModLabel, dexModLabel, conModLabel;
+    @FXML private Label intModLabel, wisModLabel, charModLabel;
     @FXML private TextField customStrTF, customDexTF, customConTF;
     @FXML private TextField customIntTF, customWisTF, customCharTF;
-    @FXML private Label pointStr;
-    @FXML private Label pointDex;
-    @FXML private Label pointCon;
-    @FXML private Label pointInt;
-    @FXML private Label pointWis;
-    @FXML private Label pointChar;
+    @FXML private Label pointStrScoreLabel, pointDexScoreLabel, pointConScoreLabel;
+    @FXML private Label pointIntScoreLabel, pointWisScoreLabel, pointCharScoreLabel;
     @FXML private Label pointsRemaining;
     @FXML private Label rollLabel1;
     @FXML private Label rollLabel2;
@@ -90,19 +82,20 @@ public class AbilityScoresController implements Initializable {
         MakeIntTextField(customIntTF);
         MakeIntTextField(customWisTF);
         MakeIntTextField(customCharTF);
-        setPointBuyLimit(pointStr);
-        setPointBuyLimit(pointDex);
-        setPointBuyLimit(pointCon);
-        setPointBuyLimit(pointInt);
-        setPointBuyLimit(pointWis);
-        setPointBuyLimit(pointChar);
+        setPointBuyLimit(pointStrScoreLabel);
+        setPointBuyLimit(pointDexScoreLabel);
+        setPointBuyLimit(pointConScoreLabel);
+        setPointBuyLimit(pointIntScoreLabel);
+        setPointBuyLimit(pointWisScoreLabel);
+        setPointBuyLimit(pointCharScoreLabel);
         pointBuyPlusButtons = new ArrayList<>(Arrays.asList((Button) getNodeFromGridPane(pointGridPane, 3, 0), 
                                                             (Button) getNodeFromGridPane(pointGridPane, 3, 1),
                                                             (Button) getNodeFromGridPane(pointGridPane, 3, 2),
                                                             (Button) getNodeFromGridPane(pointGridPane, 3, 3),
                                                             (Button) getNodeFromGridPane(pointGridPane, 3, 4),
                                                             (Button) getNodeFromGridPane(pointGridPane, 3, 5)));
-
+        
+        //Disables all plus buttons and makes nextBut enabled when points remaining = 0 for Points Buy Pane
         pointsRemaining.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             if (newValue.equals("0")){
                 for (Button button : pointBuyPlusButtons){
@@ -111,7 +104,8 @@ public class AbilityScoresController implements Initializable {
                 }
             }
             else if (newValue.equals("1")){
-                ArrayList<Label> pointBuyAbilityLabels= new ArrayList<>(Arrays.asList(pointStr, pointDex, pointCon, pointInt, pointWis, pointChar));
+                ArrayList<Label> pointBuyAbilityLabels= new ArrayList<>(Arrays.asList(pointStrScoreLabel, pointDexScoreLabel, pointConScoreLabel,
+                                                                                      pointIntScoreLabel, pointWisScoreLabel, pointCharScoreLabel));
                 for (int i = 0; i < 6; i++){
                     if (!pointBuyAbilityLabels.get(i).getText().equals("15"))
                         pointBuyPlusButtons.get(i).setDisable(false);
@@ -141,7 +135,7 @@ public class AbilityScoresController implements Initializable {
             }
             
             if (tf.getText().length() == 0)
-                nextBut.setDisable(true);
+               nextBut.setDisable(true);
             else
                nextBut.setDisable(false);
             
@@ -261,8 +255,9 @@ public class AbilityScoresController implements Initializable {
         pointLine.setStrokeWidth(3);
         rollLine.setStrokeWidth(1);
         abilities = getAbilitiesFromGrid(pointGridPane);
-        setModifiers(Integer.parseInt(pointStr.getText()), Integer.parseInt(pointDex.getText()), Integer.parseInt(pointCon.getText()),
-                     Integer.parseInt(pointInt.getText()), Integer.parseInt(pointWis.getText()), Integer.parseInt(pointChar.getText()));
+        setModifiers(Integer.parseInt(pointStrScoreLabel.getText()), Integer.parseInt(pointDexScoreLabel.getText()), 
+                     Integer.parseInt(pointConScoreLabel.getText()), Integer.parseInt(pointIntScoreLabel.getText()), 
+                     Integer.parseInt(pointWisScoreLabel.getText()), Integer.parseInt(pointCharScoreLabel.getText()));
         if (!pointsRemaining.getText().equals("0"))
             nextBut.setDisable(true);
     }
@@ -425,76 +420,78 @@ public class AbilityScoresController implements Initializable {
     
     @FXML
     private void increaseStr(){
-        increaseAbilitiyPoint(pointStr);
+        increaseAbilitiyPoint(pointStrScoreLabel);
     }
     
     @FXML
     private void increaseDex(){
-        increaseAbilitiyPoint(pointDex);
+        increaseAbilitiyPoint(pointDexScoreLabel);
     }
     
     @FXML
     private void increaseCon(){
-        increaseAbilitiyPoint(pointCon);
+        increaseAbilitiyPoint(pointConScoreLabel);
     }
     
     @FXML
     private void increaseInt(){
-        increaseAbilitiyPoint(pointInt);
+        increaseAbilitiyPoint(pointIntScoreLabel);
     }
     
     @FXML
     private void increaseWis(){
-        increaseAbilitiyPoint(pointWis);
+        increaseAbilitiyPoint(pointWisScoreLabel);
     }
     
     @FXML
     private void increaseChar(){
-        increaseAbilitiyPoint(pointChar);
+        increaseAbilitiyPoint(pointCharScoreLabel);
     }
     
     @FXML
     private void decreaseStr(){
-        decreaseAbilitiyPoint(pointStr);
+        decreaseAbilitiyPoint(pointStrScoreLabel);
     }
     
     @FXML
     private void decreaseDex(){
-        decreaseAbilitiyPoint(pointDex);
+        decreaseAbilitiyPoint(pointDexScoreLabel);
     }
     
     @FXML
     private void decreaseCon(){
-        decreaseAbilitiyPoint(pointCon);
+        decreaseAbilitiyPoint(pointConScoreLabel);
     }
     
     @FXML
     private void decreaseInt(){
-        decreaseAbilitiyPoint(pointInt);
+        decreaseAbilitiyPoint(pointIntScoreLabel);
     }
     
     @FXML
     private void decreaseWis(){
-        decreaseAbilitiyPoint(pointWis);
+        decreaseAbilitiyPoint(pointWisScoreLabel);
     }
     
     @FXML
     private void decreaseChar(){
-        decreaseAbilitiyPoint(pointChar);
+        decreaseAbilitiyPoint(pointCharScoreLabel);
     }
     
     private void increaseAbilitiyPoint(Label abilityLabel){
         abilityLabel.setText(Integer.toString(Integer.parseInt(abilityLabel.getText())+1));
         pointsRemaining.setText(Integer.toString(Integer.parseInt(pointsRemaining.getText())-1));
-        setModifiers(Integer.parseInt(pointStr.getText()), Integer.parseInt(pointDex.getText()), Integer.parseInt(pointCon.getText()),
-                     Integer.parseInt(pointInt.getText()), Integer.parseInt(pointWis.getText()), Integer.parseInt(pointChar.getText()));
+        setModifiers(Integer.parseInt(pointStrScoreLabel.getText()), Integer.parseInt(pointDexScoreLabel.getText()), 
+                     Integer.parseInt(pointConScoreLabel.getText()), Integer.parseInt(pointIntScoreLabel.getText()), 
+                     Integer.parseInt(pointWisScoreLabel.getText()), Integer.parseInt(pointCharScoreLabel.getText()));
     }
     
     private void decreaseAbilitiyPoint(Label abilityLabel){
         abilityLabel.setText(Integer.toString(Integer.parseInt(abilityLabel.getText())-1));
         pointsRemaining.setText(Integer.toString(Integer.parseInt(pointsRemaining.getText())+1));
-        setModifiers(Integer.parseInt(pointStr.getText()), Integer.parseInt(pointDex.getText()), Integer.parseInt(pointCon.getText()),
-                     Integer.parseInt(pointInt.getText()), Integer.parseInt(pointWis.getText()), Integer.parseInt(pointChar.getText()));
+        setModifiers(Integer.parseInt(pointStrScoreLabel.getText()), Integer.parseInt(pointDexScoreLabel.getText()), 
+                     Integer.parseInt(pointConScoreLabel.getText()), Integer.parseInt(pointIntScoreLabel.getText()), 
+                     Integer.parseInt(pointWisScoreLabel.getText()), Integer.parseInt(pointCharScoreLabel.getText()));
     }
     
     @FXML

@@ -320,32 +320,32 @@
                   <Label text="Intelligence" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                   <Label text="Wisdom" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                   <Label text="Charisma" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                  <Label fx:id="pointStr" alignment="CENTER" prefHeight="21.0" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+                  <Label fx:id="pointStrScoreLabel" alignment="CENTER" prefHeight="21.0" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="pointDex" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Label fx:id="pointDexScoreLabel" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="pointCon" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <Label fx:id="pointConScoreLabel" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="pointInt" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                  <Label fx:id="pointIntScoreLabel" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="pointWis" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                  <Label fx:id="pointWisScoreLabel" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="pointChar" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                  <Label fx:id="pointCharScoreLabel" alignment="CENTER" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
