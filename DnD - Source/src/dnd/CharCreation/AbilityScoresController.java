@@ -1,5 +1,15 @@
+//============================================================================//
+//PREVIOUS WINDOWS: BarbarianSkillsMenuController                             //
+//                                                                            //
+//NEXT WINDOW: HitPoints                                                      //
+//                                                                            //
+//Changes to Character in this Window:                                        //
+//---sets ability scores and modifiers                                        //
+//============================================================================//
+
 package dnd.CharCreation;
 
+import dnd.CharCreation.ClassMenus.BarbarianSkillsMenuController;
 import dnd.CharCreation.ClassMenus.HitPointsController;
 import dnd.Character;
 import java.io.IOException;
@@ -613,20 +623,20 @@ public class AbilityScoresController implements Initializable {
             prevWindows.remove(prevWindow);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/"+prevWindow));
             root = loader.load();
-            ClassMenuController classMenuCtrl = loader.getController();
-            character.setHitDice("");
-            character.RemoveLastArmorProficiency(); //shields
-            character.RemoveLastArmorProficiency(); //medium armor
-            character.RemoveLastArmorProficiency(); //light armor
-            character.RemoveLastWeaponProficiency(); //martial weapons
-            character.RemoveLastWeaponProficiency(); //simple weapons
-            character.RemoveSave("Strength");
-            character.RemoveSave("Constitution");
-            character.RemoveTrait("Rage");
-            character.RemoveTrait("Unarmored Defense");
-            classMenuCtrl.setCharacter(character);
-            classMenuCtrl.setPreviousWindows(prevWindows);
-            classMenuCtrl.ReloadScene(character.getclassName());
+            
+            switch (prevWindow){
+                case "ClassMenus/BarbarianSkillsMenu.fxml":
+                    BarbarianSkillsMenuController barbSkillsMenuCtrl = loader.getController();
+                    //set BarbarianSkillsMenu checkboxes to be user's previous choice
+                    //remove previous skills from character
+                    barbSkillsMenuCtrl.setCheckBoxOnSceneReload(character.getLastSkill());
+                    character.RemoveLastSkill();
+                    barbSkillsMenuCtrl.setCheckBoxOnSceneReload(character.getLastSkill());
+                    character.RemoveLastSkill();
+                    barbSkillsMenuCtrl.setCharacter(character);
+                    barbSkillsMenuCtrl.setPreviousWindows(prevWindows); 
+            }
+            
             switchScene(root);
         }
         catch(IOException e){

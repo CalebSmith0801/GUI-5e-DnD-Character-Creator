@@ -570,6 +570,10 @@ public class Character {
         return spells.get(spells.size()-1);
     }
     
+    public String getLastSkill(){
+        return skills.get(skills.size()-1);
+    }
+    
     public boolean hasTrait(String trait){
         for (int i = 0; i < traits.size(); i++){
             if (traits.get(i).getKey().equals(trait))
