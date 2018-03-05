@@ -590,7 +590,7 @@ public class Character {
     
     
     //Other Class Functions
-    public void setModifiers(){ //Function from DnD rulebook on how to create modifiers
+    public void calculateAndSetModifiers(){ //Function from DnD rulebook on how to create modifiers
         strMod = (int) Math.floor((strScore - 10) / 2.0);
         dexMod = (int) Math.floor((dexScore - 10) / 2.0);
         conMod = (int) Math.floor((conScore - 10) / 2.0);

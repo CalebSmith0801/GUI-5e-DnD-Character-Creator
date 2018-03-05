@@ -6,9 +6,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,11 +28,15 @@ import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-/**
- * FXML Controller class
- *
- * @author Caleb
- */
+/*
+Divided into 4 tabs for the different methods to calculate ability scores
+-Custom: let's you enter whatever numbers you want
+-Simple: Gives you default scores of (15, 14, 13, 12, 10, 8) but let's you choose
+which ability gets what score
+-Point Buy: all abilities start at 8 but you have 27 points to spend to increase them
+-Roll: randomize the 6 scores between [3,18] and assign the values to the abilities you prefer
+*/
+
 public class AbilityScoresController implements Initializable {
 
     private Character character;
@@ -51,28 +57,24 @@ public class AbilityScoresController implements Initializable {
     @FXML private Label pointStrScoreLabel, pointDexScoreLabel, pointConScoreLabel;
     @FXML private Label pointIntScoreLabel, pointWisScoreLabel, pointCharScoreLabel;
     @FXML private Label pointsRemaining;
-    @FXML private Label rollLabel1;
-    @FXML private Label rollLabel2;
-    @FXML private Label rollLabel3;
-    @FXML private Label rollLabel4;
-    @FXML private Label rollLabel5;
-    @FXML private Label rollLabel6;
-    @FXML private Label rollStr;
-    @FXML private Label rollDex;
-    @FXML private Label rollCon;
-    @FXML private Label rollInt;
-    @FXML private Label rollWis;
-    @FXML private Label rollChar;
+    @FXML private Label rollAbilityValue1; //the number Labels that represent the generated ability scores
+    @FXML private Label rollAbilityValue2; //column 0 of the rollPane gridpane
+    @FXML private Label rollAbilityValue3;
+    @FXML private Label rollAbilityValue4;
+    @FXML private Label rollAbilityValue5;
+    @FXML private Label rollAbilityValue6;
     @FXML private Line customLine;
     @FXML private Line simpleLine;
     @FXML private Line pointLine;
     @FXML private Line rollLine;
     @FXML private GridPane customPane;
     @FXML private GridPane simplePane;
-    @FXML private AnchorPane pointPane;
-    @FXML private GridPane pointGridPane;
-    @FXML private AnchorPane rollPane;
-    ArrayList<Button> pointBuyPlusButtons;
+    @FXML private AnchorPane pointPane; //used to display all content of point buy menu
+    @FXML private GridPane pointGridPane; //where the values are stored/modified
+    ArrayList<Button> pointBuyPlusButtons; //used to easily turn off all the plus buttons of the pointGridPane
+    @FXML private AnchorPane rollPane; //used to display all content of roll menu
+    @FXML private GridPane rollGridPane; //where the values are stored/modified
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -107,6 +109,7 @@ public class AbilityScoresController implements Initializable {
                 ArrayList<Label> pointBuyAbilityLabels= new ArrayList<>(Arrays.asList(pointStrScoreLabel, pointDexScoreLabel, pointConScoreLabel,
                                                                                       pointIntScoreLabel, pointWisScoreLabel, pointCharScoreLabel));
                 for (int i = 0; i < 6; i++){
+                    //DnD rules: Ability caps at 15 for this method
                     if (!pointBuyAbilityLabels.get(i).getText().equals("15"))
                         pointBuyPlusButtons.get(i).setDisable(false);
                 }
@@ -187,6 +190,8 @@ public class AbilityScoresController implements Initializable {
         raceBonusLabel.setText(bonus);
     }
     
+    //bolds the button and line for current "tab".
+    //sets the appropriate pane to visible and updates modifiers according to that pane
     @FXML
     private void customButton(){
         simplePane.setVisible(false);
@@ -207,7 +212,8 @@ public class AbilityScoresController implements Initializable {
         rollLine.setStrokeWidth(1);
         setModifiers(Integer.parseInt(0 + customStrTF.getText()), Integer.parseInt(0 + customDexTF.getText()), Integer.parseInt(0 + customConTF.getText()), 
                      Integer.parseInt(0 + customIntTF.getText()), Integer.parseInt(0+ customWisTF.getText()), Integer.parseInt(0 + customCharTF.getText())); 
-
+        
+        //diable next button if any of the textfields are left blank
         if (customStrTF.getText().equals("") || customDexTF.getText().equals("") || customConTF.getText().equals("") || 
             customIntTF.getText().equals("") || customWisTF.getText().equals("") || customCharTF.getText().equals(""))
             nextBut.setDisable(true);
@@ -254,7 +260,6 @@ public class AbilityScoresController implements Initializable {
         simpleLine.setStrokeWidth(1);
         pointLine.setStrokeWidth(3);
         rollLine.setStrokeWidth(1);
-        abilities = getAbilitiesFromGrid(pointGridPane);
         setModifiers(Integer.parseInt(pointStrScoreLabel.getText()), Integer.parseInt(pointDexScoreLabel.getText()), 
                      Integer.parseInt(pointConScoreLabel.getText()), Integer.parseInt(pointIntScoreLabel.getText()), 
                      Integer.parseInt(pointWisScoreLabel.getText()), Integer.parseInt(pointCharScoreLabel.getText()));
@@ -281,6 +286,9 @@ public class AbilityScoresController implements Initializable {
         pointLine.setStrokeWidth(1);
         rollLine.setStrokeWidth(3);
         nextBut.setDisable(false);
+        abilities = getAbilitiesFromGrid(simplePane);
+        setModifiers(abilities.get(0), abilities.get(1), abilities.get(2), abilities.get(3), abilities.get(4), abilities.get(5));
+        nextBut.setDisable(false);
     }
 
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
@@ -292,43 +300,38 @@ public class AbilityScoresController implements Initializable {
         return null;
     }
     
-    //used to get the ability score from the panes that use gridpanes
+    //used to get the ability score from the simple and roll gridpanes
+    //return an array of format (strengthScore, dexterityScore, constitutionScore, intelligenceScore, wisdomScore, charismaScore)
     private ArrayList<Integer> getAbilitiesFromGrid(GridPane gp){
         ArrayList<Integer> abilityArray = new ArrayList<>(Arrays.asList(0,0,0,0,0,0));
-        if (gp.equals(simplePane)){
-            ArrayList<Integer> simpleArray = new ArrayList<>(Arrays.asList(15, 14, 13, 12, 10, 8));
-            for (int i = 0; i < 6; i++){
-                String ability = ((Label) getNodeFromGridPane(gp, 2, i)).getText();
-                switch (ability){
-                    case "Strength":
-                        abilityArray.set(0, simpleArray.get(i));
-                        break;
-                    case "Dexterity":
-                        abilityArray.set(1, simpleArray.get(i));
-                        break;
-                    case "Constitution":
-                        abilityArray.set(2, simpleArray.get(i));
-                        break;
-                    case "Intelligence":
-                        abilityArray.set(3, simpleArray.get(i));
-                        break;
-                    case "Wisdom":
-                        abilityArray.set(4, simpleArray.get(i));
-                        break;
-                    case "Charisma":
-                        abilityArray.set(5, simpleArray.get(i));
-                        break;
-                    default:
-                        System.out.println("Misspelling");
-                        break;
-                }
+        for (int i = 0; i < 6; i++){
+            //Ability scores are stored in columnIndex 0, ability names are stored in columnIndex 2
+            String ability = ((Label) getNodeFromGridPane(gp, 2, i)).getText();
+            String abilityScore = ((Label) getNodeFromGridPane(gp, 0,i)).getText();
+            switch (ability){
+                case "Strength":
+                    abilityArray.set(0, Integer.parseInt(abilityScore));
+                    break;
+                case "Dexterity":
+                    abilityArray.set(1, Integer.parseInt(abilityScore));
+                    break;
+                case "Constitution":
+                    abilityArray.set(2, Integer.parseInt(abilityScore));
+                    break;
+                case "Intelligence":
+                    abilityArray.set(3, Integer.parseInt(abilityScore));
+                    break;
+                case "Wisdom":
+                    abilityArray.set(4, Integer.parseInt(abilityScore));
+                    break;
+                case "Charisma":
+                    abilityArray.set(5, Integer.parseInt(abilityScore));
+                    break;
+                default:
+                    System.out.println("Misspelling");
+                    break;
             }
         }            
-        
-        else{
-            
-        }
-        
         return abilityArray;
     }
     
@@ -342,34 +345,64 @@ public class AbilityScoresController implements Initializable {
         charModLabel.setText(Integer.toString((int) Math.floor((cha + raceBonuses.get(5) - 10) / 2.0)));
     }
     
-    //first down and sceond up
+    //first down and second up
     @FXML
-    private void moveFirstDown(){
+    private void moveFirstDownSimplePane(ActionEvent ae){
         switchAbilityLabels(simplePane, "firstDown");
     }
     
     //second down and third up
     @FXML
-    private void moveSecondDown(){
+    private void moveSecondDownSimplePane(){
         switchAbilityLabels(simplePane, "secondDown");
     }
     
     //third down and fourth up
     @FXML
-    private void moveThirdDown(){
+    private void moveThirdDownSimplePane(){
         switchAbilityLabels(simplePane, "thirdDown");
     }
     
     //fourth down and fifth up
     @FXML
-    private void moveFourthDown(){
+    private void moveFourthDownSimplePane(){
         switchAbilityLabels(simplePane, "fourthDown");
     }
     
     //fifth down and sixth up
     @FXML
-    private void moveFifthDown(){
+    private void moveFifthDownSimplePane(){
         switchAbilityLabels(simplePane, "fifthDown");
+    }
+    
+    //first down and second up
+    @FXML
+    private void moveFirstDownRollPane(ActionEvent ae){
+        switchAbilityLabels(rollGridPane, "firstDown");
+    }
+    
+    //second down and third up
+    @FXML
+    private void moveSecondDownRollPane(){
+        switchAbilityLabels(rollGridPane, "secondDown");
+    }
+    
+    //third down and fourth up
+    @FXML
+    private void moveThirdDownRollPane(){
+        switchAbilityLabels(rollGridPane, "thirdDown");
+    }
+    
+    //fourth down and fifth up
+    @FXML
+    private void moveFourthDownRollPane(){
+        switchAbilityLabels(rollGridPane, "fourthDown");
+    }
+    
+    //fifth down and sixth up
+    @FXML
+    private void moveFifthDownRollPane(){
+        switchAbilityLabels(rollGridPane, "fifthDown");
     }
     
     public void switchAbilityLabels(GridPane gp, String buttonPressed){
@@ -414,7 +447,7 @@ public class AbilityScoresController implements Initializable {
             default:
                 System.out.println("Misspelling");
         }
-        abilities = getAbilitiesFromGrid(simplePane);
+        abilities = getAbilitiesFromGrid(gp);
         setModifiers(abilities.get(0), abilities.get(1), abilities.get(2), abilities.get(3), abilities.get(4), abilities.get(5));
     }
     
@@ -494,10 +527,69 @@ public class AbilityScoresController implements Initializable {
                      Integer.parseInt(pointWisScoreLabel.getText()), Integer.parseInt(pointCharScoreLabel.getText()));
     }
     
+    //According to DnD rules, you're supposed to roll 4d6 and drop the lowest
+    //Do this for all 6 abilities and then assign the values to whichever you want
+    //Instead of generating 4 numbers and following those steps, this just
+    //generates 6 random numbers between [3, 18]
+    //This method has the chance to get the highest score (18) but also the lowest (3)
+    @FXML
+    private void rollRandomizeScores(){
+        Random rand = new Random();
+        rollAbilityValue1.setText(Integer.toString(rand.nextInt((18 - 3) + 1) + 3)); //[3,18]
+        rollAbilityValue2.setText(Integer.toString(rand.nextInt((18 - 3) + 1) + 3));
+        rollAbilityValue3.setText(Integer.toString(rand.nextInt((18 - 3) + 1) + 3));
+        rollAbilityValue4.setText(Integer.toString(rand.nextInt((18 - 3) + 1) + 3));
+        rollAbilityValue5.setText(Integer.toString(rand.nextInt((18 - 3) + 1) + 3));
+        rollAbilityValue6.setText(Integer.toString(rand.nextInt((18 - 3) + 1) + 3));
+        
+        //update ability modifiers from changes
+        abilities = getAbilitiesFromGrid(rollGridPane);
+        setModifiers(abilities.get(0), abilities.get(1), abilities.get(2), abilities.get(3), abilities.get(4), abilities.get(5));
+    }
+    
     @FXML
     private void nextButton(){
-        prevWindows.add("ClassMenus/BarbarianSkillsMenu.fxml");
+        prevWindows.add("AbilityScores.fxml");
+        if (customPane.isVisible()){
+            character.setStrScore(Integer.parseInt(customStrTF.getText()) + character.getStrRaceBonus());
+            character.setDexScore(Integer.parseInt(customDexTF.getText()) + character.getDexRaceBonus());
+            character.setConScore(Integer.parseInt(customConTF.getText()) + character.getConRaceBonus());
+            character.setIntScore(Integer.parseInt(customIntTF.getText()) + character.getIntRaceBonus());
+            character.setWisScore(Integer.parseInt(customWisTF.getText()) + character.getWisRaceBonus());
+            character.setCharScore(Integer.parseInt(customCharTF.getText()) + character.getCharRaceBonus());
+            character.calculateAndSetModifiers();
+        }
+        else if (simplePane.isVisible()){
+            abilities = getAbilitiesFromGrid(simplePane);
+            character.setStrScore(abilities.get(0) + character.getStrRaceBonus());
+            character.setDexScore(abilities.get(1) + character.getDexRaceBonus());
+            character.setConScore(abilities.get(2) + character.getConRaceBonus());
+            character.setIntScore(abilities.get(3) + character.getIntRaceBonus());
+            character.setWisScore(abilities.get(4) + character.getWisRaceBonus());
+            character.setCharScore(abilities.get(5) + character.getCharRaceBonus());
+            character.calculateAndSetModifiers();
+        }
+        else if (pointPane.isVisible()){
+            character.setStrScore(Integer.parseInt(pointStrScoreLabel.getText()) + character.getStrRaceBonus());
+            character.setDexScore(Integer.parseInt(pointDexScoreLabel.getText()) + character.getDexRaceBonus());
+            character.setConScore(Integer.parseInt(pointConScoreLabel.getText()) + character.getConRaceBonus());
+            character.setIntScore(Integer.parseInt(pointIntScoreLabel.getText()) + character.getIntRaceBonus());
+            character.setWisScore(Integer.parseInt(pointWisScoreLabel.getText()) + character.getWisRaceBonus());
+            character.setCharScore(Integer.parseInt(pointCharScoreLabel.getText()) + character.getCharRaceBonus());
+            character.calculateAndSetModifiers();
+        }
+        else if (rollPane.isVisible()){
+            abilities = getAbilitiesFromGrid(rollGridPane);
+            character.setStrScore(abilities.get(0) + character.getStrRaceBonus());
+            character.setDexScore(abilities.get(1) + character.getDexRaceBonus());
+            character.setConScore(abilities.get(2) + character.getConRaceBonus());
+            character.setIntScore(abilities.get(3) + character.getIntRaceBonus());
+            character.setWisScore(abilities.get(4) + character.getWisRaceBonus());
+            character.setCharScore(abilities.get(5) + character.getCharRaceBonus());
+            character.calculateAndSetModifiers();
+        }
         Parent root;
+        character.printCharacter();
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/ClassMenus/HitPoints.fxml"));
             root = loader.load();

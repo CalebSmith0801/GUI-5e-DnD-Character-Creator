@@ -11,3 +11,6 @@ Health
 Add in Barbarian Path of Totem Warrior totems from Sword Coasts
 
 Cleric - ability to change cleric cantrips after rest
+
+Proficiency Bonus (character advancement table)
+-Level 1 -> +2

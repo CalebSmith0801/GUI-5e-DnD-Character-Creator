@@ -38,9 +38,18 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="simpleBut" mnemonicParsing="false" onAction="#simpleButton" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="SIMPLE" />
-                  <Button fx:id="pointBut" mnemonicParsing="false" onAction="#pointButton" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="POINT BUY" />
-                  <Button fx:id="rollBut" mnemonicParsing="false" onAction="#rollButton" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="ROLL" />
+                  <Button fx:id="simpleBut" mnemonicParsing="false" onAction="#simpleButton" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="SIMPLE">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button fx:id="pointBut" mnemonicParsing="false" onAction="#pointButton" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="POINT BUY">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button fx:id="rollBut" mnemonicParsing="false" onAction="#rollButton" prefHeight="30.0" prefWidth="100.0" stylesheets="@../CSS/TabButton.css" text="ROLL">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutY="26.0" prefHeight="11.0" prefWidth="550.0" spacing="25.0">
@@ -154,13 +163,19 @@
             <RowConstraints minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="customStrTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="customStrTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
             <Label prefHeight="53.0" prefWidth="67.0" text="Strength Score" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="customDexTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="customDexTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
             <Label prefHeight="42.0" prefWidth="57.0" text="Dexterity Score" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
@@ -186,10 +201,22 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="customConTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-            <TextField fx:id="customIntTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextField fx:id="customWisTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextField fx:id="customCharTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="customConTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="customIntTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="customWisTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="customCharTF" blendMode="DARKEN" maxWidth="-Infinity" prefHeight="31.0" prefWidth="63.0" stylesheets="@../CSS/AndroidTextField.css" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
          </children>
       </GridPane>
       <GridPane fx:id="simplePane" layoutX="145.0" layoutY="116.0" prefHeight="174.0" prefWidth="210.0" visible="false">
@@ -238,58 +265,72 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label text="Strength" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-            <Label text="Dexterity" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label text="Constitution" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label text="Intelligence" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Label text="Wisdom" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label text="Charisma" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#moveFirstDown" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Label text="Strength" GridPane.columnIndex="2" GridPane.rowIndex="0">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Dexterity" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Constitution" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Intelligence" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Wisdom" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Charisma" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Button mnemonicParsing="false" onAction="#moveFirstDownSimplePane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#moveSecondDownSimplePane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#moveSecondDown" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#moveThirdDownSimplePane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#moveThirdDown" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onAction="#moveFourthDownSimplePane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#moveFourthDown" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <Button mnemonicParsing="false" onAction="#moveFifthDownSimplePane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#moveFifthDown" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <Button mnemonicParsing="false" onAction="#moveFirstDownSimplePane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="0">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#moveFirstDown" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="0">
+            <Button mnemonicParsing="false" onAction="#moveSecondDownSimplePane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#moveSecondDown" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#moveThirdDownSimplePane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#moveThirdDown" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#moveFourthDownSimplePane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#moveFourthDown" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="3">
-               <font>
-                  <Font size="12.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#moveFifthDown" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Button mnemonicParsing="false" onAction="#moveFifthDownSimplePane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font size="12.0" />
                </font>
@@ -314,12 +355,30 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Strength" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Label text="Dexterity" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Label text="Constitution" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Label text="Intelligence" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                  <Label text="Wisdom" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                  <Label text="Charisma" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                  <Label text="Strength" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Dexterity" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Constitution" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Intelligence" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Wisdom" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Charisma" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                   <Label fx:id="pointStrScoreLabel" alignment="CENTER" prefHeight="21.0" prefWidth="25.0" text="8" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -412,7 +471,10 @@
                   </Button>
                </children>
             </GridPane>
-            <Label layoutX="6.0" layoutY="28.0" prefHeight="42.0" prefWidth="88.0" text="Remaining Points" textAlignment="CENTER" wrapText="true" />
+            <Label layoutX="6.0" layoutY="28.0" prefHeight="42.0" prefWidth="88.0" text="Remaining Points" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <Label fx:id="pointsRemaining" layoutX="29.0" layoutY="70.0" text="27">
                <font>
                   <Font name="System Bold" size="36.0" />
@@ -420,9 +482,9 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="rollPane" layoutX="72.0" layoutY="108.0" prefHeight="193.0" prefWidth="348.0" visible="false">
+      <AnchorPane fx:id="rollPane" layoutX="72.0" layoutY="108.0" prefHeight="193.0" prefWidth="355.0" visible="false">
          <children>
-            <GridPane layoutX="124.0" layoutY="10.0" prefHeight="174.0" prefWidth="210.0">
+            <GridPane fx:id="rollGridPane" layoutX="131.0" layoutY="10.0" prefHeight="174.0" prefWidth="210.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -438,97 +500,126 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label fx:id="rollLabel1" text="15" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <Label fx:id="rollAbilityValue1" text="15" GridPane.columnIndex="0" GridPane.rowIndex="0">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="rollLabel2" text="14" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <Label fx:id="rollAbilityValue2" text="14" GridPane.columnIndex="0" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="rollLabel3" text="13" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                  <Label fx:id="rollAbilityValue3" text="13" GridPane.columnIndex="0" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="rollLabel4" text="12" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                  <Label fx:id="rollAbilityValue4" text="12" GridPane.columnIndex="0" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="rollLabel5" text="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                  <Label fx:id="rollAbilityValue5" text="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="rollLabel6" text="8" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                  <Label fx:id="rollAbilityValue6" text="8" GridPane.columnIndex="0" GridPane.rowIndex="5">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="rollStr" text="Strength" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Label fx:id="rollDex" text="Dexterity" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Label fx:id="rollCon" text="Constitution" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Label fx:id="rollInt" text="Intelligence" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Label fx:id="rollWis" text="Wisdom" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Label fx:id="rollChar" text="Charisma" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <Button fx:id="rollup14" mnemonicParsing="false" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Label text="Strength" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Dexterity" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Constitution" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Intelligence" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Wisdom" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Charisma" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Button mnemonicParsing="false" onAction="#moveFirstDownRollPane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rollup13" mnemonicParsing="false" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#moveSecondDownRollPane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rollup12" mnemonicParsing="false" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#moveThirdDownRollPane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rollup10" mnemonicParsing="false" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#moveFourthDownRollPane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rollup8" mnemonicParsing="false" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                  <Button mnemonicParsing="false" onAction="#moveFifthDownRollPane" text="^" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rolldown15" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                  <Button mnemonicParsing="false" onAction="#moveFirstDownRollPane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="0">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rolldown14" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#moveSecondDownRollPane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rolldown13" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#moveThirdDownRollPane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rolldown12" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#moveFourthDownRollPane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rolldown11" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#moveFifthDownRollPane" prefHeight="25.0" prefWidth="25.0" text="v" GridPane.columnIndex="3" GridPane.rowIndex="4">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Button>
                </children>
             </GridPane>
-            <Button layoutX="37.0" layoutY="81.0" mnemonicParsing="false" text="Roll" />
+            <Button layoutX="40.0" layoutY="97.0" mnemonicParsing="false" onAction="#rollRandomizeScores" text="Roll">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Label layoutY="131.0" prefHeight="53.0" prefWidth="119.0" text="You should only roll once, but it's up to you" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <Label fx:id="raceBonusLabel" alignment="TOP_CENTER" layoutX="245.0" layoutY="323.0" prefHeight="53.0" prefWidth="153.0" text="+2 Dex, +1 Wis" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="raceBonusLabel" alignment="TOP_CENTER" layoutX="245.0" layoutY="323.0" prefHeight="53.0" prefWidth="153.0" text="+2 Dex, +1 Wis" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
    </children>
 </AnchorPane>
