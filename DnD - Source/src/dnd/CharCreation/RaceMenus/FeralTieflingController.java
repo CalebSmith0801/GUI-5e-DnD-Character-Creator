@@ -43,17 +43,17 @@ public class FeralTieflingController implements Initializable {
     @FXML private Button nextBut;
     @FXML private Button backBut;
     @FXML private Button spellDescriptions;
-    @FXML private ListView<String> lv;
+    @FXML private ListView<String> spellsList;
     private Stage SpellStage;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         SpellStage = new Stage();
-        lv.getSelectionModel().select(0);
+        spellsList.getSelectionModel().select(0);
         DevilsTongueLabel.setVisible(true);
         spellDescriptions.setVisible(true);
         
-        lv.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> ov, String oldValue, String newValue) -> {
+        spellsList.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> ov, String oldValue, String newValue) -> {
             switch(newValue){
                 case "Devil's Tongue":
                     DevilsTongueLabel.setVisible(true);
