@@ -40,21 +40,20 @@ public class WizardCantripMenuController implements Initializable {
 
     private Character character;
     @FXML private Button nextBut;
-    @FXML private Button backBut;
     @FXML private WebView wv;
-    @FXML private ListView<String> lv;
+    @FXML private ListView<String> cantripList;
     @FXML private Label spellName;
     private ArrayList<String> prevWindows;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //set first element of list view to be default and display spell name/info accordingly
-        lv.getSelectionModel().select(0);
-        spellName.setText(lv.getSelectionModel().getSelectedItem());
-        wv.getEngine().loadContent(readDataFile("Spells/"+lv.getSelectionModel().getSelectedItem()));
+        cantripList.getSelectionModel().select(0);
+        spellName.setText(cantripList.getSelectionModel().getSelectedItem());
+        wv.getEngine().loadContent(readDataFile("Spells/"+cantripList.getSelectionModel().getSelectedItem()));
 
         //Displays Corresponding spell based on selection from list view
-        lv.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> ov, String oldValue, String newValue) -> {
+        cantripList.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> ov, String oldValue, String newValue) -> {
             wv.getEngine().loadContent(readDataFile("Spells/"+newValue));
             spellName.setText(newValue);
         });
@@ -82,15 +81,15 @@ public class WizardCantripMenuController implements Initializable {
     }
     
     public void setCantrip(String spell){
-        lv.getSelectionModel().select(spell);
-        spellName.setText(lv.getSelectionModel().getSelectedItem());
-        wv.getEngine().loadContent(readDataFile("Spells/"+lv.getSelectionModel().getSelectedItem()));
+        cantripList.getSelectionModel().select(spell);
+        spellName.setText(cantripList.getSelectionModel().getSelectedItem());
+        wv.getEngine().loadContent(readDataFile("Spells/"+cantripList.getSelectionModel().getSelectedItem()));
     }
     
     @FXML
     private void nextButton(){
-        character.addSpell(lv.getSelectionModel().getSelectedItem());
-		character.addTrait("Cantrip", "You know the " + lv.getSelectionModel().getSelectedItem() + 
+        character.addSpell(cantripList.getSelectionModel().getSelectedItem());
+		character.addTrait("Cantrip", "You know the " + cantripList.getSelectionModel().getSelectedItem() + 
                         " cantrip from the wizard spell list. Intelligence is your spellcasting ability for it.");
         prevWindows.add("RaceMenus/WizardCantripMenu.fxml");
         Parent root;

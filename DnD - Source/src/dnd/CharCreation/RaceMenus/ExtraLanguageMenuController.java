@@ -43,7 +43,6 @@ public class ExtraLanguageMenuController implements Initializable {
     @FXML private ToggleGroup tg;
     @FXML private Button nextBut;
     @FXML private ArrayList<RadioButton> rbList;
-    private ArrayList<String> Languages;
     private ArrayList<String> prevWindows;
     
     @Override

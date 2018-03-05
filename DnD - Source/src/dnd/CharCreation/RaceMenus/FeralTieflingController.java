@@ -41,7 +41,6 @@ public class FeralTieflingController implements Initializable {
     @FXML private Label HellfireLabel;
     @FXML private Label WingedLabel;
     @FXML private Button nextBut;
-    @FXML private Button backBut;
     @FXML private Button spellDescriptions;
     @FXML private ListView<String> spellsList;
     private Stage SpellStage;
@@ -100,7 +99,7 @@ public class FeralTieflingController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/ClassMenu.fxml"));
             root = loader.load();
             ClassMenuController classMenuCtrl = loader.getController();
-            switch(lv.getSelectionModel().getSelectedItem()){
+            switch(spellsList.getSelectionModel().getSelectedItem()){
                 case "Devil's Tongue":
                     character.RemoveTrait("Infernal Legacy");
                     character.RemoveSpell("Thaumaturgy");
@@ -158,7 +157,7 @@ public class FeralTieflingController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/RaceMenus/SpellDescriptions.fxml"));
             root = loader.load();
             SpellDescriptionsController spellDescripCtrl = loader.getController();
-            if (lv.getSelectionModel().getSelectedItem().equals("Devil's Tongue")){
+            if (spellsList.getSelectionModel().getSelectedItem().equals("Devil's Tongue")){
                 spellDescripCtrl.setFile("Feral Tiefling Devil's Tongue");
             }
             else{
@@ -210,7 +209,7 @@ public class FeralTieflingController implements Initializable {
     
     //when a back button is pressed that returns to this window, load previous choice(s)
     public void setSceneOnReload(String choice){
-        lv.getSelectionModel().select(choice);
+        spellsList.getSelectionModel().select(choice);
     }
     
     //Needed so back button knows which window to transition to since the ExtraLanguageMenu

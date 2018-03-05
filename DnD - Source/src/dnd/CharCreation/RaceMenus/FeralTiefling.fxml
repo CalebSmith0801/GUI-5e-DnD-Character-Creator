@@ -49,7 +49,7 @@
             <Button fx:id="spellDescriptions" layoutX="46.0" layoutY="192.0" mnemonicParsing="false" onAction="#SpellDescriptionButton" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-text-fill: blue;" text="Click Here For Spell Descriptions" visible="false" />
          </children>
       </Pane>
-      <ListView fx:id="lv" layoutX="47.0" layoutY="134.0" prefHeight="136.0" prefWidth="341.0" stylesheets="@../../CSS/Listview.css">
+      <ListView fx:id="spellsList" layoutX="47.0" layoutY="134.0" prefHeight="136.0" prefWidth="341.0" stylesheets="@../../CSS/Listview.css">
           <items>
               <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Devil's Tongue" />

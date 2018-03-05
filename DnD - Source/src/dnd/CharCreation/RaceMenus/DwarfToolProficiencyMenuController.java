@@ -38,9 +38,7 @@ import javafx.stage.WindowEvent;
  * @author calebs
  */
 public class DwarfToolProficiencyMenuController implements Initializable {
-    @FXML private AnchorPane dwarf;
     @FXML private Button dwarfNextBut;
-    @FXML private Button dwarfBackBut;
     @FXML private ToggleGroup choices;
     private Character character;
     private ArrayList<String> prevWindows;

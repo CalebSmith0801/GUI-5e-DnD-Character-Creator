@@ -46,7 +46,6 @@ public class HalfElfVariantController implements Initializable {
 
     private Character character;
     @FXML private Button nextBut;
-    @FXML private Button backBut;
     @FXML private Button spellDescriptions;
     @FXML private ListView<String> lv;
     @FXML private Label KeenSensesLabel;
