@@ -16,8 +16,6 @@
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.ClassMenuController">
    <children>
-      <AnchorPane fx:id="window" prefHeight="650.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
             <GridPane hgap="25.0" layoutX="67.0" layoutY="100.0" prefHeight="65.0" prefWidth="316.0" vgap="5.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="87.0" />
@@ -84,7 +82,5 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Button>
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>

@@ -15,6 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -28,6 +32,10 @@ public class BackgroundMenuController implements Initializable {
     private dnd.Character character;
     private ArrayList<String> prevWindows;
     @FXML private Button nextBut;
+    @FXML private ComboBox<String> backgroundBox;
+    @FXML private Label backgroundName;
+    @FXML private WebView backgroundInfoWebView;
+    @FXML private ImageView bakgroundPic;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

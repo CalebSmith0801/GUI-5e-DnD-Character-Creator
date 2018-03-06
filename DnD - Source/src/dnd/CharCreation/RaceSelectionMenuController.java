@@ -51,9 +51,6 @@ public class RaceSelectionMenuController implements Initializable {
     @FXML private WebView wv;
     @FXML private ImageView racePic;
     @FXML private Button nextBut;
-    @FXML private Button backBut;
-    @FXML private Button plus;
-    @FXML private Button minus;
     private Character character;
     
     @Override
