@@ -1,8 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//============================================================================//
+//PREVIOUS WINDOW: ClassMenu                                                  //
+//Loads when Class = Barbarian                                                //
+//                                                                            //
+//NEXT WINDOW: AbilityScores                                                  //
+//                                                                            //
+//Changes to Character in this Window:                                        //
+//---gain two skills                                                          //
+//============================================================================//
 package dnd.CharCreation.ClassMenus;
 
 import dnd.CharCreation.AbilityScoresController;
@@ -29,7 +33,7 @@ public class BarbarianSkillsMenuController implements Initializable {
     private ArrayList<String> prevWindows;
     private ArrayList<CheckBox> selectedCB = new ArrayList<>();
     private ArrayList<CheckBox> unselectedCB;
-    private ArrayList<CheckBox> knownSkills;
+    private ArrayList<CheckBox> knownSkills = new ArrayList<>();
     @FXML private Button nextBut;
     @FXML private Button backBut;
     @FXML private CheckBox animalCB;
@@ -152,7 +156,6 @@ public class BarbarianSkillsMenuController implements Initializable {
 
     public void setCharacter(dnd.Character r){
         character = new dnd.Character(r);
-        knownSkills = new ArrayList<>();
         //Disables checkboxes for known skills
         for(int i = 0; i < unselectedCB.size(); i++){
             if(r.getAllSkills().contains(unselectedCB.get(i).getText())){
@@ -165,6 +168,33 @@ public class BarbarianSkillsMenuController implements Initializable {
    
     public void setPreviousWindows(ArrayList<String> list){
         prevWindows = new ArrayList(list);
+    }
+    
+    //when a back button is pressed that returns to this window, load previous choice(s)
+    public void setCheckBoxOnSceneReload(String skill){
+        switch(skill){
+            case "Animal Handling":
+                animalCB.setSelected(true);
+                break;
+            case "Intimidation":
+                intimidationCB.setSelected(true);
+                break;
+            case "Perception":
+                perceptionCB.setSelected(true);
+                break;
+            case "Athletics":
+                athleticsCB.setSelected(true);
+                break;
+            case "Nature":
+                natureCB.setSelected(true);
+                break;
+            case "Survival":
+                survivalCB.setSelected(true);
+                break;
+            default:
+                System.out.println("Misspelling");
+                break;
+        }
     }
     
 }

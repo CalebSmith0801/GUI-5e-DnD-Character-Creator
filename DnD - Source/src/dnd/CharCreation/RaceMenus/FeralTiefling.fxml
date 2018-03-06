@@ -6,7 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.RaceMenus.FeralTieflingController">
@@ -16,7 +17,10 @@
             <Font name="Copperplate Gothic Light" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="47.0" layoutY="92.0" prefHeight="42.0" prefWidth="341.0" text="You can choose one of the following traits (or none):" wrapText="true" />
+      <Label layoutX="47.0" layoutY="92.0" prefHeight="42.0" prefWidth="341.0" text="You can choose one of the following traits (or none):" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <Button fx:id="nextBut" layoutX="663.0" layoutY="333.0" mnemonicParsing="false" onAction="#nextButton" prefHeight="34.0" prefWidth="80.0" text="Next">
          <font>
             <Font name="Segoe UI" size="15.0" />
@@ -27,28 +31,6 @@
             <Font name="Segoe UI" size="15.0" />
          </font>
       </Button>
-      <Pane layoutX="420.0" layoutY="88.0" prefHeight="226.0" prefWidth="331.0">
-         <children>
-            <Label fx:id="DevilsTongueLabel" layoutX="14.0" layoutY="25.0" prefHeight="167.0" prefWidth="304.0" text="You know the Vicious Mockery cantrip. When you reach 3rd level, you can cast the Charm Person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the Enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This trait replaces the Infernal Legacy trait." visible="false" wrapText="true">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="HellfireLabel" layoutX="14.0" layoutY="29.0" prefHeight="85.0" prefWidth="304.0" text="Once you reach 3rd level , you can cast the Burning Hands spell once per day as a 2nd-level spell. This trait replaces the Hellish Rebuke spell of the Infernal Legacy trait." visible="false" wrapText="true">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="WingedLabel" layoutX="11.0" layoutY="29.0" prefHeight="85.0" prefWidth="304.0" text="You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet. This trait replaces the Infernal Legacy trait." visible="false" wrapText="true">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label layoutX="6.0" layoutY="4.0" text="Description">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <Button fx:id="spellDescriptions" layoutX="46.0" layoutY="192.0" mnemonicParsing="false" onAction="#SpellDescriptionButton" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-text-fill: blue;" text="Click Here For Spell Descriptions" visible="false" />
-         </children>
-      </Pane>
       <ListView fx:id="spellsList" layoutX="47.0" layoutY="134.0" prefHeight="136.0" prefWidth="341.0" stylesheets="@../../CSS/Listview.css">
           <items>
               <FXCollections fx:factory="observableArrayList">
@@ -59,5 +41,37 @@
               </FXCollections>
           </items>
       </ListView>
+      <VBox layoutX="410.0" layoutY="91.0" prefHeight="220.0" prefWidth="305.0">
+         <children>
+            <Label text="Description">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <StackPane alignment="TOP_LEFT" prefHeight="179.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="DevilsTongueLabel" prefHeight="157.0" prefWidth="304.0" text="You know the Vicious Mockery cantrip. When you reach 3rd level, you can cast the Charm Person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the Enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This trait replaces the Infernal Legacy trait." visible="false" wrapText="true">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="HellfireLabel" prefHeight="85.0" prefWidth="304.0" text="Once you reach 3rd level , you can cast the Burning Hands spell once per day as a 2nd-level spell. This trait replaces the Hellish Rebuke spell of the Infernal Legacy trait." visible="false" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="WingedLabel" prefHeight="64.0" prefWidth="304.0" text="You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet. This trait replaces the Infernal Legacy trait." visible="false" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <Button fx:id="spellDescriptions" mnemonicParsing="false" onAction="#SpellDescriptionButton" prefHeight="25.0" prefWidth="331.0" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-text-fill: blue;" text="Click Here For Spell Descriptions" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

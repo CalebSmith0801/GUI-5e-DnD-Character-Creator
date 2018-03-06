@@ -1,6 +1,10 @@
-package dnd.CharCreation.ClassMenus;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dnd.CharCreation;
 
-import dnd.CharCreation.ClassMenuController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -11,33 +15,44 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-
-public class HitPointsController implements Initializable {
+/**
+ * FXML Controller class
+ *
+ * @author calebs
+ */
+public class BackgroundMenuController implements Initializable {
 
     private dnd.Character character;
     private ArrayList<String> prevWindows;
     @FXML private Button nextBut;
-    @FXML private Button backBut;
+    @FXML private ComboBox<String> backgroundBox;
+    @FXML private Label backgroundName;
+    @FXML private WebView backgroundInfoWebView;
+    @FXML private ImageView bakgroundPic;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
+
     @FXML
     private void nextButton(){
-        prevWindows.add("ClassMenus/BarbarianSkillsMenu.fxml");
+        prevWindows.add("HitPointsMenu.fxml");
         
         Parent root;
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/ClassMenus/HitPoints.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/BackgroundMenu.fxml"));
             root = loader.load();
-            HitPointsController hitPointsCtrl = loader.getController();
-            hitPointsCtrl.setCharacter(character);
-            hitPointsCtrl.setPreviousWindows(prevWindows);
+            BackgroundMenuController backgroundCtrl = loader.getController();
+            backgroundCtrl.setCharacter(character);
+            backgroundCtrl.setPreviousWindows(prevWindows);
             switchScene(root);
         }
         catch(IOException e){
@@ -55,20 +70,19 @@ public class HitPointsController implements Initializable {
             prevWindows.remove(prevWindow);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/"+prevWindow));
             root = loader.load();
-            ClassMenuController classMenuCtrl = loader.getController();
-            character.setHitDice("");
-            character.RemoveLastArmorProficiency(); //shields
-            character.RemoveLastArmorProficiency(); //medium armor
-            character.RemoveLastArmorProficiency(); //light armor
-            character.RemoveLastWeaponProficiency(); //martial weapons
-            character.RemoveLastWeaponProficiency(); //simple weapons
-            character.RemoveSave("Strength");
-            character.RemoveSave("Constitution");
-            character.RemoveTrait("Rage");
-            character.RemoveTrait("Unarmored Defense");
-            classMenuCtrl.setCharacter(character);
-            classMenuCtrl.setPreviousWindows(prevWindows);
-            classMenuCtrl.ReloadScene(character.getclassName());
+            AbilityScoresController abilityScoresCtrl = loader.getController();
+            
+            //reverse actions of previous screen
+            //left modifiers untouched because they are never used/accessed and will be reset
+            //when user hits next on that screen
+            character.setStrScore(0);
+            character.setDexScore(0);
+            character.setConScore(0);
+            character.setIntScore(0);
+            character.setWisScore(0);
+            character.setCharScore(0);            
+            abilityScoresCtrl.setCharacter(character);
+            abilityScoresCtrl.setPreviousWindows(prevWindows);
             switchScene(root);
         }
         catch(IOException e){
@@ -106,9 +120,9 @@ public class HitPointsController implements Initializable {
     public void setCharacter(dnd.Character r){
         character = new dnd.Character(r);
     }
-   
+    
     public void setPreviousWindows(ArrayList<String> list){
         prevWindows = new ArrayList(list);
-    }
+    }    
     
 }

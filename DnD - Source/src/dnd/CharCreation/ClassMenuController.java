@@ -42,11 +42,9 @@ public class ClassMenuController implements Initializable {
     @FXML private ComboBox<String> classBox;
     @FXML private ComboBox<String> subclassBox;
     @FXML private Label className;
-    @FXML private Label subLabel;
     @FXML private WebView wv;
     @FXML private ImageView classPic;
     @FXML private Button nextBut;
-    @FXML private Button backBut;
     
     
     @Override

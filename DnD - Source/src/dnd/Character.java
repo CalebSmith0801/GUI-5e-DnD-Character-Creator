@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dnd;
 
 import java.util.ArrayList;
@@ -39,6 +34,7 @@ public class Character {
     private int speed;
     private int proficiencyBonus;
     private int darkvision;
+    private int hitpoints;
 
     
     public Character(){
@@ -67,6 +63,7 @@ public class Character {
         speed = 0;
         proficiencyBonus = 0;
         darkvision = 0;
+        hitpoints = 0;
     }
     
     public Character(Character r){
@@ -95,6 +92,7 @@ public class Character {
         this.speed = r.speed;
         this.proficiencyBonus = r.proficiencyBonus;
         this.darkvision = r.darkvision;
+        this.hitpoints = r.hitpoints;
     }
     
     //*******GETTERS***********//
@@ -140,6 +138,10 @@ public class Character {
     
     public int getDarkVision(){
         return darkvision;
+    }
+    
+    public int getHitPoints(){
+        return hitpoints;
     }
     
     
@@ -291,6 +293,10 @@ public class Character {
     
     public void setDarkVision(int d){
         darkvision = d;
+    }
+    
+    public void setHitPoints(int h){
+        hitpoints = h;
     }
 
     
@@ -570,6 +576,10 @@ public class Character {
         return spells.get(spells.size()-1);
     }
     
+    public String getLastSkill(){
+        return skills.get(skills.size()-1);
+    }
+    
     public boolean hasTrait(String trait){
         for (int i = 0; i < traits.size(); i++){
             if (traits.get(i).getKey().equals(trait))
@@ -590,7 +600,7 @@ public class Character {
     
     
     //Other Class Functions
-    public void setModifiers(){ //Function from DnD rulebook on how to create modifiers
+    public void calculateAndSetModifiers(){ //Function from DnD rulebook on how to create modifiers
         strMod = (int) Math.floor((strScore - 10) / 2.0);
         dexMod = (int) Math.floor((dexScore - 10) / 2.0);
         conMod = (int) Math.floor((conScore - 10) / 2.0);
@@ -612,6 +622,7 @@ public class Character {
     public void printCharacter(){
         System.out.println("Race: " + raceName + " Subrace: " + subraceName + " Class: " + className);
         System.out.println("HitDice: " + hitDice);
+        System.out.println("Hitpoints: " + hitpoints);
         System.out.println("Str:   Score: " + strScore + " Mod: " + strMod + " Save: " + strSave + " Bonus: " + strRaceBonus);
         System.out.println("Dex:   Score: " + dexScore + " Mod: " + dexMod + " Save: " + dexSave + " Bonus: " + dexRaceBonus);
         System.out.println("Con:   Score: " + conScore + " Mod: " + conMod + " Save: " + conSave + " Bonus: " + conRaceBonus);
@@ -619,8 +630,8 @@ public class Character {
         System.out.println("Wis:   Score: " + wisScore + " Mod: " + wisMod + " Save: " + wisSave + " Bonus: " + wisRaceBonus);
         System.out.println("Char:   Score: " + charScore + " Mod: " + charMod + " Save: " + charSave + " Bonus: " + charRaceBonus);
         System.out.println("Size: " + size + " Speed: " + speed + " Darkvision: " + darkvision);
-		System.out.println("Alignment: " + alignment + " Age: " + age + " Proficiency Bonus: " + proficiencyBonus);
-		System.out.println("Spellcasting Ability: " + spellCastingAbility);
+        System.out.println("Alignment: " + alignment + " Age: " + age + " Proficiency Bonus: " + proficiencyBonus);
+	System.out.println("Spellcasting Ability: " + spellCastingAbility);
         System.out.println("Languages: " + Arrays.toString(languages.toArray()));
         System.out.println("Armor Proficiencies: " + Arrays.toString(armorProficiencies.toArray()));
         System.out.println("Weapon Proficiencies: " + Arrays.toString(weaponProficiencies.toArray()));
