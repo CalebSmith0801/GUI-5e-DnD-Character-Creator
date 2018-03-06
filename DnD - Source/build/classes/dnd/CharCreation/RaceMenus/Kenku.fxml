@@ -18,7 +18,13 @@
       <CheckBox fx:id="deceptionCB" layoutX="120.0" layoutY="138.0" mnemonicParsing="false" text="Deception" />
       <CheckBox fx:id="stealthCB" layoutX="325.0" layoutY="98.0" mnemonicParsing="false" text="Stealth" />
       <CheckBox fx:id="slOfHandCB" layoutX="325.0" layoutY="138.0" mnemonicParsing="false" text="Sleight of Hand" />
-      <Button fx:id="nextBut" disable="true" layoutX="472.0" layoutY="190.0" mnemonicParsing="false" onAction="#nextButton" prefHeight="34.0" prefWidth="80.0" text="Next" />
-      <Button fx:id="backBut" layoutX="378.0" layoutY="190.0" mnemonicParsing="false" onAction="#backButton" prefHeight="34.0" prefWidth="80.0" text="Back" />
+      <Button fx:id="nextBut" disable="true" layoutX="472.0" layoutY="190.0" mnemonicParsing="false" onAction="#nextButton" prefHeight="34.0" prefWidth="80.0" text="Next">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="backBut" layoutX="378.0" layoutY="190.0" mnemonicParsing="false" onAction="#backButton" prefHeight="34.0" prefWidth="80.0" text="Back">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
    </children>
 </AnchorPane>

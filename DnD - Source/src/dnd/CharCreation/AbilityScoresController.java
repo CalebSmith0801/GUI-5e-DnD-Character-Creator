@@ -10,7 +10,6 @@
 package dnd.CharCreation;
 
 import dnd.CharCreation.ClassMenus.BarbarianSkillsMenuController;
-import dnd.CharCreation.ClassMenus.HitPointsController;
 import dnd.Character;
 import java.io.IOException;
 import java.net.URL;
@@ -156,7 +155,7 @@ public class AbilityScoresController implements Initializable {
         RemoveUndoRedoShortcut(tf);
     }
     
-    //limiting the length of tf causes problems with undo/redo, so I removed the shortcuts
+    //limiting the length of textfield causes problems with undo/redo, so I removed the shortcuts
     private void RemoveUndoRedoShortcut(final TextField tf){
         tf.setOnKeyPressed((KeyEvent event) -> {
             if ((event.getCode() == KeyCode.Z || event.getCode() == KeyCode.Y) && event.isShortcutDown())
@@ -599,11 +598,10 @@ public class AbilityScoresController implements Initializable {
             character.calculateAndSetModifiers();
         }
         Parent root;
-        character.printCharacter();
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/ClassMenus/HitPoints.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dnd/CharCreation/HitPointsMenu.fxml"));
             root = loader.load();
-            HitPointsController hitPointsCtrl = loader.getController();
+            HitPointsMenuController hitPointsCtrl = loader.getController();
             hitPointsCtrl.setCharacter(character);
             hitPointsCtrl.setPreviousWindows(prevWindows);
             switchScene(root);

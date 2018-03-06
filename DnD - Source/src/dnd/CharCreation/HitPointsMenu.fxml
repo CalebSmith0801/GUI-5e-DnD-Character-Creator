@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="323.0" prefWidth="382.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.ClassMenus.HitPointsController">
+<AnchorPane id="AnchorPane" prefHeight="323.0" prefWidth="382.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.HitPointsMenuController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="86.0" layoutY="14.0" prefHeight="233.0" prefWidth="211.0">
          <children>
@@ -50,9 +50,9 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="211.0" spacing="15.0">
                <children>
-                  <Button onAction="#maxButton" mnemonicParsing="false" prefWidth="50.0" text="Max" />
-                  <Button onAction="#avgButton" mnemonicParsing="false" prefWidth="50.0" text="Avg" />
-                  <Button onAction="#rollButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Roll" />
+                  <Button mnemonicParsing="false" onAction="#maxButton" prefWidth="50.0" text="Max" />
+                  <Button mnemonicParsing="false" onAction="#avgButton" prefWidth="50.0" text="Avg" />
+                  <Button mnemonicParsing="false" onAction="#rollButton" prefHeight="25.0" prefWidth="50.0" text="Roll" />
                </children>
                <VBox.margin>
                   <Insets top="5.0" />
@@ -60,8 +60,8 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="28.0" prefWidth="211.0" spacing="20.0">
                <children>
-                  <TextField fx:id="conModifierTF" blendMode="DARKEN" disable="true" prefHeight="25.0" prefWidth="42.0" stylesheets="@../../CSS/AndroidTextField.css" text="0" />
-                  <TextField fx:id="miscBonusTF" blendMode="DARKEN" prefHeight="25.0" prefWidth="42.0" stylesheets="@../../CSS/AndroidTextField.css" text="0" />
+                  <TextField fx:id="conModifierTF" blendMode="DARKEN" disable="true" prefHeight="25.0" prefWidth="42.0" stylesheets="@../CSS/AndroidTextField.css" text="0" />
+                  <TextField fx:id="miscBonusTF" blendMode="DARKEN" prefHeight="25.0" prefWidth="42.0" stylesheets="@../CSS/AndroidTextField.css" text="0" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="211.0" spacing="20.0">
