@@ -1,0 +1,58 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them. Your 
+		poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music raises 
+		their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. Whatever 
+		techniques you use, your art is your life.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>Acrobatics<br>
+			Performance</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>Disguise Kit<br>
+			One type of musical instrument</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>A musical instrument (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), 
+			a costume, and a belt pouch containing 15 gp</p>
+	    </div>
+		
+		<button class="accordion">By Popular Demand</button>
+		<div class="panel">
+			<p>You can always find a place to perform , usually in an inn or tavern but possibly with a circus, at a 
+			theater, or even in a noble's court. At such a place, you receive free lodging and food of a modest or 
+			comfortable standard (depending on the quality of the establishment), as long as you perform each night. In 
+			addition, your perform ance makes you something of a local figure. When strangers recognize you in a town where
+			you have performed, they typically take a liking to you.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

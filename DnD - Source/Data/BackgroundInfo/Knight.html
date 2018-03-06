@@ -1,0 +1,67 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		<p style="margin-bottom:0em">A knighthood is among the lowest noble titles in most societies, but it can be a path 
+		to higher status. You have the service of three retainers. These retainers can be attendants or messengers, and one
+		might be a majordomo. Your retainers are commoners who can perform mundane tasks for you, but they do not fight 
+		for you, will not follow you into obviously dangerous areas (such as dungeons), and will leave if they are 
+		frequentlyendangered or abused. One of your commoner retainers is a noble who serves as your squire, aiding you in 
+		exchange for training on his or her own path to knighthood. Your two remaining retainers might include a groom to 
+		care for your horse and a servant who polishes your arm or (and even helps you put it on).</p>
+		<p style="margin-top:0em; text-indent:15px">As an emblem of chivalry and the ideals of courtly love, you might 
+		include among your equipment a banner or other token from a noble lord or lady to whom you have given your heart-in
+		a chaste sort of devotion. (This person could be your bond.)</p>
+
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>History<br>
+			Persuasion</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>One type of gaming set</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>One of your choice</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>A set of fine clothes, a signet ring, a scroll of pedigree, and a purse containing 25 gp</p>
+	    </div>
+		
+		<button class="accordion">Position of Privilege</button>
+		<div class="panel">
+			<p>Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society, 
+			and people assume you have the right to be wherever you are. The common folk make every effort to accommodate 
+			you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere.
+			You can secure an audience with a local noble if you need to.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

@@ -1,0 +1,62 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		<p style="margin-bottom:0em">War has been your life for as long as you care to remember. You trained as a youth, 
+		studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the 
+		battlefield. You might have been part of a standing national army or a mercenary company, or perhaps a member of a 
+		local militia who rose to prominence during a recent war.</p>
+		<p style="margin-top:0em; text-indent:15px">When you choose this background, work with your DM to determine which 
+		military organization you were a part of, how far through its ranks you progressed, and what kind of experiences 
+		you had during your military career. Was it a standing army, a town guard, or a village militia? Or it might have 
+		been a noble's or merchant's private army, or a mercenary company.</p>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>Athletics<br>
+			Intimidation</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>One type of gaming set<br>
+			Vehicles (Land)</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>An insignia of rank, a trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner), a 
+			set of bone dice or deck of cards, a set of common clothes, and a belt pouch containing 10 gp</p>
+	    </div>
+		
+		<button class="accordion">Military Rank</button>
+		<div class="panel">
+			<p>You have a military rank from your career as a soldier. Soldiers loyal to your former military organization 
+			still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke 
+			your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary 
+			use. You can also usually gain access to friendly military encampments and fortresses where your rank is 
+			recognized.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

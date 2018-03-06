@@ -5,10 +5,14 @@
  */
 package dnd.CharCreation;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -39,7 +44,45 @@ public class BackgroundMenuController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //Sets scene on load to display the acolyte background by default
+        backgroundBox.getSelectionModel().select(0);
+        backgroundName.setText(backgroundBox.getValue());
+        SetupBackgroundInfoWebView(backgroundBox.getValue());
+        //backgroundPicDisplay();
+        
+        backgroundBox.valueProperty().addListener((ObservableValue<? extends String> ov, String oldValue, String newValue) -> {
+            SetupBackgroundInfoWebView(newValue);
+            backgroundName.setText(newValue);
+            //backgroundPicDisplay();
+        });
+    }
+    
+    public void SetupBackgroundInfoWebView(String chosenBackGround){
+         backgroundInfoWebView.getEngine().loadContent(readDataFile("BackgroundInfo/"+ chosenBackGround));
+         //Apply CSS to HTML Accordions
+         backgroundInfoWebView.getEngine().setUserStyleSheetLocation(getClass().getResource("/dnd/CSS/Accordion.css").toString());
+    }
+    
+    public String readDataFile(String Name){
+        String line = "";
+        try {
+            Scanner scanner = new Scanner(new FileInputStream("Data/"+Name+".html"));
+            
+            while (scanner.hasNextLine()){
+                line += scanner.nextLine();
+            }
+                
+           
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+        }
+        return line;
+    }
+
+    public void backgroundPicDisplay(){
+        String img = "file:Data/BackgroundInfo/" + backgroundName.getText().trim() + ".png";
+        Image image = new Image(img.trim());
+        bakgroundPic.setImage(image);              
     }
 
     @FXML

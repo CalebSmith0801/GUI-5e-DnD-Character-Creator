@@ -49,7 +49,7 @@ public class ClassMenuController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Sets scene on load to display the barbarian race by default
+        //Sets scene on load to display the barbarian class by default
         classBox.getSelectionModel().select(0);
         className.setText(classBox.getValue());
         SetupClassInfoWebView(classBox.getValue());

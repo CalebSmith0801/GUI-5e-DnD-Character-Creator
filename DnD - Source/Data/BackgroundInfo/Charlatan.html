@@ -1,0 +1,64 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		<p style="margin-bottom:0em">You have always had a way with people. You know what makes them tick, you can tease 
+		out their hearts' desires after a few minutes of conversation, and with a few leading questions you can read them 
+		like they were children's books. It’s a useful talent, and one that you're perfectly willing to use for your 
+		advantage.</p>
+		<p style="margin-top:0em; text-indent:15px">You know what people want and you deliver, or rather, you promise to 
+		deliver. Common sense should steer people away from things that sound too good to be true, but common sense seems 
+		to be in short supply when you're around. The bottle of pink-colored liquid will surely cure that unseemly rash, 
+		this ointment-nothing more than a bit of fat with a sprinkle of silver dust-can restore youth and vigor, and 
+		there's a bridge in the city that just happens to be for sale. These marvels sound implausible, but you make them 
+		sound like the real deal.</p>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>Deception<br>
+			Sleight of Hand</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>Disguise Kit<br>
+			Forgery Kit</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>A set of fine clothes, a disguise kit, tools of the con of your choice (ten stoppered bottles filled with 
+			colored liquid, a set of weighted dice, a deck of marked cards, or a signet ring of an imaginary duke), and a 
+			belt pouch containing 15 gp</p>
+	    </div>
+		
+		<button class="accordion">False Identity</button>
+		<div class="panel">
+			<p>You have created a second identity that includes documentation, established acquaintances, and disguises 
+			that allow you to assume that persona. Additionally, you can forge documents including official papers and 
+			personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying
+			to copy.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

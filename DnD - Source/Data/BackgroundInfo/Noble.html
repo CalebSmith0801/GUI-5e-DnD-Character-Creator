@@ -1,0 +1,66 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		<p style="margin-bottom:0em">You understand wealth, power, and privilege. You carry a noble title, and your family
+		owns land, collects taxes, and wields significant political influence. You might be a pampered aristocrat 
+		unfamiliar with work or discomfort, a former merchant just elevated to the nobility, or a disinherited scoundrel 
+		with a disproportionate sense of entitlement. Or you could be an honest, hard-working landowner who cares deeply 
+		about the people who live and work on your land, keenly aware of your responsibility to them.</p>
+		<p style="margin-top:0em; text-indent:15px">Work with your DM to come up with an appropriate title and determine how 
+		much authority that title carries. A noble title doesn't stand on its own-it's connected to an entire family, and 
+		whatever title you hold, you will pass it down to your own children. Not only do you need to determine your noble 
+		title, but you should also work with the DM to describe your family and their influence on you.</p>
+
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>History<br>
+			Persuasion</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>One type of gaming set</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>One of your choice</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>A set of fine clothes, a signet ring, a scroll of pedigree, and a purse containing 25 gp</p>
+	    </div>
+		
+		<button class="accordion">Position of Privilege</button>
+		<div class="panel">
+			<p>Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society, 
+			and people assume you have the right to be wherever you are. The common folk make every effort to accommodate 
+			you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere.
+			You can secure an audience with a local noble if you need to.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

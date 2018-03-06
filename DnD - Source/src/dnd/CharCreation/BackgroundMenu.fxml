@@ -34,18 +34,21 @@
                   <ComboBox fx:id="backgroundBox" accessibleText="Aasimar" prefHeight="31.0" prefWidth="142.0" stylesheets="@../CSS/combo.css" GridPane.columnIndex="1">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
-                           <String fx:value="Barbarian" />
-                           <String fx:value="Bard" />
-                           <String fx:value="Cleric" />
-                           <String fx:value="Druid" />
-                           <String fx:value="Fighter" />
-                           <String fx:value="Monk" />
-                           <String fx:value="Paladin" />
-                           <String fx:value="Ranger" />
-                           <String fx:value="Rogue" />
-                           <String fx:value="Sorcerer" />
-                           <String fx:value="Warlock" />
-                           <String fx:value="Wizard" />
+                           <String fx:value="Acolyte" />
+                           <String fx:value="Charlatan" />
+                           <String fx:value="Criminal" />
+                           <String fx:value="Entertainer" />
+                           <String fx:value="Folk Hero" />
+                           <String fx:value="Guild Artisan" />
+                           <String fx:value="Hermit" />
+                           <String fx:value="Knight" />
+                           <String fx:value="Noble" />
+                           <String fx:value="Outlander" />
+                           <String fx:value="Pirate" />
+                           <String fx:value="Sage" />
+                           <String fx:value="Sailor" />
+                           <String fx:value="Soldier" />
+                           <String fx:value="Urchin" />
                         </FXCollections>
                      </items>
                   </ComboBox>

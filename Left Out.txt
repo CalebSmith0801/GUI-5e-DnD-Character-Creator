@@ -1,0 +1,9 @@
+Backgrounds:
+	Charlatan - Favorite Scheme
+	Criminal - Criminal Specialty
+	Entertainer - Entertainer Routines
+	Folk Hero - Defining Event
+	Guild Artisan - Guild Business
+	Hermit - Life of Seclusion
+	Outlander - Origin
+	Soldier - Specialty

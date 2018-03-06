@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.BackgroundMenuController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="dnd.CharCreation.BackgroundMenuController">
     <children>
             <GridPane hgap="25.0" layoutX="67.0" layoutY="100.0" prefHeight="65.0" prefWidth="316.0" vgap="5.0">
                <columnConstraints>
@@ -34,29 +34,32 @@
                   <ComboBox fx:id="backgroundBox" accessibleText="Aasimar" prefHeight="31.0" prefWidth="142.0" stylesheets="@../CSS/combo.css" GridPane.columnIndex="1">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
-                           <String fx:value="Barbarian" />
-                           <String fx:value="Bard" />
-                           <String fx:value="Cleric" />
-                           <String fx:value="Druid" />
-                           <String fx:value="Fighter" />
-                           <String fx:value="Monk" />
-                           <String fx:value="Paladin" />
-                           <String fx:value="Ranger" />
-                           <String fx:value="Rogue" />
-                           <String fx:value="Sorcerer" />
-                           <String fx:value="Warlock" />
-                           <String fx:value="Wizard" />
+                           <String fx:value="Acolyte" />
+                           <String fx:value="Charlatan" />
+                           <String fx:value="Criminal" />
+                           <String fx:value="Entertainer" />
+                           <String fx:value="Folk Hero" />
+                           <String fx:value="Guild Artisan" />
+                           <String fx:value="Hermit" />
+                           <String fx:value="Knight" />
+                           <String fx:value="Noble" />
+                           <String fx:value="Outlander" />
+                           <String fx:value="Pirate" />
+                           <String fx:value="Sage" />
+                           <String fx:value="Sailor" />
+                           <String fx:value="Soldier" />
+                           <String fx:value="Urchin" />
                         </FXCollections>
                      </items>
                   </ComboBox>
                </children>
             </GridPane>
-            <Label layoutX="286.0" layoutY="14.0" text="Background Selection">
+            <Label layoutX="232.0" layoutY="14.0" text="Background Selection">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label layoutX="222.0" layoutY="60.0" text="Note: this application stores all data, you don't need to memorize anything.">
+            <Label layoutX="222.0" layoutY="58.0" text="Note: this application stores all data, you don't need to memorize anything.">
                <font>
                   <Font name="Segoe UI Italic" size="11.0" />
                </font>
