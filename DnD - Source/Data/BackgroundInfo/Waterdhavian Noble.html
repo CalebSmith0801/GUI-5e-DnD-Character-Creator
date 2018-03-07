@@ -1,0 +1,64 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		<p style="margin-bottom:0em">You are a scion of one of the great noble families of Waterdeep. Human families who 
+		jealously guard their privilege and place in the City of Splendors, Waterdhavian nobles have a reputation across 
+		Faerun for being eccentric, spoiled, venal, and, above all else, rich.</p>
+		<p style="margin:0em; text-indent:15px">Whether you are a shining example of the reason for this reputation or one 
+		who proves the rule by being an exception, people expect things of you when they know your surname and what it 
+		means. Your reasons for taking up adventuring likely involve your family in some way: Are you the family rebel, who
+		prefers delving in filthy dungeons to sipping zzar at a ball? Or have you taken up sword or spell on your family's 
+		behalf, ensuring that they have someone of renown to see to their legacy?</p>
+		<p style="margin-top:0em; text-indent:15px">Work with your DM to come up with the family you are part of-there are 
+		around seventy-five lineages in Waterdeep, each with its own financial interests, specialties, and schemes. You 
+		might be part of the main line of your family, possibly in line to become its leader one day. Or you might be one 
+		of any number of cousins, with less prestige but also less responsibility.</p>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>History<br>
+			Persuasion</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>One type of gaming set or one musical instrument</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>A set of fine clothes, a signet ring or brooch, a scroll of pedigree, a skin of fine zzar or wine, and a 
+			purse containing 20 gp</p>
+	    </div>
+		
+		<button class="accordion">Kept in Style</button>
+		<div class="panel">
+			<p style="margin-bottom:0em">While you are in Waterdeep or elsewhere in the North your house sees to your 
+			everyday needs. Your name and signet are sufficient to cover most of your expenses; the inns, taverns, and 
+			festhalls you frequent are glad to record your debt and send an accounting to your family's estate in Waterdeep
+			to settle what you owe.</p>
+			<p style="margin-top:0em; text-indent:15px">This advantage enables you to live a comfortable lifestyle without
+			having to pay 2 gp a day for it, or reduces the cost of a wealthy or aristocratic lifestyle by that amount. 
+			You may not maintain a less affluent lifestyle and use the difference as income-the benefit is a line of 
+			credit, not an actual monetary reward.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>

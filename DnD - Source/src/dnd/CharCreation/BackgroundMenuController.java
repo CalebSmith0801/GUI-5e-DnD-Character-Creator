@@ -10,8 +10,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.Set;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +23,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.control.TextArea;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -39,8 +41,9 @@ public class BackgroundMenuController implements Initializable {
     @FXML private Button nextBut;
     @FXML private ComboBox<String> backgroundBox;
     @FXML private Label backgroundName;
+    @FXML private Label knownSkillsLabel;
+    @FXML private TextArea additionalNotes;
     @FXML private WebView backgroundInfoWebView;
-    @FXML private ImageView bakgroundPic;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -48,12 +51,10 @@ public class BackgroundMenuController implements Initializable {
         backgroundBox.getSelectionModel().select(0);
         backgroundName.setText(backgroundBox.getValue());
         SetupBackgroundInfoWebView(backgroundBox.getValue());
-        //backgroundPicDisplay();
         
         backgroundBox.valueProperty().addListener((ObservableValue<? extends String> ov, String oldValue, String newValue) -> {
             SetupBackgroundInfoWebView(newValue);
             backgroundName.setText(newValue);
-            //backgroundPicDisplay();
         });
     }
     
@@ -77,12 +78,6 @@ public class BackgroundMenuController implements Initializable {
             System.out.println("File not found.");
         }
         return line;
-    }
-
-    public void backgroundPicDisplay(){
-        String img = "file:Data/BackgroundInfo/" + backgroundName.getText().trim() + ".png";
-        Image image = new Image(img.trim());
-        bakgroundPic.setImage(image);              
     }
 
     @FXML
@@ -162,10 +157,22 @@ public class BackgroundMenuController implements Initializable {
 
     public void setCharacter(dnd.Character r){
         character = new dnd.Character(r);
+        setSkills();
     }
+    
     
     public void setPreviousWindows(ArrayList<String> list){
         prevWindows = new ArrayList(list);
-    }    
+    }
+
+    private void setSkills(){
+        Set<String> skills = new HashSet<>(character.getAllSkills());
+        ArrayList<String> noDuplicates = new ArrayList<>(skills);
+        String skillsStr = noDuplicates.get(0);
+        for (int i = 1; i < noDuplicates.size(); i++){
+            skillsStr += (", " + noDuplicates.get(i)); 
+        }
+        knownSkillsLabel.setText(skillsStr);
+    }
     
 }

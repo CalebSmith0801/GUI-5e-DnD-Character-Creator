@@ -2,21 +2,22 @@
 
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="dnd.CharCreation.BackgroundMenuController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dnd.CharCreation.BackgroundMenuController">
     <children>
-            <GridPane hgap="25.0" layoutX="67.0" layoutY="100.0" prefHeight="65.0" prefWidth="316.0" vgap="5.0">
+            <GridPane hgap="25.0" layoutX="60.0" layoutY="100.0" prefHeight="65.0" prefWidth="316.0" vgap="5.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="87.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="150.0" prefWidth="162.0" />
@@ -31,24 +32,36 @@
                         <Font name="Segoe UI" size="16.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="backgroundBox" accessibleText="Aasimar" prefHeight="31.0" prefWidth="142.0" stylesheets="@../CSS/combo.css" GridPane.columnIndex="1">
+                  <ComboBox fx:id="backgroundBox" accessibleText="Aasimar" prefHeight="31.0" prefWidth="187.0" stylesheets="@../CSS/combo.css" GridPane.columnIndex="1">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
                            <String fx:value="Acolyte" />
                            <String fx:value="Charlatan" />
+                           <String fx:value="City Watch" />
+                           <String fx:value="Clan Crafter" />
+                           <String fx:value="Cloistered Scholar" />
+                           <String fx:value="Courtier" />
                            <String fx:value="Criminal" />
                            <String fx:value="Entertainer" />
+                           <String fx:value="Faction Agent" />
+                           <String fx:value="Far Traveler" />
                            <String fx:value="Folk Hero" />
                            <String fx:value="Guild Artisan" />
                            <String fx:value="Hermit" />
-                           <String fx:value="Knight" />
+                           <String fx:value="Investigator" />
+                           <String fx:value="Knight of the Order" />
+                           <String fx:value="Mercenary Veteran" />
+                           <String fx:value="Noble Knight" />
                            <String fx:value="Noble" />
                            <String fx:value="Outlander" />
                            <String fx:value="Pirate" />
                            <String fx:value="Sage" />
                            <String fx:value="Sailor" />
                            <String fx:value="Soldier" />
+                           <String fx:value="Urban Bounty Hunter" />
                            <String fx:value="Urchin" />
+                           <String fx:value="Uthgardt Tribe Member" />
+                           <String fx:value="Waterdhavian Noble" />
                         </FXCollections>
                      </items>
                   </ComboBox>
@@ -65,11 +78,6 @@
                </font>
             </Label>
             <WebView fx:id="backgroundInfoWebView" blendMode="DARKEN" layoutX="400.0" layoutY="120.0" prefHeight="450.0" prefWidth="368.0" stylesheets="@../CSS/WindowsScrollBar.css" />
-            <StackPane layoutX="50.0" layoutY="200.0" minHeight="350.0" minWidth="289.0" prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <ImageView fx:id="backgrounPic" fitHeight="350.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </StackPane>
             <Label fx:id="backgroundName" layoutX="405.0" layoutY="83.0">
                <font>
                   <Font name="Copperplate Gothic Light" size="30.0" />
@@ -85,5 +93,32 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Button>
+      <VBox alignment="TOP_CENTER" layoutX="59.0" layoutY="200.0" prefHeight="350.0" prefWidth="307.0">
+         <children>
+            <Label alignment="TOP_LEFT" text="Known Skills:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="knownSkillsLabel" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="143.0" text="Persuasion" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label text="Additional Notes">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="additionalNotes" prefHeight="227.0" prefWidth="289.0" promptText="(Optional) Add additional notes for your background" stylesheets="@../CSS/TextArea.css" wrapText="true">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextArea>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

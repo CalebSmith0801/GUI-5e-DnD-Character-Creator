@@ -1,0 +1,50 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		Rather than watch or patrol members are a community's investigators, who are responsible for solving crimes after 
+		the fact. Though such folk are seldom found in rural areas, nearly every settlement of decent size has at least one
+		or two watch members who have the skill to investigate crime scenes and track down criminals.<br><br>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>Investigation<br>
+			Insight</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>A uniform in the style of your unit and indicative of your rank, a horn with which to summon help, a set of
+			manacles, and a pouch containing 10 gp</p>
+	    </div>
+		
+		<button class="accordion">Watcher's Eye</button>
+		<div class="panel">
+			<p>Your experience in enforcing the law, and dealing with lawbreakers, gives you a feel for local laws and 
+			criminals. You can easily find the local outpost of the watch or a similar organization, and just as easily 
+			pick out the dens of criminal activity in a community, although you're more likely to be welcome in the former 
+			locations rather than the latter.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

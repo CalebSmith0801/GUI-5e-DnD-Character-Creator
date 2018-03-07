@@ -287,10 +287,15 @@ public class ClassMenuController implements Initializable {
     
     
     
-    
+    //duplicates are removed at very end of character creation
+    //didn't use sets because of the way I have back buttons implemented
+    //they remove what was added previously, but if for example a race trait gave the armor proficiency
+    //It would be removed if class was barbarian since a set doesn't allow duplicates.
+    //Using ArrayLists, I'll sometimes have duplicates but the back buttons can just undo the previous screen's actions
+    //without having to check if the race gave the skill/proficiency
     public void setBarbarianTraits(){
         character.setHitDice("1d12");
-        //duplicates are removed at very end of character creation
+        
         character.addArmorProficiency("Light Armor", "Medium Armor", "Shields");
         character.addWeaponProficiency("Simple Weapons", "Martial Weapons");
         character.addSaves("Strength", "Constitution");
