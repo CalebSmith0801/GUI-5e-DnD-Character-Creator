@@ -113,7 +113,11 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <TextArea fx:id="additionalNotes" prefHeight="227.0" prefWidth="289.0" promptText="(Optional) Add additional notes for your background" stylesheets="@../CSS/WindowsScrollBar.css" wrapText="true" />
+            <TextArea fx:id="additionalNotes" prefHeight="227.0" prefWidth="289.0" promptText="(Optional) Add additional notes for your background" stylesheets="@../CSS/TextArea.css" wrapText="true">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextArea>
          </children>
       </VBox>
     </children>

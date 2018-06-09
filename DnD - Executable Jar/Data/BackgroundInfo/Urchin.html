@@ -1,0 +1,60 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		<p style="margin-bottom:0em">You grew up on the streets alone, orphaned, and poor. You had no one to watch over you 
+		or to provide for you, so you learned to provide for yourself. You fought fiercely over food and kept a constant 
+		watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to 
+		the elements, and endured sickness without the advantage of medicine or a place to recuperate. You've survived 
+		despite all odds, and did so through cunning, strength, speed, or some combination of each.</p>
+		<p style="margin-top:0em; text-indent:15px">You begin your adventuring career with enough money to live modestly 
+		but securely for at least ten days. How did you come by that money? What allowed you to break free of your 
+		desperate circum stances and embark on a better life?</p>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>Sleight of Hand<br>
+			Stealth</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>Disguise Kit<br>
+			Thieves' Tools</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>A small knife, a map of the city you grew up in, a pet mouse, a token to remem ber your parents by, a set of
+			common clothes, and a belt pouch containing 10 gp</p>
+	    </div>
+		
+		<button class="accordion">City Secrets</button>
+		<div class="panel">
+			<p>You know the secret patterns and flow to cities and can find passages through the urban sprawl that others 
+			would miss. When you are not in combat, you (and companions you lead) can travel between any two locations in 
+			the city twice as fast as your speed would normally allow.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

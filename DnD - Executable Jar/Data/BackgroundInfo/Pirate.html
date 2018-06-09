@@ -1,0 +1,58 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		You spent your youth under the sway of a dread pirate, a ruthless cutthroat who taught
+		you how to survive in a world of sharks and savages. You've indulged in larceny on the high seas and sent more 
+		than one deserving soul to a briny grave. Fear and bloodshed are no strangers to you, and you've garnered a 
+		somewhat unsavory reputation in many a port town.<br><br>
+
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>Athletics<br>
+			Perception</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>Navigator's Tools<br>
+			Vehicles (Water)</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>A belaying pin (club), 50 feet of silk rope, a lucky charm such as a rabbit foot or a small stone with a 
+			hole in the center (or you may roll for a random trinket), a set of common clothes, and a belt pouch containing 
+			10 gp</p>
+	    </div>
+		
+		<button class="accordion">Bad Reputation</button>
+		<div class="panel">
+			<p>No matter where you go, people are afraid of you due to your reputation. When you are in a civilized 
+			settlement, you can get away with minor criminal offenses, such as refusing to pay for food at a tavern or 
+			breaking down doors at a local shop, since most people will not report your activity to the authorities.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

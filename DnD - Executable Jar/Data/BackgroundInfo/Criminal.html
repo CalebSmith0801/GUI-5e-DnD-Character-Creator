@@ -1,0 +1,56 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other 
+		criminals and still have contacts within the criminal underworld. You're far closer than most people to the world 
+		of murder, theft, and violence that pervades the underbelly of civilization, and you have survived up to this point
+		by flouting the rules and regulations of society.<br><br>
+
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>Deception<br>
+			Stealth</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>One type of gaming set<br>
+			Thieves' Tools</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>A crowbar, a set of dark common clothes including a hood, and a belt pouch containing 15 gp</p>
+	    </div>
+		
+		<button class="accordion">Criminal Contact</button>
+		<div class="panel">
+			<p>You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You 
+			know how to get messages to and from your contact, even over great distances; specifically, you know the local
+			messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

@@ -1,0 +1,73 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		<p style="margin-bottom:0em">Almost all of the common people and other folk that one might encounter along the 
+		Sword Coast or in the North have one thing in common: they live out their lives without ever traveling more than a 
+		few miles from where they were born. </p>
+		<p style="margin:0em; text-indent:15px">You aren't one of those folk.</p>
+		<p style="margin:0em; text-indent:15px">You are from a distant place, one so remote that few of the common folk
+		in the North realize that it exists, and chances are good that even if some people you meet have heard of your 
+		homeland, they know merely the name and perhaps a few outrageous stories. You have come to this part of Faerun for 
+		your own reasons, which you might or might not choose to share.</p>	
+		<p style="margin-top:0em; text-indent:15px">Although you will undoubtedly find some of this land's ways to be 
+		strange and discomfiting, you can also be sure that some things its people take for granted will be to you new 
+		wonders that you've never laid eyes on before. By the same token, you're a person of interest, for good or ill, to 
+		those around you almost anywhere you go.</p>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>Insight<br>
+			Perception</p>
+	    </div>
+		
+		<button class="accordion">Tool Proficiencies</button>
+		<div class="panel">
+			<p>Any one musical instrument or gaming set of your choice, likely something native to your homeland.</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>Any one of your choice</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>One set of traveler's clothes, any one musical instrument or gaming set you are proficient with, poorly 
+			wrought maps from your homeland that depict where you are in Faerun, a small piece of jewelry worth 10 gp in 
+			the style of your homeland's craftsmanship, and a pouch containing 5 gp.</p>
+	    </div>
+		
+		<button class="accordion">All Eyes on You</button>
+		<div class="panel">
+			<p style="margin-bottom:0em">Your accent, mannerisms, figures of speech, and perhaps even your appearance all mark you as foreign. 
+			Curious glances are directed your way wherever you go, which can be a nuisance, but you also gain the friendly 
+			interest of scholars and others intrigued by far-off lands, to say nothing of everyday folk who are eager to 
+			hear stories of your homeland.</p>
+			<p style="margin-top:0em; text-indent:15px">You can parley this attention into access to people and places you
+			might not otherwise have, for you and your traveling companions. Noble lords, scholars, and merchant princes, 
+			to name a few, might be interested in hearing about your distant homeland and people.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		

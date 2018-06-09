@@ -1,0 +1,68 @@
+<!-- 12 -->
+<!DOCTYPE html>
+<html>
+	<body style = "Font-family: Segoe UI; Font-size:12px";>
+		<p style="margin-bottom:0em">As a child, you were inquisitive when your playmates were possessive or raucous. In 
+		your formative years, you found your way to one of Faerum's great institutes of learning, where you were 
+		apprenticed and taught that knowledge is a more valuable treasure than gold or gems. Now you are ready to leave 
+		your home-not to abandon it, but to quest for new lore to add to its storehouse of knowledge. </p>
+		<p style="margin:0em; text-indent:15px">The most well known of Faerun's fonts of knowledge is Candlekeep. The 
+		great library is always in need of workers and attendants, some of whom rise through the ranks to assume roles of 
+		greater responsibility and prominence. You might be one of Candlekeep's own, dedicated to the curatorship of what 
+		is likely the most complete body of lore and history in all the world.</p>
+		<p style="margin-top:0em; text-indent:15px">Perhaps instead you were taken in by the scholars of the Vault of the Sages 
+		or the Map House in Silverymoon, and now you have struck out to increase your knowledge and to make yourself 
+		available to help those in other places who seek your expertise. You might be one of the few who aid Herald's 
+		Holdfast, helping to catalogue and maintain records of the information that arrives daily from across Faerun.</p>
+		
+		<b><Font size=5 style = "Font-family: Copperplate Gothic Light">Traits</Font></b><br><hr/>
+		<button class="accordion">Skill Proficiencies</button>
+		<div class="panel">
+			<p>History<br>
+			One of your choice from among Arcana, Nature, and Religion</p>
+	    </div>
+		
+		<button class="accordion">Languages</button>
+		<div class="panel">
+			<p>Two of your choice</p>
+	    </div>
+		
+		<button class="accordion">Equipment</button>
+		<div class="panel">
+			<p>The scholar's robes of your cloister, a writing kit (small pouch with a quill, ink, folded parchment, and a 
+			small penknife), a borrowed book on the subject of your current study, and a pouch containing 10 gp</p>
+	    </div>
+		
+		<button class="accordion">Library Access</button>
+		<div class="panel">
+			<p style="margin-bottom:0em">Though others must often endure extensive interviews and significant fees to gain 
+			access to even the most common archives in your library, you have free and easy access to the majority of the 
+			library, though it might also have repositories of lore that are too valuable, magical, or secret to permit 
+			anyone immediate access.</p>
+			<p style="margin:0em; text-indent:15px">You have a working knowledge of your cloister's personnel and 
+			bureaucracy, and you know how to navigate those connections with some ease.</p>
+			<p style="margin-top:0em; text-indent:15px">Additionally, you are likely to gain preferential treatment at 
+			other libraries across the Realms, as professional courtesy shown to a fellow scholar.</p>
+	    </div><br>
+		
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++){
+				acc[i].onclick = function(){
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight)
+						panel.style.maxHeight = null;
+					else
+						panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			}
+		</script>
+	</body>
+</html>
+		
+		
+		
+		
